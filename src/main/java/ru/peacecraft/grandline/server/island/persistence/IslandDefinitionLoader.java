@@ -1,21 +1,22 @@
 package ru.peacecraft.grandline.server.island.persistence;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import net.minecraft.resource.Resource;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
 import ru.peacecraft.grandline.common.util.ModLog;
 import ru.peacecraft.grandline.server.island.model.IslandDefinition;
 import ru.peacecraft.grandline.server.island.model.IslandSpawnPoint;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public final class IslandDefinitionLoader {
     private static final Gson GSON = new GsonBuilder()
@@ -79,6 +80,11 @@ public final class IslandDefinitionLoader {
             throw new IllegalStateException("Invalid spawnDimension '" + json.spawnDimension + "' in " + resourceId, e);
         }
 
+        Set<String> requiredUnlockedIslandIds = normalizeRequiredUnlockedIslandIds(
+                json.requiredUnlockedIslandIds,
+                resourceId
+        );
+
         IslandSpawnPoint spawnPoint = new IslandSpawnPoint(
                 json.spawn.x,
                 json.spawn.y,
@@ -93,8 +99,27 @@ public final class IslandDefinitionLoader {
                 dimensionId,
                 spawnPoint,
                 json.starter,
-                json.unlockedByDefault
+                json.unlockedByDefault,
+                requiredUnlockedIslandIds
         );
+    }
+
+    private static Set<String> normalizeRequiredUnlockedIslandIds(Set<String> rawIds, Identifier resourceId) {
+        if (rawIds == null || rawIds.isEmpty()) {
+            return Set.of();
+        }
+
+        Set<String> normalized = new LinkedHashSet<>();
+
+        for (String islandId : rawIds) {
+            if (isBlank(islandId)) {
+                throw new IllegalStateException("Blank requiredUnlockedIslandIds entry in " + resourceId);
+            }
+
+            normalized.add(islandId);
+        }
+
+        return normalized;
     }
 
     private static boolean isBlank(String value) {

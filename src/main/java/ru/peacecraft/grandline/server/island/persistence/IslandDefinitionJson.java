@@ -1,5 +1,7 @@
 package ru.peacecraft.grandline.server.island.persistence;
 
+import java.util.Set;
+
 public final class IslandDefinitionJson {
     public String id;
     public String displayName;
@@ -7,6 +9,7 @@ public final class IslandDefinitionJson {
     public SpawnJson spawn;
     public boolean starter;
     public boolean unlockedByDefault;
+    public Set<String> requiredUnlockedIslandIds;
 
     public static final class SpawnJson {
         public double x;

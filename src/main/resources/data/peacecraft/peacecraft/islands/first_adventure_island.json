@@ -1,0 +1,17 @@
+{
+  "id": "first_adventure_island",
+  "displayName": "First Adventure Island",
+  "spawnDimension": "minecraft:overworld",
+  "spawn": {
+    "x": 100.5,
+    "y": 64.0,
+    "z": 100.5,
+    "yaw": 0.0,
+    "pitch": 0.0
+  },
+  "starter": false,
+  "unlockedByDefault": false,
+  "requiredUnlockedIslandIds": [
+    "starter_island"
+  ]
+}

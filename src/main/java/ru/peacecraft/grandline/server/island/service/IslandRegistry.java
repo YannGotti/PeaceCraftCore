@@ -1,13 +1,13 @@
 package ru.peacecraft.grandline.server.island.service;
 
+import ru.peacecraft.grandline.common.util.ModLog;
+import ru.peacecraft.grandline.server.island.model.IslandDefinition;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
-
-import ru.peacecraft.grandline.common.util.ModLog;
-import ru.peacecraft.grandline.server.island.model.IslandDefinition;
 
 public final class IslandRegistry {
     private static final IslandRegistry INSTANCE = new IslandRegistry();
@@ -49,6 +49,29 @@ public final class IslandRegistry {
             throw new IllegalStateException("Exactly one starter island is required, but found " + starterCount);
         }
 
+        for (IslandDefinition definition : next.values()) {
+            if (definition.starter() && definition.hasUnlockRequirements()) {
+                throw new IllegalStateException(
+                        "Starter island must not have unlock requirements: " + definition.id()
+                );
+            }
+
+            for (String requiredIslandId : definition.requiredUnlockedIslandIds()) {
+                if (requiredIslandId.equals(definition.id())) {
+                    throw new IllegalStateException(
+                            "Island cannot require itself for unlock: " + definition.id()
+                    );
+                }
+
+                if (!next.containsKey(requiredIslandId)) {
+                    throw new IllegalStateException(
+                            "Island '" + definition.id()
+                                    + "' requires unknown island '" + requiredIslandId + "'"
+                    );
+                }
+            }
+        }
+
         islands.clear();
         islands.putAll(next);
 
@@ -61,6 +84,14 @@ public final class IslandRegistry {
 
     public synchronized Optional<IslandDefinition> get(String islandId) {
         return Optional.ofNullable(islands.get(islandId));
+    }
+
+    public synchronized IslandDefinition getRequired(String islandId) {
+        IslandDefinition definition = islands.get(islandId);
+        if (definition == null) {
+            throw new IllegalStateException("Island not found: " + islandId);
+        }
+        return definition;
     }
 
     public synchronized boolean contains(String islandId) {

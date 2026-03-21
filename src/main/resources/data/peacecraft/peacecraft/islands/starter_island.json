@@ -10,5 +10,6 @@
     "pitch": 0.0
   },
   "starter": true,
-  "unlockedByDefault": true
+  "unlockedByDefault": true,
+  "requiredUnlockedIslandIds": []
 }

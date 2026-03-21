@@ -1,8 +1,9 @@
 package ru.peacecraft.grandline.server.island.service;
 
-import java.util.HashSet;
-
+import ru.peacecraft.grandline.server.island.model.IslandDefinition;
 import ru.peacecraft.grandline.server.player.model.PlayerProfile;
+
+import java.util.HashSet;
 
 public final class IslandProfileSanitizer {
     private IslandProfileSanitizer() {
@@ -36,7 +37,17 @@ public final class IslandProfileSanitizer {
             profile.setActiveLogPoseTargetId(null);
         }
 
+        for (IslandDefinition definition : registry.getAll()) {
+            if (definition.unlockedByDefault()) {
+                profile.getDiscoveredIslandIds().add(definition.id());
+                profile.getUnlockedIslandIds().add(definition.id());
+            }
+        }
+
         profile.getDiscoveredIslandIds().add(starterIslandId);
         profile.getUnlockedIslandIds().add(starterIslandId);
+
+        profile.getDiscoveredIslandIds().add(profile.getCurrentIslandId());
+        profile.getUnlockedIslandIds().add(profile.getCurrentIslandId());
     }
 }
