@@ -3,7 +3,7 @@ import argparse
 
 EXCLUDED_DIRS = {".git", "gradle", ".gradle", "node_modules", "target", "build", "out", "dist", "server"}
 # Расширения файлов, содержимое которых нужно записывать
-CONTENT_EXTENSIONS = {".java", ".yml", ".yaml"}
+CONTENT_EXTENSIONS = {".java", ".yml", ".yaml", ".json", ".xml", ".properties"}
 
 def build_tree(root: Path, prefix: str = "", ignore_hidden: bool = False) -> list[str]:
     lines = []
