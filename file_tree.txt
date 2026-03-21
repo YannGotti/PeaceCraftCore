@@ -1,0 +1,5290 @@
+E:\PeaceCraft
+
+├── assets
+├── backups
+├── docs
+├── PeaceCraftCore
+│   ├── src
+│   │   ├── main
+│   │   │   ├── java
+│   │   │   │   └── ru
+│   │   │   │       └── peacecraft
+│   │   │   │           └── core
+│   │   │   │               ├── bosses
+│   │   │   │               │   ├── config
+│   │   │   │               │   │   └── BossesConfig.java
+│   │   │   │               │   ├── listener
+│   │   │   │               │   │   └── BossSummonListener.java
+│   │   │   │               │   ├── model
+│   │   │   │               │   │   ├── BossData.java
+│   │   │   │               │   │   ├── BossReward.java
+│   │   │   │               │   │   ├── BossSpawnPoint.java
+│   │   │   │               │   │   ├── BossSummonCost.java
+│   │   │   │               │   │   └── BossSummonResult.java
+│   │   │   │               │   └── service
+│   │   │   │               │       ├── BossRegistry.java
+│   │   │   │               │       └── BossService.java
+│   │   │   │               ├── commands
+│   │   │   │               │   ├── admin
+│   │   │   │               │   │   └── IslandAdminCommand.java
+│   │   │   │               │   └── BaseCommand.java
+│   │   │   │               ├── config
+│   │   │   │               │   └── ConfigManager.java
+│   │   │   │               ├── currencies
+│   │   │   │               │   ├── commands
+│   │   │   │               │   │   └── ShopCommand.java
+│   │   │   │               │   ├── drop
+│   │   │   │               │   │   ├── MobDropConfig.java
+│   │   │   │               │   │   ├── MobDropEntry.java
+│   │   │   │               │   │   └── MobDropService.java
+│   │   │   │               │   ├── listener
+│   │   │   │               │   │   ├── CurrencyDropListener.java
+│   │   │   │               │   │   └── ShopGuiListener.java
+│   │   │   │               │   ├── model
+│   │   │   │               │   │   ├── Currency.java
+│   │   │   │               │   │   └── ShopItem.java
+│   │   │   │               │   ├── service
+│   │   │   │               │   │   ├── CurrencyService.java
+│   │   │   │               │   │   └── PlayerCurrencyService.java
+│   │   │   │               │   └── shop
+│   │   │   │               │       └── ShopGUI.java
+│   │   │   │               ├── islands
+│   │   │   │               │   ├── config
+│   │   │   │               │   │   └── IslandsConfig.java
+│   │   │   │               │   ├── listener
+│   │   │   │               │   │   └── IslandDiscoveryListener.java
+│   │   │   │               │   ├── model
+│   │   │   │               │   │   ├── IslandCoordinate.java
+│   │   │   │               │   │   ├── IslandData.java
+│   │   │   │               │   │   └── IslandEnterResult.java
+│   │   │   │               │   └── service
+│   │   │   │               │       ├── IslandRegistry.java
+│   │   │   │               │       ├── IslandService.java
+│   │   │   │               │       └── PlayerOnboardingService.java
+│   │   │   │               ├── logpose
+│   │   │   │               │   ├── commands
+│   │   │   │               │   │   └── LogPoseCommand.java
+│   │   │   │               │   ├── listener
+│   │   │   │               │   │   └── LogPoseInteractionListener.java
+│   │   │   │               │   ├── model
+│   │   │   │               │   │   ├── LogPoseSetResult.java
+│   │   │   │               │   │   └── LogPoseTarget.java
+│   │   │   │               │   └── service
+│   │   │   │               │       └── LogPoseService.java
+│   │   │   │               ├── message
+│   │   │   │               │   └── MessageService.java
+│   │   │   │               ├── persistence
+│   │   │   │               │   ├── listener
+│   │   │   │               │   │   └── PlayerDataSessionListener.java
+│   │   │   │               │   ├── model
+│   │   │   │               │   │   └── PlayerData.java
+│   │   │   │               │   ├── repository
+│   │   │   │               │   │   └── PlayerDataRepository.java
+│   │   │   │               │   ├── service
+│   │   │   │               │   │   └── PlayerDataService.java
+│   │   │   │               │   └── task
+│   │   │   │               │       └── PlayerDataAutosaveTask.java
+│   │   │   │               ├── travel
+│   │   │   │               │   ├── commands
+│   │   │   │               │   │   ├── FastTravelCommand.java
+│   │   │   │               │   │   └── TravelCommand.java
+│   │   │   │               │   ├── listener
+│   │   │   │               │   │   └── TravelListener.java
+│   │   │   │               │   ├── model
+│   │   │   │               │   │   ├── TravelRequest.java
+│   │   │   │               │   │   └── TravelResult.java
+│   │   │   │               │   └── service
+│   │   │   │               │       └── TravelService.java
+│   │   │   │               └── PeaceCraftPlugin.java
+│   │   │   └── resources
+│   │   │       ├── bosses.yml
+│   │   │       ├── config.yml
+│   │   │       ├── currencies.yml
+│   │   │       ├── islands.yml
+│   │   │       ├── messages_ru.yml
+│   │   │       ├── mob_drops.yml
+│   │   │       └── plugin.yml
+│   │   └── test
+│   │       └── java
+│   ├── .prettierrc.yml
+│   ├── build.gradle.kts
+│   ├── gradlew
+│   ├── gradlew.bat
+│   ├── package-lock.json
+│   ├── package.json
+│   └── settings.gradle.kts
+├── .gitignore
+├── dump.py
+├── file_tree.txt
+└── README.md
+
+============================================================
+СОДЕРЖИМОЕ ФАЙЛОВ (.java, .yml)
+============================================================
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\.prettierrc.yml
+------------------------------------------------------------
+plugins:
+  - prettier-plugin-java
+overrides:
+  - files:
+      - "*.java"
+    options:
+      printWidth: 140
+      tabWidth: 4
+      useTabs: false
+      trailingComma: "none"
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\bosses\config\BossesConfig.java
+------------------------------------------------------------
+package ru.peacecraft.core.bosses.config;
+
+import java.io.File;
+import java.util.Set;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.EntityType;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.bosses.model.BossData;
+import ru.peacecraft.core.bosses.model.BossReward;
+import ru.peacecraft.core.bosses.model.BossSpawnPoint;
+import ru.peacecraft.core.bosses.model.BossSummonCost;
+import ru.peacecraft.core.bosses.service.BossRegistry;
+
+public final class BossesConfig {
+
+    private static final String FILE_NAME = "bosses.yml";
+
+    private final PeaceCraftPlugin plugin;
+    private final BossRegistry bossRegistry;
+
+    private File bossesFile;
+    private FileConfiguration bossesConfig;
+
+    public BossesConfig(PeaceCraftPlugin plugin, BossRegistry bossRegistry) {
+        this.plugin = plugin;
+        this.bossRegistry = bossRegistry;
+    }
+
+    public void load() {
+        ensureBundledResourceExists();
+        ensureFileExistsInDataFolder();
+
+        this.bossesFile = new File(plugin.getDataFolder(), FILE_NAME);
+        this.bossesConfig = YamlConfiguration.loadConfiguration(this.bossesFile);
+
+        loadBossesIntoRegistry();
+    }
+
+    public void reload() {
+        if (this.bossesFile == null) {
+            load();
+            return;
+        }
+
+        this.bossesConfig = YamlConfiguration.loadConfiguration(this.bossesFile);
+        loadBossesIntoRegistry();
+    }
+
+    private void loadBossesIntoRegistry() {
+        bossRegistry.clear();
+
+        ConfigurationSection bossesSection = bossesConfig.getConfigurationSection("bosses");
+        if (bossesSection == null) {
+            throw new IllegalStateException("Missing 'bosses' root section in bosses.yml");
+        }
+
+        Set<String> bossIds = bossesSection.getKeys(false);
+        if (bossIds.isEmpty()) {
+            throw new IllegalStateException("No bosses defined in bosses.yml");
+        }
+
+        for (String bossId : bossIds) {
+            String basePath = "bosses." + bossId;
+
+            EntityType entityType;
+            try {
+                entityType = EntityType.valueOf(requireString(basePath + ".entity-type").toUpperCase());
+            } catch (IllegalArgumentException ex) {
+                throw new IllegalStateException("Invalid entity-type for boss " + bossId, ex);
+            }
+
+            BossSummonCost summonCost = new BossSummonCost(
+                requireString(basePath + ".summon.currency-id"),
+                bossesConfig.getInt(basePath + ".summon.amount", 1)
+            );
+
+            BossSpawnPoint spawnPoint = new BossSpawnPoint(
+                requireString(basePath + ".spawn.world"),
+                bossesConfig.getDouble(basePath + ".spawn.x"),
+                bossesConfig.getDouble(basePath + ".spawn.y"),
+                bossesConfig.getDouble(basePath + ".spawn.z")
+            );
+
+            BossReward reward = new BossReward(
+                requireString(basePath + ".rewards.currency-id"),
+                bossesConfig.getInt(basePath + ".rewards.currency-amount", 0),
+                bossesConfig.getBoolean(basePath + ".rewards.unlock-next-island", false)
+            );
+
+            BossData bossData = new BossData(
+                bossId,
+                requireString(basePath + ".island-id"),
+                requireString(basePath + ".display-name"),
+                entityType,
+                bossesConfig.getDouble(basePath + ".max-health", 100.0D),
+                bossesConfig.getDouble(basePath + ".damage-multiplier", 1.0D),
+                summonCost,
+                spawnPoint,
+                reward
+            );
+
+            if (!bossData.isValid()) {
+                throw new IllegalStateException("Invalid boss config for id: " + bossId);
+            }
+
+            bossRegistry.register(bossData);
+        }
+    }
+
+    private String requireString(String path) {
+        String value = bossesConfig.getString(path);
+        if (value == null || value.isBlank()) {
+            throw new IllegalStateException("Missing or blank string in bosses.yml: " + path);
+        }
+        return value;
+    }
+
+    private void ensureBundledResourceExists() {
+        if (plugin.getResource(FILE_NAME) == null) {
+            throw new IllegalStateException("Embedded resource not found in jar: " + FILE_NAME);
+        }
+    }
+
+    private void ensureFileExistsInDataFolder() {
+        File targetFile = new File(plugin.getDataFolder(), FILE_NAME);
+
+        if (!targetFile.exists()) {
+            plugin.saveResource(FILE_NAME, false);
+        }
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\bosses\listener\BossSummonListener.java
+------------------------------------------------------------
+package ru.peacecraft.core.bosses.listener;
+
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.player.PlayerInteractEvent;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.bosses.model.BossData;
+import ru.peacecraft.core.bosses.model.BossSummonResult;
+import ru.peacecraft.core.bosses.service.BossService;
+import ru.peacecraft.core.islands.model.IslandData;
+
+public final class BossSummonListener implements Listener {
+
+    private static final double SUMMON_BLOCK_RADIUS = 4.0D;
+
+    private final PeaceCraftPlugin plugin;
+    private final BossService bossService;
+
+    public BossSummonListener(PeaceCraftPlugin plugin, BossService bossService) {
+        this.plugin = plugin;
+        this.bossService = bossService;
+    }
+
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    public void onPlayerInteract(PlayerInteractEvent event) {
+        if (event.getAction() != Action.RIGHT_CLICK_BLOCK) {
+            return;
+        }
+
+        Block clickedBlock = event.getClickedBlock();
+        if (clickedBlock == null) {
+            return;
+        }
+
+        if (clickedBlock.getType() != Material.LODESTONE) {
+            return;
+        }
+
+        IslandData island = plugin.getIslandService().findIslandByLocation(clickedBlock.getLocation(), 150.0D);
+        if (island == null) {
+            return;
+        }
+
+        BossData boss = bossService.getBossForIsland(island.getId());
+        if (boss == null) {
+            return;
+        }
+
+        if (!isNearBossSummonPoint(clickedBlock.getLocation(), boss)) {
+            return;
+        }
+
+        event.setCancelled(true);
+
+        BossSummonResult result = bossService.trySummonBoss(event.getPlayer(), island.getId());
+        event.getPlayer().sendMessage(result.message());
+    }
+
+    private boolean isNearBossSummonPoint(Location clickedLocation, BossData boss) {
+        if (clickedLocation.getWorld() == null) {
+            return false;
+        }
+
+        if (!clickedLocation.getWorld().getName().equals(boss.getSpawnPoint().getWorldName())) {
+            return false;
+        }
+
+        Location summonLocation = new Location(
+            clickedLocation.getWorld(),
+            boss.getSpawnPoint().getX(),
+            boss.getSpawnPoint().getY(),
+            boss.getSpawnPoint().getZ()
+        );
+
+        return clickedLocation.distanceSquared(summonLocation) <= (SUMMON_BLOCK_RADIUS * SUMMON_BLOCK_RADIUS);
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\bosses\model\BossData.java
+------------------------------------------------------------
+package ru.peacecraft.core.bosses.model;
+
+import org.bukkit.entity.EntityType;
+
+public final class BossData {
+
+    private final String id;
+    private final String islandId;
+    private final String displayName;
+    private final EntityType entityType;
+    private final double maxHealth;
+    private final double damageMultiplier;
+    private final BossSummonCost summonCost;
+    private final BossSpawnPoint spawnPoint;
+    private final BossReward reward;
+
+    public BossData(
+        String id,
+        String islandId,
+        String displayName,
+        EntityType entityType,
+        double maxHealth,
+        double damageMultiplier,
+        BossSummonCost summonCost,
+        BossSpawnPoint spawnPoint,
+        BossReward reward
+    ) {
+        this.id = id;
+        this.islandId = islandId;
+        this.displayName = displayName;
+        this.entityType = entityType;
+        this.maxHealth = maxHealth;
+        this.damageMultiplier = damageMultiplier;
+        this.summonCost = summonCost;
+        this.spawnPoint = spawnPoint;
+        this.reward = reward;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getIslandId() {
+        return islandId;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public EntityType getEntityType() {
+        return entityType;
+    }
+
+    public double getMaxHealth() {
+        return maxHealth;
+    }
+
+    public double getDamageMultiplier() {
+        return damageMultiplier;
+    }
+
+    public BossSummonCost getSummonCost() {
+        return summonCost;
+    }
+
+    public BossSpawnPoint getSpawnPoint() {
+        return spawnPoint;
+    }
+
+    public BossReward getReward() {
+        return reward;
+    }
+
+    public boolean isValid() {
+        return (
+            id != null &&
+            !id.isBlank() &&
+            islandId != null &&
+            !islandId.isBlank() &&
+            displayName != null &&
+            !displayName.isBlank() &&
+            entityType != null &&
+            maxHealth > 0.0D &&
+            damageMultiplier > 0.0D &&
+            summonCost != null &&
+            summonCost.isValid() &&
+            spawnPoint != null &&
+            spawnPoint.isValid() &&
+            reward != null &&
+            reward.isValid()
+        );
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\bosses\model\BossReward.java
+------------------------------------------------------------
+package ru.peacecraft.core.bosses.model;
+
+public final class BossReward {
+
+    private final String currencyId;
+    private final int currencyAmount;
+    private final boolean unlockNextIsland;
+
+    public BossReward(String currencyId, int currencyAmount, boolean unlockNextIsland) {
+        this.currencyId = currencyId;
+        this.currencyAmount = currencyAmount;
+        this.unlockNextIsland = unlockNextIsland;
+    }
+
+    public String getCurrencyId() {
+        return currencyId;
+    }
+
+    public int getCurrencyAmount() {
+        return currencyAmount;
+    }
+
+    public boolean shouldUnlockNextIsland() {
+        return unlockNextIsland;
+    }
+
+    public boolean isValid() {
+        return currencyId != null && !currencyId.isBlank() && currencyAmount >= 0;
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\bosses\model\BossSpawnPoint.java
+------------------------------------------------------------
+package ru.peacecraft.core.bosses.model;
+
+public final class BossSpawnPoint {
+
+    private final String worldName;
+    private final double x;
+    private final double y;
+    private final double z;
+
+    public BossSpawnPoint(String worldName, double x, double y, double z) {
+        this.worldName = worldName;
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+    public String getWorldName() {
+        return worldName;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getZ() {
+        return z;
+    }
+
+    public boolean isValid() {
+        return worldName != null && !worldName.isBlank();
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\bosses\model\BossSummonCost.java
+------------------------------------------------------------
+package ru.peacecraft.core.bosses.model;
+
+public final class BossSummonCost {
+
+    private final String currencyId;
+    private final int amount;
+
+    public BossSummonCost(String currencyId, int amount) {
+        this.currencyId = currencyId;
+        this.amount = amount;
+    }
+
+    public String getCurrencyId() {
+        return currencyId;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public boolean isValid() {
+        return currencyId != null && !currencyId.isBlank() && amount > 0;
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\bosses\model\BossSummonResult.java
+------------------------------------------------------------
+package ru.peacecraft.core.bosses.model;
+
+public record BossSummonResult(boolean success, String message) {
+    public static BossSummonResult ok(String message) {
+        return new BossSummonResult(true, message);
+    }
+
+    public static BossSummonResult fail(String message) {
+        return new BossSummonResult(false, message);
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\bosses\service\BossRegistry.java
+------------------------------------------------------------
+package ru.peacecraft.core.bosses.service;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import ru.peacecraft.core.bosses.model.BossData;
+
+public final class BossRegistry {
+
+    private final Map<String, BossData> bossesById = new LinkedHashMap<>();
+    private final Map<String, BossData> bossesByIslandId = new LinkedHashMap<>();
+
+    public void clear() {
+        bossesById.clear();
+        bossesByIslandId.clear();
+    }
+
+    public void register(BossData bossData) {
+        String bossId = bossData.getId();
+        String islandId = bossData.getIslandId();
+
+        if (bossId == null || bossId.isBlank()) {
+            throw new IllegalArgumentException("Boss id cannot be null or blank.");
+        }
+
+        if (islandId == null || islandId.isBlank()) {
+            throw new IllegalArgumentException("Boss islandId cannot be null or blank.");
+        }
+
+        if (bossesById.containsKey(bossId)) {
+            throw new IllegalArgumentException("Duplicate boss id detected: " + bossId);
+        }
+
+        if (bossesByIslandId.containsKey(islandId)) {
+            throw new IllegalArgumentException("Only one boss per island is supported for now: " + islandId);
+        }
+
+        bossesById.put(bossId, bossData);
+        bossesByIslandId.put(islandId, bossData);
+    }
+
+    public BossData getById(String bossId) {
+        return bossesById.get(bossId);
+    }
+
+    public BossData getByIslandId(String islandId) {
+        return bossesByIslandId.get(islandId);
+    }
+
+    public boolean contains(String bossId) {
+        return bossesById.containsKey(bossId);
+    }
+
+    public Collection<BossData> getAll() {
+        return Collections.unmodifiableCollection(bossesById.values());
+    }
+
+    public int size() {
+        return bossesById.size();
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\bosses\service\BossService.java
+------------------------------------------------------------
+package ru.peacecraft.core.bosses.service;
+
+import java.util.Collection;
+import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.NamespacedKey;
+import org.bukkit.Particle;
+import org.bukkit.Sound;
+import org.bukkit.World;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeInstance;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
+import org.bukkit.persistence.PersistentDataType;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.bosses.model.BossData;
+import ru.peacecraft.core.bosses.model.BossSpawnPoint;
+import ru.peacecraft.core.bosses.model.BossSummonCost;
+import ru.peacecraft.core.bosses.model.BossSummonResult;
+import ru.peacecraft.core.currencies.model.Currency;
+
+public final class BossService {
+
+    private final PeaceCraftPlugin plugin;
+    private final BossRegistry bossRegistry;
+
+    private final NamespacedKey bossIdKey;
+    private final NamespacedKey bossIslandKey;
+
+    private final Map<String, UUID> activeBossEntityByIsland = new ConcurrentHashMap<>();
+
+    public BossService(PeaceCraftPlugin plugin, BossRegistry bossRegistry) {
+        this.plugin = plugin;
+        this.bossRegistry = bossRegistry;
+        this.bossIdKey = new NamespacedKey(plugin, "boss_id");
+        this.bossIslandKey = new NamespacedKey(plugin, "boss_island_id");
+    }
+
+    public BossData getBossById(String bossId) {
+        return bossRegistry.getById(bossId);
+    }
+
+    public BossData getBossForIsland(String islandId) {
+        return bossRegistry.getByIslandId(islandId);
+    }
+
+    public boolean bossExists(String bossId) {
+        return bossRegistry.contains(bossId);
+    }
+
+    public Collection<BossData> getAllBosses() {
+        return bossRegistry.getAll();
+    }
+
+    public int getLoadedBossCount() {
+        return bossRegistry.size();
+    }
+
+    public BossSummonResult trySummonBoss(Player player, String islandId) {
+        BossData boss = getBossForIsland(islandId);
+        if (boss == null) {
+            return BossSummonResult.fail("§cДля этого острова босс не настроен.");
+        }
+
+        if (hasActiveBossOnIsland(islandId)) {
+            return BossSummonResult.fail("§cНа этом острове уже есть активный босс.");
+        }
+
+        BossSummonCost summonCost = boss.getSummonCost();
+        Currency currency = plugin.getCurrencyService().getCurrency(summonCost.getCurrencyId());
+
+        if (currency == null) {
+            return BossSummonResult.fail("§cОшибка конфига босса: валюта не найдена.");
+        }
+
+        if (!plugin.getPlayerCurrencyService().hasBalance(player.getUniqueId(), summonCost.getCurrencyId(), summonCost.getAmount())) {
+            return BossSummonResult.fail(
+                "§cНедостаточно валюты для призыва. Нужно: §e" + summonCost.getAmount() + " " + currency.getSymbol()
+            );
+        }
+
+        Location spawnLocation = resolveSpawnLocation(boss.getSpawnPoint());
+        if (spawnLocation == null) {
+            return BossSummonResult.fail("§cМир босса не найден: " + boss.getSpawnPoint().getWorldName());
+        }
+
+        Entity spawnedEntity = spawnLocation.getWorld().spawnEntity(spawnLocation, boss.getEntityType());
+        if (!(spawnedEntity instanceof LivingEntity livingBoss)) {
+            spawnedEntity.remove();
+            return BossSummonResult.fail("§cСущность босса не является живой.");
+        }
+
+        boolean removed = plugin
+            .getPlayerCurrencyService()
+            .removeBalance(player.getUniqueId(), summonCost.getCurrencyId(), summonCost.getAmount());
+
+        if (!removed) {
+            livingBoss.remove();
+            return BossSummonResult.fail("§cНе удалось списать валюту для призыва босса.");
+        }
+
+        applyBossStats(livingBoss, boss);
+        markBossEntity(livingBoss, boss);
+
+        activeBossEntityByIsland.put(islandId, livingBoss.getUniqueId());
+
+        playSummonEffects(spawnLocation);
+
+        return BossSummonResult.ok("§aБосс §6" + boss.getDisplayName() + " §aпризван!");
+    }
+
+    public boolean hasActiveBossOnIsland(String islandId) {
+        UUID entityId = activeBossEntityByIsland.get(islandId);
+        if (entityId == null) {
+            return false;
+        }
+
+        Entity entity = Bukkit.getEntity(entityId);
+        if (!(entity instanceof LivingEntity living) || !living.isValid() || living.isDead()) {
+            activeBossEntityByIsland.remove(islandId);
+            return false;
+        }
+
+        return true;
+    }
+
+    public void clearActiveBoss(String islandId, UUID entityId) {
+        UUID current = activeBossEntityByIsland.get(islandId);
+        if (current != null && current.equals(entityId)) {
+            activeBossEntityByIsland.remove(islandId);
+        }
+    }
+
+    public boolean isBossEntity(Entity entity) {
+        return entity.getPersistentDataContainer().has(bossIdKey, PersistentDataType.STRING);
+    }
+
+    public String getBossId(Entity entity) {
+        return entity.getPersistentDataContainer().get(bossIdKey, PersistentDataType.STRING);
+    }
+
+    public String getBossIslandId(Entity entity) {
+        return entity.getPersistentDataContainer().get(bossIslandKey, PersistentDataType.STRING);
+    }
+
+    private Location resolveSpawnLocation(BossSpawnPoint spawnPoint) {
+        World world = Bukkit.getWorld(spawnPoint.getWorldName());
+        if (world == null) {
+            return null;
+        }
+
+        return new Location(world, spawnPoint.getX(), spawnPoint.getY(), spawnPoint.getZ());
+    }
+
+    private void applyBossStats(LivingEntity entity, BossData boss) {
+        entity.setCustomName("§c☠ §6" + boss.getDisplayName());
+        entity.setCustomNameVisible(true);
+        entity.setRemoveWhenFarAway(false);
+        entity.setPersistent(true);
+
+        AttributeInstance maxHealthAttribute = entity.getAttribute(Attribute.MAX_HEALTH);
+        if (maxHealthAttribute != null) {
+            maxHealthAttribute.setBaseValue(boss.getMaxHealth());
+            entity.setHealth(boss.getMaxHealth());
+        }
+
+        AttributeInstance attackDamageAttribute = entity.getAttribute(Attribute.ATTACK_DAMAGE);
+        if (attackDamageAttribute != null) {
+            double current = attackDamageAttribute.getBaseValue();
+            attackDamageAttribute.setBaseValue(current * boss.getDamageMultiplier());
+        }
+    }
+
+    private void markBossEntity(LivingEntity entity, BossData boss) {
+        entity.getPersistentDataContainer().set(bossIdKey, PersistentDataType.STRING, boss.getId());
+        entity.getPersistentDataContainer().set(bossIslandKey, PersistentDataType.STRING, boss.getIslandId());
+    }
+
+    private void playSummonEffects(Location location) {
+        World world = location.getWorld();
+        if (world == null) {
+            return;
+        }
+
+        world.spawnParticle(Particle.LARGE_SMOKE, location, 30, 1.0, 1.0, 1.0, 0.05);
+        world.spawnParticle(Particle.FLAME, location, 20, 1.0, 1.0, 1.0, 0.02);
+        world.playSound(location, Sound.ENTITY_WITHER_SPAWN, 0.8f, 1.2f);
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\commands\admin\IslandAdminCommand.java
+------------------------------------------------------------
+package ru.peacecraft.core.commands.admin;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
+import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.commands.BaseCommand;
+import ru.peacecraft.core.islands.model.IslandData;
+
+public final class IslandAdminCommand extends BaseCommand implements CommandExecutor, TabCompleter {
+
+    private static final String PERMISSION = "peacecraft.admin.island.manage";
+
+    public IslandAdminCommand(PeaceCraftPlugin plugin) {
+        super(plugin);
+    }
+
+    @Override
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        if (!hasPermission(sender, PERMISSION)) {
+            sendNoPermission(sender);
+            return true;
+        }
+
+        if (args.length == 0 || !args[0].equalsIgnoreCase("island")) {
+            sendUsage(sender);
+            return true;
+        }
+
+        if (args.length == 1) {
+            sendUsage(sender);
+            return true;
+        }
+
+        String subCommand = args[1].toLowerCase();
+
+        return switch (subCommand) {
+            case "unlock" -> handleUnlock(sender, args);
+            case "discover" -> handleDiscover(sender, args);
+            case "setcurrent" -> handleSetCurrent(sender, args);
+            case "info" -> handleInfo(sender, args);
+            case "reload" -> handleReload(sender);
+            default -> {
+                sendUsage(sender);
+                yield true;
+            }
+        };
+    }
+
+    private boolean handleUnlock(CommandSender sender, String[] args) {
+        if (args.length < 4) {
+            sender.sendMessage("§cИспользование: /pc island unlock <игрок> <остров>");
+            return true;
+        }
+
+        TargetPlayer target = resolveTarget(args[2]);
+        if (target == null) {
+            sender.sendMessage("§cИгрок не найден: " + args[2]);
+            return true;
+        }
+
+        String islandId = args[3];
+        if (!plugin.getIslandService().islandExists(islandId)) {
+            sender.sendMessage("§cОстров не найден: " + islandId);
+            return true;
+        }
+
+        boolean changed = plugin.getIslandService().unlockIsland(target.uuid(), islandId);
+        plugin.getPlayerDataService().save(target.uuid());
+
+        if (changed) {
+            sender.sendMessage("§aОстров §6" + islandId + "§a разблокирован для §6" + target.name());
+        } else {
+            sender.sendMessage("§eОстров §6" + islandId + "§e уже был разблокирован для §6" + target.name());
+        }
+
+        Player onlinePlayer = target.onlinePlayer();
+        if (onlinePlayer != null) {
+            onlinePlayer.sendMessage("§6PeaceCraft §8» §aТебе разблокировали остров: §e" + islandId);
+        }
+
+        return true;
+    }
+
+    private boolean handleDiscover(CommandSender sender, String[] args) {
+        if (args.length < 4) {
+            sender.sendMessage("§cИспользование: /pc island discover <игрок> <остров>");
+            return true;
+        }
+
+        TargetPlayer target = resolveTarget(args[2]);
+        if (target == null) {
+            sender.sendMessage("§cИгрок не найден: " + args[2]);
+            return true;
+        }
+
+        String islandId = args[3];
+        if (!plugin.getIslandService().islandExists(islandId)) {
+            sender.sendMessage("§cОстров не найден: " + islandId);
+            return true;
+        }
+
+        boolean changed = plugin.getIslandService().discoverIsland(target.uuid(), islandId);
+        plugin.getPlayerDataService().save(target.uuid());
+
+        if (changed) {
+            sender.sendMessage("§aОстров §6" + islandId + "§a отмечен как обнаруженный для §6" + target.name());
+        } else {
+            sender.sendMessage("§eОстров §6" + islandId + "§e уже был обнаружен у §6" + target.name());
+        }
+
+        return true;
+    }
+
+    private boolean handleSetCurrent(CommandSender sender, String[] args) {
+        if (args.length < 4) {
+            sender.sendMessage("§cИспользование: /pc island setcurrent <игрок> <остров>");
+            return true;
+        }
+
+        TargetPlayer target = resolveTarget(args[2]);
+        if (target == null) {
+            sender.sendMessage("§cИгрок не найден: " + args[2]);
+            return true;
+        }
+
+        String islandId = args[3];
+        if (!plugin.getIslandService().islandExists(islandId)) {
+            sender.sendMessage("§cОстров не найден: " + islandId);
+            return true;
+        }
+
+        boolean changed = plugin.getIslandService().setCurrentIsland(target.uuid(), islandId);
+        plugin.getPlayerDataService().save(target.uuid());
+
+        if (changed) {
+            sender.sendMessage("§aТекущий остров для §6" + target.name() + "§a установлен: §6" + islandId);
+        } else {
+            sender.sendMessage("§eУ §6" + target.name() + "§e уже установлен текущий остров: §6" + islandId);
+        }
+
+        return true;
+    }
+
+    private boolean handleInfo(CommandSender sender, String[] args) {
+        if (args.length < 3) {
+            sender.sendMessage("§cИспользование: /pc island info <остров>");
+            return true;
+        }
+
+        String islandId = args[2];
+        IslandData islandData = plugin.getIslandService().getIslandById(islandId);
+
+        if (islandData == null) {
+            sender.sendMessage("§cОстров не найден: " + islandId);
+            return true;
+        }
+
+        sender.sendMessage("§6=== Информация об острове ===");
+        sender.sendMessage("§eID: §f" + islandData.getId());
+        sender.sendMessage("§eНазвание: §f" + islandData.getDisplayName());
+        sender.sendMessage("§eМир: §f" + islandData.getWorldName());
+        sender.sendMessage("§eРегион: §f" + islandData.getRegionId());
+        sender.sendMessage("§eВалюта: §f" + islandData.getCurrencyId());
+        sender.sendMessage("§eТребование: §f" + islandData.getUnlockRequirement());
+        sender.sendMessage(
+            "§eЦентр: §f" + islandData.getCenter().getX() + ", " + islandData.getCenter().getY() + ", " + islandData.getCenter().getZ()
+        );
+        return true;
+    }
+
+    private boolean handleReload(CommandSender sender) {
+        plugin.getIslandsConfig().reload();
+        sender.sendMessage("§aКонфигурация островов перезагружена.");
+        return true;
+    }
+
+    private void sendUsage(CommandSender sender) {
+        sender.sendMessage("§6=== PeaceCraft Island Admin ===");
+        sender.sendMessage("§e/pc island unlock <игрок> <остров> §7- Разблокировать остров");
+        sender.sendMessage("§e/pc island discover <игрок> <остров> §7- Отметить как обнаруженный");
+        sender.sendMessage("§e/pc island setcurrent <игрок> <остров> §7- Установить текущий остров");
+        sender.sendMessage("§e/pc island info <остров> §7- Информация об острове");
+        sender.sendMessage("§e/pc island reload §7- Перезагрузить конфиг");
+    }
+
+    @Override
+    public @Nullable List<String> onTabComplete(
+        @NotNull CommandSender sender,
+        @NotNull Command command,
+        @NotNull String label,
+        @NotNull String[] args
+    ) {
+        if (args.length == 1) {
+            return getMatching(Arrays.asList("island"), args[0]);
+        }
+
+        if (args.length == 2 && args[0].equalsIgnoreCase("island")) {
+            return getMatching(Arrays.asList("unlock", "discover", "setcurrent", "info", "reload"), args[1]);
+        }
+
+        if (args.length == 3 && args[0].equalsIgnoreCase("island")) {
+            if (args[1].equalsIgnoreCase("info")) {
+                return getMatchingIslands(args[2]);
+            }
+            return null;
+        }
+
+        if (args.length == 4 && args[0].equalsIgnoreCase("island")) {
+            if (args[1].equalsIgnoreCase("unlock") || args[1].equalsIgnoreCase("discover") || args[1].equalsIgnoreCase("setcurrent")) {
+                return getMatchingIslands(args[3]);
+            }
+        }
+
+        return null;
+    }
+
+    private List<String> getMatching(List<String> values, String arg) {
+        List<String> result = new ArrayList<>();
+        for (String value : values) {
+            if (value.toLowerCase().startsWith(arg.toLowerCase())) {
+                result.add(value);
+            }
+        }
+        return result;
+    }
+
+    private List<String> getMatchingIslands(String arg) {
+        List<String> result = new ArrayList<>();
+        for (IslandData island : plugin.getIslandService().getAllIslands()) {
+            if (island.getId().toLowerCase().startsWith(arg.toLowerCase())) {
+                result.add(island.getId());
+            }
+        }
+        return result;
+    }
+
+    private @Nullable TargetPlayer resolveTarget(String input) {
+        Player online = Bukkit.getPlayerExact(input);
+        if (online != null) {
+            return new TargetPlayer(online.getUniqueId(), online.getName(), online);
+        }
+
+        try {
+            UUID uuid = UUID.fromString(input);
+            OfflinePlayer offline = Bukkit.getOfflinePlayer(uuid);
+            String name = offline.getName() != null ? offline.getName() : uuid.toString();
+            return new TargetPlayer(uuid, name, online);
+        } catch (IllegalArgumentException ignored) {}
+
+        OfflinePlayer offline = Bukkit.getOfflinePlayer(input);
+        if (offline.getUniqueId() == null) {
+            return null;
+        }
+
+        return new TargetPlayer(offline.getUniqueId(), offline.getName() != null ? offline.getName() : input, null);
+    }
+
+    private record TargetPlayer(UUID uuid, String name, @Nullable Player onlinePlayer) {}
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\commands\BaseCommand.java
+------------------------------------------------------------
+package ru.peacecraft.core.commands;
+
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.Nullable;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.message.MessageService;
+
+public abstract class BaseCommand {
+
+    protected final PeaceCraftPlugin plugin;
+    protected final MessageService messageService;
+
+    protected BaseCommand(PeaceCraftPlugin plugin) {
+        this.plugin = plugin;
+        this.messageService = plugin.getMessageService();
+    }
+
+    protected boolean hasPermission(CommandSender sender, String permission) {
+        if (permission == null || permission.isBlank()) {
+            return true;
+        }
+        return sender.hasPermission(permission);
+    }
+
+    protected boolean isPlayer(CommandSender sender) {
+        return sender instanceof Player;
+    }
+
+    protected @Nullable Player requirePlayer(CommandSender sender) {
+        if (!(sender instanceof Player player)) {
+            sender.sendMessage(messageService.get("general.player-only"));
+            return null;
+        }
+        return player;
+    }
+
+    protected void sendNoPermission(CommandSender sender) {
+        if (messageService != null) {
+            sender.sendMessage(messageService.get("general.no-permission"));
+        } else {
+            sender.sendMessage("§6PeaceCraft §8» §cУ тебя нет прав.");
+        }
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\config\ConfigManager.java
+------------------------------------------------------------
+package ru.peacecraft.core.config;
+
+import org.bukkit.configuration.file.FileConfiguration;
+import ru.peacecraft.core.PeaceCraftPlugin;
+
+public final class ConfigManager {
+
+    private final PeaceCraftPlugin plugin;
+    private FileConfiguration config;
+
+    public ConfigManager(PeaceCraftPlugin plugin) {
+        this.plugin = plugin;
+    }
+
+    public void load() {
+        plugin.saveDefaultConfig();
+        plugin.reloadConfig();
+        this.config = plugin.getConfig();
+    }
+
+    public void reload() {
+        plugin.reloadConfig();
+        this.config = plugin.getConfig();
+    }
+
+    public FileConfiguration getConfig() {
+        return config;
+    }
+
+    public boolean isDebugEnabled() {
+        return config.getBoolean("plugin.debug", false);
+    }
+
+    public String getLanguage() {
+        return config.getString("plugin.language", "ru");
+    }
+
+    public String getPrefix() {
+        return config.getString("plugin.prefix", "&6PeaceCraft &8» &f");
+    }
+
+    public boolean isAutosaveEnabled() {
+        return config.getBoolean("autosave.enabled", true);
+    }
+
+    public int getAutosaveIntervalSeconds() {
+        return config.getInt("autosave.interval-seconds", 300);
+    }
+
+    public boolean shouldGiveStarterLogPose() {
+        return config.getBoolean("starter.give-log-pose-on-first-join", true);
+    }
+
+    public String getStarterIslandId() {
+        return config.getString("starter.island-id", "starter_island");
+    }
+
+    public boolean shouldPrintBootstrapSteps() {
+        return config.getBoolean("development.print-bootstrap-steps", true);
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\currencies\commands\ShopCommand.java
+------------------------------------------------------------
+package ru.peacecraft.core.currencies.commands;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.commands.BaseCommand;
+import ru.peacecraft.core.currencies.shop.ShopGUI;
+
+public final class ShopCommand extends BaseCommand implements CommandExecutor, TabCompleter {
+
+    public ShopCommand(PeaceCraftPlugin plugin) {
+        super(plugin);
+    }
+
+    @Override
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        if (!(sender instanceof Player player)) {
+            sender.sendMessage(messageService.get("general.player-only"));
+            return true;
+        }
+
+        if (args.length == 0) {
+            // Открыть основной магазин
+            openShop(player);
+            return true;
+        }
+
+        String subCommand = args[0].toLowerCase();
+
+        return switch (subCommand) {
+            case "sell" -> handleSell(player);
+            case "balance" -> handleBalance(player);
+            default -> {
+                sendUsage(player);
+                yield true;
+            }
+        };
+    }
+
+    private void openShop(Player player) {
+        // Здесь нужно загрузить товары для текущего острова игрока
+        List<ru.peacecraft.core.currencies.model.ShopItem> items = new ArrayList<>();
+        // TODO: Загрузить из конфига shops.yml
+
+        ShopGUI gui = ShopGUI.create(items);
+        gui.open(player);
+    }
+
+    private boolean handleSell(Player player) {
+        // Продажа предметов из инвентаря
+        player.sendMessage("§6PeaceCraft §8» §7Функция продажи в разработке...");
+        return true;
+    }
+
+    private boolean handleBalance(Player player) {
+        // Показать баланс игрока
+        player.sendMessage("§6PeaceCraft §8» §7Ваш баланс:");
+        // TODO: Показать баланс по каждой валюте
+        return true;
+    }
+
+    private void sendUsage(Player player) {
+        player.sendMessage("§6§l=== Магазин ===");
+        player.sendMessage("§e/shop §7- Открыть магазин");
+        player.sendMessage("§e/shop sell §7- Продать предметы");
+        player.sendMessage("§e/shop balance §7- Показать баланс");
+    }
+
+    @Override
+    public @Nullable List<String> onTabComplete(
+        @NotNull CommandSender sender,
+        @NotNull Command command,
+        @NotNull String label,
+        @NotNull String[] args
+    ) {
+        if (args.length == 1) {
+            return getMatchingSubCommands(Arrays.asList("sell", "balance"), args[0]);
+        }
+        return null;
+    }
+
+    private List<String> getMatchingSubCommands(List<String> subCommands, String arg) {
+        List<String> result = new ArrayList<>();
+        for (String subCommand : subCommands) {
+            if (subCommand.toLowerCase().startsWith(arg.toLowerCase())) {
+                result.add(subCommand);
+            }
+        }
+        return result;
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\currencies\drop\MobDropConfig.java
+------------------------------------------------------------
+package ru.peacecraft.core.currencies.drop;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.EntityType;
+import ru.peacecraft.core.PeaceCraftPlugin;
+
+public final class MobDropConfig {
+
+    private static final String FILE_NAME = "mob_drops.yml";
+
+    private final PeaceCraftPlugin plugin;
+    private File file;
+    private YamlConfiguration config;
+
+    public MobDropConfig(PeaceCraftPlugin plugin) {
+        this.plugin = plugin;
+    }
+
+    public void load() {
+        ensureFileExists();
+        this.config = YamlConfiguration.loadConfiguration(file);
+    }
+
+    public void reload() {
+        this.config = YamlConfiguration.loadConfiguration(file);
+    }
+
+    public List<MobDropEntry> readAllEntries() {
+        List<MobDropEntry> entries = new ArrayList<>();
+
+        ConfigurationSection root = config.getConfigurationSection("drops");
+        if (root == null) {
+            plugin.getLogger().warning("mob_drops.yml does not contain 'drops' section.");
+            return entries;
+        }
+
+        for (String islandId : root.getKeys(false)) {
+            ConfigurationSection islandSection = root.getConfigurationSection(islandId);
+            if (islandSection == null) {
+                continue;
+            }
+
+            for (String entityTypeKey : islandSection.getKeys(false)) {
+                ConfigurationSection entrySection = islandSection.getConfigurationSection(entityTypeKey);
+                if (entrySection == null) {
+                    continue;
+                }
+
+                EntityType entityType;
+                try {
+                    entityType = EntityType.valueOf(entityTypeKey.toUpperCase());
+                } catch (IllegalArgumentException ex) {
+                    plugin.getLogger().warning(() -> "Unknown entity type in mob_drops.yml: " + entityTypeKey + " for island " + islandId);
+                    continue;
+                }
+
+                String currencyId = entrySection.getString("currency");
+                int min = entrySection.getInt("min", 1);
+                int max = entrySection.getInt("max", min);
+                double chance = entrySection.getDouble("chance", 1.0D);
+
+                MobDropEntry entry = new MobDropEntry(islandId, entityType, currencyId, min, max, chance);
+
+                if (!entry.isValid()) {
+                    plugin
+                        .getLogger()
+                        .warning(() -> "Invalid drop entry in mob_drops.yml for island " + islandId + ", mob " + entityTypeKey);
+                    continue;
+                }
+
+                entries.add(entry);
+            }
+        }
+
+        return entries;
+    }
+
+    private void ensureFileExists() {
+        if (file != null) {
+            return;
+        }
+
+        file = new File(plugin.getDataFolder(), FILE_NAME);
+
+        if (!file.exists()) {
+            plugin.saveResource(FILE_NAME, false);
+        }
+
+        if (!file.exists()) {
+            throw new IllegalStateException("Could not create " + FILE_NAME);
+        }
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\currencies\drop\MobDropEntry.java
+------------------------------------------------------------
+package ru.peacecraft.core.currencies.drop;
+
+import org.bukkit.entity.EntityType;
+
+public final class MobDropEntry {
+
+    private final String islandId;
+    private final EntityType entityType;
+    private final String currencyId;
+    private final int minAmount;
+    private final int maxAmount;
+    private final double chance;
+
+    public MobDropEntry(String islandId, EntityType entityType, String currencyId, int minAmount, int maxAmount, double chance) {
+        this.islandId = islandId;
+        this.entityType = entityType;
+        this.currencyId = currencyId;
+        this.minAmount = minAmount;
+        this.maxAmount = maxAmount;
+        this.chance = chance;
+    }
+
+    public String getIslandId() {
+        return islandId;
+    }
+
+    public EntityType getEntityType() {
+        return entityType;
+    }
+
+    public String getCurrencyId() {
+        return currencyId;
+    }
+
+    public int getMinAmount() {
+        return minAmount;
+    }
+
+    public int getMaxAmount() {
+        return maxAmount;
+    }
+
+    public double getChance() {
+        return chance;
+    }
+
+    public boolean isValid() {
+        return minAmount > 0 && maxAmount >= minAmount && chance >= 0.0D && chance <= 1.0D && currencyId != null && !currencyId.isBlank();
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\currencies\drop\MobDropService.java
+------------------------------------------------------------
+package ru.peacecraft.core.currencies.drop;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ThreadLocalRandom;
+import org.bukkit.entity.EntityType;
+
+public final class MobDropService {
+
+    private final MobDropConfig mobDropConfig;
+    private final Map<String, MobDropEntry> entries = new HashMap<>();
+
+    public MobDropService(MobDropConfig mobDropConfig) {
+        this.mobDropConfig = mobDropConfig;
+    }
+
+    public void load() {
+        mobDropConfig.load();
+        rebuild();
+    }
+
+    public void reload() {
+        mobDropConfig.reload();
+        rebuild();
+    }
+
+    public DropRollResult rollDrop(String islandId, EntityType entityType) {
+        if (islandId == null || entityType == null) {
+            return DropRollResult.none();
+        }
+
+        MobDropEntry entry = entries.get(buildKey(islandId, entityType));
+        if (entry == null) {
+            return DropRollResult.none();
+        }
+
+        double roll = ThreadLocalRandom.current().nextDouble();
+        if (roll > entry.getChance()) {
+            return DropRollResult.none();
+        }
+
+        int amount = ThreadLocalRandom.current().nextInt(entry.getMinAmount(), entry.getMaxAmount() + 1);
+
+        return new DropRollResult(true, entry.getCurrencyId(), amount);
+    }
+
+    public boolean hasDropFor(String islandId, EntityType entityType) {
+        return entries.containsKey(buildKey(islandId, entityType));
+    }
+
+    private void rebuild() {
+        entries.clear();
+
+        List<MobDropEntry> loadedEntries = mobDropConfig.readAllEntries();
+        for (MobDropEntry entry : loadedEntries) {
+            entries.put(buildKey(entry.getIslandId(), entry.getEntityType()), entry);
+        }
+    }
+
+    private String buildKey(String islandId, EntityType entityType) {
+        return islandId + "::" + entityType.name();
+    }
+
+    public record DropRollResult(boolean success, String currencyId, int amount) {
+        public static DropRollResult none() {
+            return new DropRollResult(false, null, 0);
+        }
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\currencies\listener\CurrencyDropListener.java
+------------------------------------------------------------
+package ru.peacecraft.core.currencies.listener;
+
+import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDeathEvent;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.currencies.drop.MobDropService;
+import ru.peacecraft.core.currencies.model.Currency;
+import ru.peacecraft.core.currencies.service.PlayerCurrencyService;
+import ru.peacecraft.core.islands.model.IslandData;
+
+public final class CurrencyDropListener implements Listener {
+
+    private final PeaceCraftPlugin plugin;
+    private final PlayerCurrencyService currencyService;
+
+    public CurrencyDropListener(PeaceCraftPlugin plugin, PlayerCurrencyService currencyService) {
+        this.plugin = plugin;
+        this.currencyService = currencyService;
+    }
+
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+    public void onEntityDeath(EntityDeathEvent event) {
+        LivingEntity entity = event.getEntity();
+        Player killer = entity.getKiller();
+
+        if (killer == null) {
+            return;
+        }
+
+        IslandData island = plugin.getIslandService().findIslandByLocation(entity.getLocation(), 150.0D);
+        if (island == null) {
+            return;
+        }
+
+        MobDropService.DropRollResult result = plugin.getMobDropService().rollDrop(island.getId(), entity.getType());
+
+        if (!result.success()) {
+            return;
+        }
+
+        Currency currency = plugin.getCurrencyService().getCurrency(result.currencyId());
+        if (currency == null) {
+            plugin.getLogger().warning(() -> "Currency not found for mob drop: " + result.currencyId());
+            return;
+        }
+
+        currencyService.addBalance(killer.getUniqueId(), result.currencyId(), result.amount());
+
+        killer.sendMessage("§6PeaceCraft §8» §aПолучено §e" + result.amount() + " " + currency.getSymbol());
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\currencies\listener\ShopGuiListener.java
+------------------------------------------------------------
+package ru.peacecraft.core.currencies.listener;
+
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryDragEvent;
+import org.bukkit.inventory.Inventory;
+import ru.peacecraft.core.currencies.shop.ShopGUI;
+
+public final class ShopGuiListener implements Listener {
+
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    public void onInventoryClick(InventoryClickEvent event) {
+        Inventory topInventory = event.getView().getTopInventory();
+
+        if (!(topInventory.getHolder() instanceof ShopGUI)) {
+            return;
+        }
+
+        // Полностью запрещаем любые shift-click, number key swap, collect to cursor и т.п.
+        event.setCancelled(true);
+
+        // На будущее: здесь потом можно будет обработать клики по товарам
+        // if (event.getClickedInventory() == topInventory) { ... }
+    }
+
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    public void onInventoryDrag(InventoryDragEvent event) {
+        Inventory topInventory = event.getView().getTopInventory();
+
+        if (!(topInventory.getHolder() instanceof ShopGUI)) {
+            return;
+        }
+
+        int topSize = topInventory.getSize();
+
+        for (int rawSlot : event.getRawSlots()) {
+            if (rawSlot < topSize) {
+                event.setCancelled(true);
+                return;
+            }
+        }
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\currencies\model\Currency.java
+------------------------------------------------------------
+package ru.peacecraft.core.currencies.model;
+
+public final class Currency {
+
+    private final String id;
+    private final String name;
+    private final String displayName;
+    private final String symbol;
+    private final int decimalPlaces;
+
+    public Currency(String id, String name, String displayName, String symbol, int decimalPlaces) {
+        this.id = id;
+        this.name = name;
+        this.displayName = displayName;
+        this.symbol = symbol;
+        this.decimalPlaces = decimalPlaces;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public int getDecimalPlaces() {
+        return decimalPlaces;
+    }
+
+    public String format(double amount) {
+        if (decimalPlaces == 0) {
+            return String.format("%d %s", (int) amount, symbol);
+        }
+        return String.format("%." + decimalPlaces + "f %s", amount, symbol);
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\currencies\model\ShopItem.java
+------------------------------------------------------------
+package ru.peacecraft.core.currencies.model;
+
+import java.util.List;
+import org.bukkit.Material;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+
+public final class ShopItem {
+
+    private final String id;
+    private final String displayName;
+    private final Material material;
+    private final int customModelData;
+    private final double buyPrice;
+    private final double sellPrice;
+    private final String currencyId;
+    private final List<String> lore;
+
+    public ShopItem(
+        String id,
+        String displayName,
+        Material material,
+        int customModelData,
+        double buyPrice,
+        double sellPrice,
+        String currencyId,
+        List<String> lore
+    ) {
+        this.id = id;
+        this.displayName = displayName;
+        this.material = material;
+        this.customModelData = customModelData;
+        this.buyPrice = buyPrice;
+        this.sellPrice = sellPrice;
+        this.currencyId = currencyId;
+        this.lore = lore;
+    }
+
+    public static ShopItem fromConfig(String id, ConfigurationSection config) {
+        return new ShopItem(
+            id,
+            config.getString("display-name", "Unknown Item"),
+            Material.valueOf(config.getString("material", "STONE")),
+            config.getInt("custom-model-data", 0),
+            config.getDouble("buy-price", 0),
+            config.getDouble("sell-price", 0),
+            config.getString("currency", "scrap"),
+            config.getStringList("lore")
+        );
+    }
+
+    public ItemStack createItemStack() {
+        ItemStack item = new ItemStack(material);
+        ItemMeta meta = item.getItemMeta();
+        if (meta == null) return item;
+
+        meta.setDisplayName(displayName);
+        if (customModelData > 0) {
+            meta.setCustomModelData(customModelData);
+        }
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        return item;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public Material getMaterial() {
+        return material;
+    }
+
+    public int getCustomModelData() {
+        return customModelData;
+    }
+
+    public double getBuyPrice() {
+        return buyPrice;
+    }
+
+    public double getSellPrice() {
+        return sellPrice;
+    }
+
+    public String getCurrencyId() {
+        return currencyId;
+    }
+
+    public List<String> getLore() {
+        return lore;
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\currencies\service\CurrencyService.java
+------------------------------------------------------------
+package ru.peacecraft.core.currencies.service;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.currencies.model.Currency;
+
+public final class CurrencyService {
+
+    private static final String FILE_NAME = "currencies.yml";
+
+    private final PeaceCraftPlugin plugin;
+    private final Map<String, Currency> currenciesById = new LinkedHashMap<>();
+    private final Map<String, List<String>> currencyToIslands = new HashMap<>();
+
+    private File currenciesFile;
+    private FileConfiguration currenciesConfig;
+
+    public CurrencyService(PeaceCraftPlugin plugin) {
+        this.plugin = plugin;
+    }
+
+    public void load() {
+        currenciesById.clear();
+        currencyToIslands.clear();
+
+        ensureBundledResourceExists();
+        ensureFileExistsInDataFolder();
+
+        this.currenciesFile = new File(plugin.getDataFolder(), FILE_NAME);
+        this.currenciesConfig = YamlConfiguration.loadConfiguration(this.currenciesFile);
+
+        loadCurrencies();
+        plugin.getLogger().info(() -> "Loaded " + currenciesById.size() + " currencies.");
+    }
+
+    private void loadCurrencies() {
+        ConfigurationSection currenciesSection = currenciesConfig.getConfigurationSection("currencies");
+        if (currenciesSection == null) {
+            plugin.getLogger().warning("No currencies found in currencies.yml");
+            return;
+        }
+
+        for (String currencyId : currenciesSection.getKeys(false)) {
+            ConfigurationSection currencyConfig = currenciesSection.getConfigurationSection(currencyId);
+            if (currencyConfig == null) continue;
+
+            Currency currency = new Currency(
+                currencyConfig.getString("id", currencyId),
+                currencyConfig.getString("name", currencyId),
+                currencyConfig.getString("display-name", currencyId),
+                currencyConfig.getString("symbol", "$"),
+                currencyConfig.getInt("decimal-places", 0)
+            );
+
+            currenciesById.put(currencyId, currency);
+
+            // Загружаем привязку к островам
+            List<String> islands = currencyConfig.getStringList("islands");
+            currencyToIslands.put(currencyId, islands);
+        }
+    }
+
+    public void reload() {
+        if (this.currenciesFile == null) {
+            load();
+            return;
+        }
+
+        currenciesById.clear();
+        currencyToIslands.clear();
+
+        this.currenciesConfig = YamlConfiguration.loadConfiguration(this.currenciesFile);
+        loadCurrencies();
+        plugin.getLogger().info(() -> "Reloaded " + currenciesById.size() + " currencies.");
+    }
+
+    public Currency getCurrency(String id) {
+        return currenciesById.get(id);
+    }
+
+    public Collection<Currency> getAllCurrencies() {
+        return Collections.unmodifiableCollection(currenciesById.values());
+    }
+
+    public boolean hasCurrency(String id) {
+        return currenciesById.containsKey(id);
+    }
+
+    public List<String> getIslandsForCurrency(String currencyId) {
+        return currencyToIslands.getOrDefault(currencyId, new ArrayList<>());
+    }
+
+    public String getCurrencyForIsland(String islandId) {
+        for (Map.Entry<String, List<String>> entry : currencyToIslands.entrySet()) {
+            if (entry.getValue().contains(islandId)) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
+
+    private void ensureBundledResourceExists() {
+        if (plugin.getResource(FILE_NAME) == null) {
+            throw new IllegalStateException("Embedded resource not found in jar: " + FILE_NAME);
+        }
+    }
+
+    private void ensureFileExistsInDataFolder() {
+        File targetFile = new File(plugin.getDataFolder(), FILE_NAME);
+        if (!targetFile.exists()) {
+            plugin.saveResource(FILE_NAME, false);
+        }
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\currencies\service\PlayerCurrencyService.java
+------------------------------------------------------------
+package ru.peacecraft.core.currencies.service;
+
+import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+import ru.peacecraft.core.PeaceCraftPlugin;
+
+public final class PlayerCurrencyService {
+
+    private final PeaceCraftPlugin plugin;
+    private final Map<UUID, Map<String, Double>> playerBalances = new ConcurrentHashMap<>();
+
+    public PlayerCurrencyService(PeaceCraftPlugin plugin) {
+        this.plugin = plugin;
+    }
+
+    public double getBalance(UUID playerUuid, String currencyId) {
+        return playerBalances.computeIfAbsent(playerUuid, k -> new ConcurrentHashMap<>()).computeIfAbsent(currencyId, k -> 0.0);
+    }
+
+    public void addBalance(UUID playerUuid, String currencyId, double amount) {
+        Map<String, Double> balances = playerBalances.computeIfAbsent(playerUuid, k -> new ConcurrentHashMap<>());
+        double current = balances.getOrDefault(currencyId, 0.0);
+        balances.put(currencyId, current + amount);
+    }
+
+    public boolean removeBalance(UUID playerUuid, String currencyId, double amount) {
+        Map<String, Double> balances = playerBalances.computeIfAbsent(playerUuid, k -> new ConcurrentHashMap<>());
+        double current = balances.getOrDefault(currencyId, 0.0);
+
+        if (current < amount) {
+            return false;
+        }
+
+        balances.put(currencyId, current - amount);
+        return true;
+    }
+
+    public boolean hasBalance(UUID playerUuid, String currencyId, double amount) {
+        return getBalance(playerUuid, currencyId) >= amount;
+    }
+
+    public void setBalance(UUID playerUuid, String currencyId, double amount) {
+        playerBalances.computeIfAbsent(playerUuid, k -> new ConcurrentHashMap<>()).put(currencyId, amount);
+    }
+
+    public void saveAll() {
+        // Здесь будет сохранение в файлы/БД
+        // Для MVP сохраняем в PlayerData через Gson
+        plugin.getLogger().info(() -> "Saving currency balances for " + playerBalances.size() + " players.");
+    }
+
+    public void clearCache(UUID playerUuid) {
+        playerBalances.remove(playerUuid);
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\currencies\shop\ShopGUI.java
+------------------------------------------------------------
+package ru.peacecraft.core.currencies.shop;
+
+import java.util.List;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import ru.peacecraft.core.currencies.model.ShopItem;
+
+public final class ShopGUI implements InventoryHolder {
+
+    private static final String GUI_TITLE = "§6§lМагазин";
+    private static final int GUI_SIZE = 54;
+
+    private final List<ShopItem> items;
+    private Inventory inventory;
+
+    private ShopGUI(List<ShopItem> items) {
+        this.items = List.copyOf(items);
+    }
+
+    public static ShopGUI create(List<ShopItem> items) {
+        ShopGUI gui = new ShopGUI(items);
+        gui.inventory = Bukkit.createInventory(gui, GUI_SIZE, GUI_TITLE);
+        gui.populateInventory();
+        return gui;
+    }
+
+    private void populateInventory() {
+        int slot = 0;
+
+        for (ShopItem item : items) {
+            if (slot >= GUI_SIZE - 9) {
+                break;
+            }
+            inventory.setItem(slot, item.createItemStack());
+            slot++;
+        }
+
+        for (int i = slot; i < GUI_SIZE - 9; i++) {
+            inventory.setItem(i, createFillerItem());
+        }
+
+        setupNavigationRow();
+    }
+
+    private ItemStack createFillerItem() {
+        ItemStack item = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
+        ItemMeta meta = item.getItemMeta();
+        if (meta != null) {
+            meta.setDisplayName(" ");
+            item.setItemMeta(meta);
+        }
+        return item;
+    }
+
+    private void setupNavigationRow() {}
+
+    @Override
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void open(Player player) {
+        player.openInventory(inventory);
+    }
+
+    public List<ShopItem> getItems() {
+        return items;
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\islands\config\IslandsConfig.java
+------------------------------------------------------------
+package ru.peacecraft.core.islands.config;
+
+import java.io.File;
+import java.util.Set;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.islands.model.IslandCoordinate;
+import ru.peacecraft.core.islands.model.IslandData;
+import ru.peacecraft.core.islands.service.IslandRegistry;
+
+public final class IslandsConfig {
+
+    private static final String FILE_NAME = "islands.yml";
+
+    private final PeaceCraftPlugin plugin;
+    private final IslandRegistry islandRegistry;
+
+    private File islandsFile;
+    private FileConfiguration islandsConfig;
+
+    public IslandsConfig(PeaceCraftPlugin plugin, IslandRegistry islandRegistry) {
+        this.plugin = plugin;
+        this.islandRegistry = islandRegistry;
+    }
+
+    public void load() {
+        ensureBundledResourceExists();
+        ensureFileExistsInDataFolder();
+
+        this.islandsFile = new File(plugin.getDataFolder(), FILE_NAME);
+        this.islandsConfig = YamlConfiguration.loadConfiguration(this.islandsFile);
+
+        loadIslandsIntoRegistry();
+    }
+
+    public void reload() {
+        if (this.islandsFile == null) {
+            load();
+            return;
+        }
+
+        this.islandsConfig = YamlConfiguration.loadConfiguration(this.islandsFile);
+        loadIslandsIntoRegistry();
+    }
+
+    private void ensureBundledResourceExists() {
+        if (plugin.getResource(FILE_NAME) == null) {
+            throw new IllegalStateException("Embedded resource not found in jar: " + FILE_NAME);
+        }
+    }
+
+    private void ensureFileExistsInDataFolder() {
+        File targetFile = new File(plugin.getDataFolder(), FILE_NAME);
+
+        if (!targetFile.exists()) {
+            plugin.saveResource(FILE_NAME, false);
+        }
+    }
+
+    private void loadIslandsIntoRegistry() {
+        islandRegistry.clear();
+
+        ConfigurationSection islandsSection = islandsConfig.getConfigurationSection("islands");
+        if (islandsSection == null) {
+            throw new IllegalStateException("Missing 'islands' root section in islands.yml");
+        }
+
+        Set<String> islandIds = islandsSection.getKeys(false);
+        if (islandIds.isEmpty()) {
+            throw new IllegalStateException("No islands defined in islands.yml");
+        }
+
+        for (String islandId : islandIds) {
+            String basePath = "islands." + islandId;
+
+            IslandData islandData = new IslandData(
+                islandId,
+                requireString(basePath + ".display-name"),
+                requireString(basePath + ".world"),
+                requireString(basePath + ".region-id"),
+                islandsConfig.getString(basePath + ".currency-id", "scrap"),
+                requireString(basePath + ".unlock-requirement"),
+                requireCoordinate(basePath + ".center"),
+                requireCoordinate(basePath + ".spawn"),
+                requireCoordinate(basePath + ".port"),
+                requireCoordinate(basePath + ".compass-target")
+            );
+
+            islandRegistry.register(islandData);
+        }
+    }
+
+    private String requireString(String path) {
+        String value = islandsConfig.getString(path);
+        if (value == null || value.isBlank()) {
+            throw new IllegalStateException("Missing or blank string in islands.yml: " + path);
+        }
+        return value;
+    }
+
+    private IslandCoordinate requireCoordinate(String path) {
+        if (!islandsConfig.isConfigurationSection(path)) {
+            throw new IllegalStateException("Missing coordinate section in islands.yml: " + path);
+        }
+
+        double x = islandsConfig.getDouble(path + ".x");
+        double y = islandsConfig.getDouble(path + ".y");
+        double z = islandsConfig.getDouble(path + ".z");
+
+        return new IslandCoordinate(x, y, z);
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\islands\listener\IslandDiscoveryListener.java
+------------------------------------------------------------
+package ru.peacecraft.core.islands.listener;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.islands.model.IslandData;
+import ru.peacecraft.core.islands.model.IslandEnterResult;
+import ru.peacecraft.core.islands.service.IslandService;
+import ru.peacecraft.core.islands.service.PlayerOnboardingService;
+
+public final class IslandDiscoveryListener implements Listener {
+
+    private final PeaceCraftPlugin plugin;
+    private final IslandService islandService;
+    private final PlayerOnboardingService onboardingService;
+    private final Set<UUID> movementCheckCooldown = new HashSet<>();
+
+    public IslandDiscoveryListener(PeaceCraftPlugin plugin, IslandService islandService, PlayerOnboardingService onboardingService) {
+        this.plugin = plugin;
+        this.islandService = islandService;
+        this.onboardingService = onboardingService;
+    }
+
+    @EventHandler(priority = EventPriority.MONITOR)
+    public void onPlayerJoin(PlayerJoinEvent event) {
+        onboardingService.handleFirstJoin(event.getPlayer());
+    }
+
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+    public void onPlayerMove(PlayerMoveEvent event) {
+        Player player = event.getPlayer();
+        UUID playerId = player.getUniqueId();
+
+        if (movementCheckCooldown.contains(playerId)) {
+            return;
+        }
+
+        Location from = event.getFrom();
+        Location to = event.getTo();
+
+        if ((from.getBlockX() >> 4) == (to.getBlockX() >> 4) && (from.getBlockZ() >> 4) == (to.getBlockZ() >> 4)) {
+            return;
+        }
+
+        movementCheckCooldown.add(playerId);
+        plugin
+            .getServer()
+            .getScheduler()
+            .runTaskLater(plugin, () -> movementCheckCooldown.remove(playerId), 20L);
+
+        IslandEnterResult result = islandService.handlePlayerMovement(playerId, to);
+        if (!result.hasChanges()) {
+            return;
+        }
+
+        if (result.isDiscoveredNow()) {
+            IslandData island = islandService.getIslandById(result.getIslandId());
+            if (island != null) {
+                player.sendMessage("§6§l=== Новый остров обнаружен! ===");
+                player.sendMessage("§e" + island.getDisplayName() + " §7(" + island.getId() + ")");
+                player.sendMessage("§7Исследуйте остров, чтобы найти сокровища и победить босса!");
+                player.sendMessage("§6==============================");
+
+                plugin.getLogger().info(() -> "Player " + player.getName() + " discovered island: " + island.getId());
+            }
+        }
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\islands\model\IslandCoordinate.java
+------------------------------------------------------------
+package ru.peacecraft.core.islands.model;
+
+public final class IslandCoordinate {
+
+    private final double x;
+    private final double y;
+    private final double z;
+
+    public IslandCoordinate(double x, double y, double z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getZ() {
+        return z;
+    }
+
+    @Override
+    public String toString() {
+        return "IslandCoordinate{" + "x=" + x + ", y=" + y + ", z=" + z + '}';
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\islands\model\IslandData.java
+------------------------------------------------------------
+package ru.peacecraft.core.islands.model;
+
+public final class IslandData {
+
+    private final String id;
+    private final String displayName;
+    private final String worldName;
+    private final String regionId;
+    private final String currencyId;
+    private final String unlockRequirement;
+
+    private final IslandCoordinate center;
+    private final IslandCoordinate spawn;
+    private final IslandCoordinate port;
+    private final IslandCoordinate compassTarget;
+
+    public IslandData(
+        String id,
+        String displayName,
+        String worldName,
+        String regionId,
+        String currencyId,
+        String unlockRequirement,
+        IslandCoordinate center,
+        IslandCoordinate spawn,
+        IslandCoordinate port,
+        IslandCoordinate compassTarget
+    ) {
+        this.id = id;
+        this.displayName = displayName;
+        this.worldName = worldName;
+        this.regionId = regionId;
+        this.currencyId = currencyId;
+        this.unlockRequirement = unlockRequirement;
+        this.center = center;
+        this.spawn = spawn;
+        this.port = port;
+        this.compassTarget = compassTarget;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public String getWorldName() {
+        return worldName;
+    }
+
+    public String getRegionId() {
+        return regionId;
+    }
+
+    public String getCurrencyId() {
+        return currencyId;
+    }
+
+    public String getUnlockRequirement() {
+        return unlockRequirement;
+    }
+
+    public IslandCoordinate getCenter() {
+        return center;
+    }
+
+    public IslandCoordinate getSpawn() {
+        return spawn;
+    }
+
+    public IslandCoordinate getPort() {
+        return port;
+    }
+
+    public IslandCoordinate getCompassTarget() {
+        return compassTarget;
+    }
+
+    @Override
+    public String toString() {
+        return (
+            "IslandData{" +
+            "id='" +
+            id +
+            '\'' +
+            ", displayName='" +
+            displayName +
+            '\'' +
+            ", worldName='" +
+            worldName +
+            '\'' +
+            ", regionId='" +
+            regionId +
+            '\'' +
+            ", currencyId='" +
+            currencyId +
+            '\'' +
+            ", unlockRequirement='" +
+            unlockRequirement +
+            '\'' +
+            ", center=" +
+            center +
+            ", spawn=" +
+            spawn +
+            ", port=" +
+            port +
+            ", compassTarget=" +
+            compassTarget +
+            '}'
+        );
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\islands\model\IslandEnterResult.java
+------------------------------------------------------------
+package ru.peacecraft.core.islands.model;
+
+public final class IslandEnterResult {
+
+    private static final IslandEnterResult NONE = new IslandEnterResult(false, false, null);
+
+    private final boolean discoveredNow;
+    private final boolean currentIslandChanged;
+    private final String islandId;
+
+    public IslandEnterResult(boolean discoveredNow, boolean currentIslandChanged, String islandId) {
+        this.discoveredNow = discoveredNow;
+        this.currentIslandChanged = currentIslandChanged;
+        this.islandId = islandId;
+    }
+
+    public static IslandEnterResult none() {
+        return NONE;
+    }
+
+    public boolean isDiscoveredNow() {
+        return discoveredNow;
+    }
+
+    public boolean isCurrentIslandChanged() {
+        return currentIslandChanged;
+    }
+
+    public String getIslandId() {
+        return islandId;
+    }
+
+    public boolean hasChanges() {
+        return discoveredNow || currentIslandChanged;
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\islands\service\IslandRegistry.java
+------------------------------------------------------------
+package ru.peacecraft.core.islands.service;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import ru.peacecraft.core.islands.model.IslandData;
+
+public final class IslandRegistry {
+
+    private final Map<String, IslandData> islandsById = new LinkedHashMap<>();
+
+    public void clear() {
+        islandsById.clear();
+    }
+
+    public void register(IslandData islandData) {
+        String islandId = islandData.getId();
+
+        if (islandId == null || islandId.isBlank()) {
+            throw new IllegalArgumentException("Island id cannot be null or blank.");
+        }
+
+        if (islandsById.containsKey(islandId)) {
+            throw new IllegalArgumentException("Duplicate island id detected: " + islandId);
+        }
+
+        islandsById.put(islandId, islandData);
+    }
+
+    public IslandData getById(String islandId) {
+        return islandsById.get(islandId);
+    }
+
+    public boolean contains(String islandId) {
+        return islandsById.containsKey(islandId);
+    }
+
+    public Collection<IslandData> getAll() {
+        return Collections.unmodifiableCollection(islandsById.values());
+    }
+
+    public int size() {
+        return islandsById.size();
+    }
+
+    public boolean isEmpty() {
+        return islandsById.isEmpty();
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\islands\service\IslandService.java
+------------------------------------------------------------
+package ru.peacecraft.core.islands.service;
+
+import java.util.Collection;
+import org.bukkit.Location;
+import ru.peacecraft.core.config.ConfigManager;
+import ru.peacecraft.core.islands.model.IslandCoordinate;
+import ru.peacecraft.core.islands.model.IslandData;
+import ru.peacecraft.core.islands.model.IslandEnterResult;
+import ru.peacecraft.core.persistence.model.PlayerData;
+import ru.peacecraft.core.persistence.service.PlayerDataService;
+
+public final class IslandService {
+
+    private static final double DEFAULT_DISCOVERY_RADIUS = 100.0D;
+
+    private final IslandRegistry islandRegistry;
+    private final ConfigManager configManager;
+    private final PlayerDataService playerDataService;
+
+    public IslandService(IslandRegistry islandRegistry, ConfigManager configManager, PlayerDataService playerDataService) {
+        this.islandRegistry = islandRegistry;
+        this.configManager = configManager;
+        this.playerDataService = playerDataService;
+    }
+
+    public boolean islandExists(String islandId) {
+        return islandRegistry.contains(islandId);
+    }
+
+    public IslandData getIslandById(String islandId) {
+        return islandRegistry.getById(islandId);
+    }
+
+    public Collection<IslandData> getAllIslands() {
+        return islandRegistry.getAll();
+    }
+
+    public IslandData getStarterIsland() {
+        String starterIslandId = configManager.getStarterIslandId();
+        return starterIslandId == null ? null : islandRegistry.getById(starterIslandId);
+    }
+
+    public int getLoadedIslandCount() {
+        return islandRegistry.size();
+    }
+
+    public boolean discoverIsland(java.util.UUID playerId, String islandId) {
+        if (!islandExists(islandId)) {
+            return false;
+        }
+
+        PlayerData playerData = playerDataService.getPlayerData(playerId);
+        return playerData.addDiscoveredIsland(islandId);
+    }
+
+    public boolean unlockIsland(java.util.UUID playerId, String islandId) {
+        if (!islandExists(islandId)) {
+            return false;
+        }
+
+        PlayerData playerData = playerDataService.getPlayerData(playerId);
+        return playerData.addUnlockedIsland(islandId);
+    }
+
+    public boolean setCurrentIsland(java.util.UUID playerId, String islandId) {
+        if (!islandExists(islandId)) {
+            return false;
+        }
+
+        PlayerData playerData = playerDataService.getPlayerData(playerId);
+        return playerData.setCurrentIslandId(islandId);
+    }
+
+    public IslandEnterResult handlePlayerMovement(java.util.UUID playerId, Location location) {
+        if (location == null) {
+            return IslandEnterResult.none();
+        }
+
+        PlayerData playerData = playerDataService.getPlayerData(playerId);
+
+        for (IslandData island : islandRegistry.getAll()) {
+            if (playerData.isIslandDiscovered(island.getId())) {
+                continue;
+            }
+
+            if (isWithinDiscoveryRadius(location, island, DEFAULT_DISCOVERY_RADIUS)) {
+                boolean discoveredNow = discoverIsland(playerId, island.getId());
+                boolean changedCurrent = setCurrentIsland(playerId, island.getId());
+
+                if (discoveredNow || changedCurrent) {
+                    playerDataService.save(playerId);
+                }
+
+                return new IslandEnterResult(discoveredNow, changedCurrent, island.getId());
+            }
+        }
+
+        IslandData currentIsland = findIslandByLocation(location, DEFAULT_DISCOVERY_RADIUS);
+        if (currentIsland != null) {
+            boolean changedCurrent = setCurrentIsland(playerId, currentIsland.getId());
+            if (changedCurrent) {
+                return new IslandEnterResult(false, true, currentIsland.getId());
+            }
+        }
+
+        return IslandEnterResult.none();
+    }
+
+    public IslandData findIslandByLocation(Location location, double radius) {
+        if (location == null) {
+            return null;
+        }
+
+        for (IslandData island : islandRegistry.getAll()) {
+            if (isWithinDiscoveryRadius(location, island, radius)) {
+                return island;
+            }
+        }
+
+        return null;
+    }
+
+    private boolean isWithinDiscoveryRadius(Location location, IslandData island, double radius) {
+        return getHorizontalDistance(location, island.getCenter()) <= radius;
+    }
+
+    private double getHorizontalDistance(Location location, IslandCoordinate coordinate) {
+        double dx = location.getX() - coordinate.getX();
+        double dz = location.getZ() - coordinate.getZ();
+        return Math.sqrt((dx * dx) + (dz * dz));
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\islands\service\PlayerOnboardingService.java
+------------------------------------------------------------
+package ru.peacecraft.core.islands.service;
+
+import java.util.logging.Logger;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+import ru.peacecraft.core.config.ConfigManager;
+import ru.peacecraft.core.islands.model.IslandData;
+import ru.peacecraft.core.logpose.model.LogPoseTarget;
+import ru.peacecraft.core.logpose.service.LogPoseService;
+import ru.peacecraft.core.persistence.model.PlayerData;
+import ru.peacecraft.core.persistence.service.PlayerDataService;
+
+public final class PlayerOnboardingService {
+
+    private final ConfigManager configManager;
+    private final IslandService islandService;
+    private final PlayerDataService playerDataService;
+    private final LogPoseService logPoseService;
+
+    @SuppressWarnings("NonConstantLogger")
+    private final Logger logger;
+
+    public PlayerOnboardingService(
+        ConfigManager configManager,
+        IslandService islandService,
+        PlayerDataService playerDataService,
+        LogPoseService logPoseService,
+        Logger logger
+    ) {
+        this.configManager = configManager;
+        this.islandService = islandService;
+        this.playerDataService = playerDataService;
+        this.logPoseService = logPoseService;
+        this.logger = logger;
+    }
+
+    public void handleFirstJoin(Player player) {
+        PlayerData playerData = playerDataService.getPlayerData(player);
+
+        if (playerData.hasAnyDiscoveredIsland()) {
+            return;
+        }
+
+        IslandData starterIsland = islandService.getStarterIsland();
+        if (starterIsland == null) {
+            throw new IllegalStateException("Starter island was not found.");
+        }
+
+        islandService.discoverIsland(player.getUniqueId(), starterIsland.getId());
+        islandService.unlockIsland(player.getUniqueId(), starterIsland.getId());
+        islandService.setCurrentIsland(player.getUniqueId(), starterIsland.getId());
+
+        Location spawnLocation = new Location(
+            player.getWorld(),
+            starterIsland.getSpawn().getX(),
+            starterIsland.getSpawn().getY(),
+            starterIsland.getSpawn().getZ()
+        );
+
+        player.teleportAsync(spawnLocation);
+
+        if (configManager.shouldGiveStarterLogPose()) {
+            logPoseService.giveLogPose(player);
+
+            LogPoseTarget target = LogPoseTarget.fromIsland(starterIsland, true);
+            logPoseService.setTargetForPlayer(player, target);
+
+            playerDataService.markDirty(player);
+        }
+
+        playerDataService.save(player);
+
+        logger.info(() -> "Teleported new player " + player.getName() + " to starter island: " + starterIsland.getId());
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\logpose\commands\LogPoseCommand.java
+------------------------------------------------------------
+package ru.peacecraft.core.logpose.commands;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.commands.BaseCommand;
+import ru.peacecraft.core.islands.model.IslandData;
+import ru.peacecraft.core.logpose.model.LogPoseTarget;
+import ru.peacecraft.core.logpose.service.LogPoseService;
+
+public final class LogPoseCommand extends BaseCommand implements CommandExecutor, TabCompleter {
+
+    private final LogPoseService logPoseService;
+
+    public LogPoseCommand(PeaceCraftPlugin plugin, LogPoseService logPoseService) {
+        super(plugin);
+        this.logPoseService = logPoseService;
+    }
+
+    @Override
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        if (!(sender instanceof Player player)) {
+            sender.sendMessage(messageService.get("general.player-only"));
+            return true;
+        }
+
+        if (args.length == 0) {
+            // /logpose — выдать предмет
+            logPoseService.giveLogPose(player);
+            return true;
+        }
+
+        String subCommand = args[0].toLowerCase();
+
+        return switch (subCommand) {
+            case "set" -> handleSet(player, args);
+            case "reset" -> handleReset(player);
+            case "info" -> handleInfo(player);
+            default -> {
+                sendUsage(player);
+                yield true;
+            }
+        };
+    }
+
+    private boolean handleSet(Player player, String[] args) {
+        if (args.length < 2) {
+            player.sendMessage("§cИспользование: /logpose set <остров>");
+            return true;
+        }
+
+        var result = logPoseService.setTargetByIslandId(player, args[1]);
+        player.sendMessage(result.message());
+        return true;
+    }
+
+    private boolean handleReset(Player player) {
+        logPoseService.resetTarget(player);
+        player.sendMessage("§aЦель Log Pose сброшена.");
+        return true;
+    }
+
+    private boolean handleInfo(Player player) {
+        LogPoseTarget currentTarget = logPoseService.getTargetFromItem(player.getInventory().getItemInMainHand());
+
+        if (currentTarget == null) {
+            player.sendMessage("§7У вас нет активной цели Log Pose.");
+            return true;
+        }
+
+        player.sendMessage("§6§l=== Информация Log Pose ===");
+        player.sendMessage("§eЦель: §7" + currentTarget.getDisplayName());
+        player.sendMessage("§eТип: §7" + currentTarget.getType());
+        player.sendMessage(
+            "§eКоординаты: §7" +
+                currentTarget.getLocation().getBlockX() +
+                ", " +
+                currentTarget.getLocation().getBlockY() +
+                ", " +
+                currentTarget.getLocation().getBlockZ()
+        );
+        player.sendMessage("§eСтатус: §7" + (currentTarget.isUnlocked() ? "§aОткрыт" : "§cЗакрыт"));
+
+        return true;
+    }
+
+    private void sendUsage(Player player) {
+        player.sendMessage("§6§l=== Log Pose Команды ===");
+        player.sendMessage("§e/logpose §7- Получить Log Pose");
+        player.sendMessage("§e/logpose set <остров> §7- Установить цель");
+        player.sendMessage("§e/logpose reset §7- Сбросить цель");
+        player.sendMessage("§e/logpose info §7- Информация о текущей цели");
+    }
+
+    @Override
+    public @Nullable List<String> onTabComplete(
+        @NotNull CommandSender sender,
+        @NotNull Command command,
+        @NotNull String label,
+        @NotNull String[] args
+    ) {
+        if (args.length == 1) {
+            return getMatchingSubCommands(Arrays.asList("set", "reset", "info"), args[0]);
+        }
+
+        if (args.length == 2 && args[0].equalsIgnoreCase("set")) {
+            return getMatchingIslands(args[1]);
+        }
+
+        return null;
+    }
+
+    private List<String> getMatchingSubCommands(List<String> subCommands, String arg) {
+        List<String> result = new ArrayList<>();
+        for (String subCommand : subCommands) {
+            if (subCommand.toLowerCase().startsWith(arg.toLowerCase())) {
+                result.add(subCommand);
+            }
+        }
+        return result;
+    }
+
+    private List<String> getMatchingIslands(String arg) {
+        List<String> result = new ArrayList<>();
+        for (IslandData island : plugin.getIslandService().getAllIslands()) {
+            if (island.getId().toLowerCase().startsWith(arg.toLowerCase())) {
+                result.add(island.getId());
+            }
+        }
+        return result;
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\logpose\listener\LogPoseInteractionListener.java
+------------------------------------------------------------
+package ru.peacecraft.core.logpose.listener;
+
+import java.util.List;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerItemHeldEvent;
+import org.bukkit.inventory.ItemStack;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.logpose.model.LogPoseTarget;
+import ru.peacecraft.core.logpose.service.LogPoseService;
+import ru.peacecraft.core.persistence.model.PlayerData;
+
+public final class LogPoseInteractionListener implements Listener {
+
+    private final PeaceCraftPlugin plugin;
+    private final LogPoseService logPoseService;
+
+    public LogPoseInteractionListener(PeaceCraftPlugin plugin, LogPoseService logPoseService) {
+        this.plugin = plugin;
+        this.logPoseService = logPoseService;
+    }
+
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = false)
+    public void onPlayerInteract(PlayerInteractEvent event) {
+        Player player = event.getPlayer();
+        ItemStack item = event.getItem();
+
+        // 🔴 INFO вместо fine для отладки
+        plugin.getLogger().info(() -> "[LogPose] Interact event fired for " + player.getName());
+
+        if (item == null) {
+            plugin.getLogger().info("[LogPose] Item is null");
+            return;
+        }
+
+        if (!logPoseService.hasLogPose(item)) {
+            plugin.getLogger().info(() -> "[LogPose] Item is not Log Pose (type: " + item.getType() + ")");
+            return;
+        }
+
+        plugin.getLogger().info(() -> "[LogPose] Valid Log Pose detected");
+
+        Action action = event.getAction();
+        plugin.getLogger().info(() -> "[LogPose] Action: " + action + ", Sneaking: " + player.isSneaking());
+
+        if (action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK) {
+            event.setCancelled(true);
+            plugin.getLogger().info(() -> "[LogPose] Right click cancelled");
+
+            if (player.isSneaking()) {
+                LogPoseTarget currentTarget = logPoseService.getTargetFromItem(item);
+                if (currentTarget != null) {
+                    player.sendMessage("§6PeaceCraft §8» §7Цель закреплена: §e" + currentTarget.getDisplayName());
+                } else {
+                    player.sendMessage("§6PeaceCraft §8» §7Цель не выбрана. Нажмите ПКМ для выбора.");
+                }
+            } else {
+                plugin.getLogger().info("[LogPose] Opening target menu");
+                openTargetMenu(player);
+            }
+            return;
+        }
+
+        // ЛКМ — переключение цели
+        if (action == Action.LEFT_CLICK_AIR || action == Action.LEFT_CLICK_BLOCK) {
+            event.setCancelled(true);
+            plugin.getLogger().info("[LogPose] Left click - cycling target");
+            cycleTarget(player);
+        }
+    }
+
+    @EventHandler(priority = EventPriority.MONITOR)
+    public void onPlayerItemHeld(PlayerItemHeldEvent event) {
+        Player player = event.getPlayer();
+        ItemStack newItem = player.getInventory().getItem(event.getNewSlot());
+
+        if (newItem != null && logPoseService.hasLogPose(newItem)) {
+            LogPoseTarget target = logPoseService.getTargetFromItem(newItem);
+            if (target != null && target.getLocation() != null) {
+                player.setCompassTarget(target.getLocation());
+            }
+        }
+    }
+
+    private void cycleTarget(Player player) {
+        List<LogPoseTarget> targets = logPoseService.getAvailableTargets(player);
+        if (targets.isEmpty()) {
+            player.sendMessage("§6PeaceCraft §8» §7Нет доступных целей.");
+            return;
+        }
+
+        PlayerData playerData = plugin.getPlayerDataService().getPlayerData(player.getUniqueId());
+        String currentTargetId = playerData.getActiveLogPoseTarget();
+
+        // Находим следующую разблокированную цель
+        LogPoseTarget nextTarget = null;
+        boolean foundCurrent = false;
+
+        for (LogPoseTarget target : targets) {
+            if (foundCurrent && target.isUnlocked()) {
+                nextTarget = target;
+                break;
+            }
+            if (target.getTargetId().equals(currentTargetId)) {
+                foundCurrent = true;
+            }
+        }
+
+        // Если не нашли следующую, берём первую разблокированную
+        if (nextTarget == null) {
+            for (LogPoseTarget target : targets) {
+                if (target.isUnlocked()) {
+                    nextTarget = target;
+                    break;
+                }
+            }
+        }
+
+        if (nextTarget != null) {
+            logPoseService.setTargetForPlayer(player, nextTarget);
+        } else {
+            player.sendMessage("§6PeaceCraft §8» §7Нет разблокированных целей.");
+        }
+    }
+
+    private void openTargetMenu(Player player) {
+        PlayerData playerData = plugin.getPlayerDataService().getPlayerData(player.getUniqueId());
+        List<LogPoseTarget> targets = logPoseService.getAvailableTargets(player);
+
+        plugin.getLogger().info(() -> "[LogPose] Menu: " + targets.size() + " targets available");
+
+        player.sendMessage("");
+        player.sendMessage("§6§l=== Доступные цели ===");
+
+        int index = 0;
+        for (LogPoseTarget target : targets) {
+            index++;
+            String status = target.isUnlocked() ? "§a[Открыт]" : "§7[Закрыт]";
+            String prefix =
+                playerData.getActiveLogPoseTarget() != null && playerData.getActiveLogPoseTarget().equals(target.getTargetId())
+                    ? "§e► "
+                    : "§8  ";
+
+            player.sendMessage(prefix + index + ". " + target.getDisplayName() + " " + status);
+        }
+
+        player.sendMessage("§8========================");
+        player.sendMessage("§7Нажмите §eЛКМ §7по Log Pose для переключения цели");
+        player.sendMessage("§7Нажмите §eShift+ПКМ §7для закрепления цели");
+        player.sendMessage("");
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\logpose\model\LogPoseSetResult.java
+------------------------------------------------------------
+package ru.peacecraft.core.logpose.model;
+
+public record LogPoseSetResult(boolean success, String message) {
+    public static LogPoseSetResult ok(String message) {
+        return new LogPoseSetResult(true, message);
+    }
+
+    public static LogPoseSetResult fail(String message) {
+        return new LogPoseSetResult(false, message);
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\logpose\model\LogPoseTarget.java
+------------------------------------------------------------
+package ru.peacecraft.core.logpose.model;
+
+import org.bukkit.Location;
+import ru.peacecraft.core.islands.model.IslandData;
+
+public final class LogPoseTarget {
+
+    private final String targetId;
+    private final TargetType type;
+    private final String islandId;
+    private final Location location;
+    private final String displayName;
+    private final boolean unlocked;
+
+    public enum TargetType {
+        ISLAND,
+        PORT,
+        BOSS,
+        QUEST
+    }
+
+    public LogPoseTarget(String targetId, TargetType type, String islandId, Location location, String displayName, boolean unlocked) {
+        this.targetId = targetId;
+        this.type = type;
+        this.islandId = islandId;
+        this.location = location;
+        this.displayName = displayName;
+        this.unlocked = unlocked;
+    }
+
+    public static LogPoseTarget fromIsland(IslandData island, boolean unlocked) {
+        return new LogPoseTarget(
+            island.getId(),
+            TargetType.ISLAND,
+            island.getId(),
+            new Location(
+                org.bukkit.Bukkit.getWorld(island.getWorldName()),
+                island.getCompassTarget().getX(),
+                island.getCompassTarget().getY(),
+                island.getCompassTarget().getZ()
+            ),
+            island.getDisplayName(),
+            unlocked
+        );
+    }
+
+    // Getters
+    public String getTargetId() {
+        return targetId;
+    }
+
+    public TargetType getType() {
+        return type;
+    }
+
+    public String getIslandId() {
+        return islandId;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public boolean isUnlocked() {
+        return unlocked;
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\logpose\service\LogPoseService.java
+------------------------------------------------------------
+package ru.peacecraft.core.logpose.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataType;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.islands.model.IslandData;
+import ru.peacecraft.core.logpose.model.LogPoseSetResult;
+import ru.peacecraft.core.logpose.model.LogPoseTarget;
+import ru.peacecraft.core.logpose.model.LogPoseTarget.TargetType;
+import ru.peacecraft.core.persistence.model.PlayerData;
+
+public final class LogPoseService {
+
+    private final PeaceCraftPlugin plugin;
+    private final NamespacedKey targetKey;
+    private final NamespacedKey targetTypeKey;
+
+    public LogPoseService(PeaceCraftPlugin plugin) {
+        this.plugin = plugin;
+        this.targetKey = new NamespacedKey(plugin, "logpose_target");
+        this.targetTypeKey = new NamespacedKey(plugin, "logpose_type");
+    }
+
+    public ItemStack createLogPoseItem() {
+        ItemStack item = new ItemStack(Material.COMPASS);
+        ItemMeta meta = item.getItemMeta();
+        if (meta == null) return item;
+
+        meta.setDisplayName("§6§lLog Pose §8» §7Навигатор");
+        List<String> lore = new ArrayList<>();
+        lore.add("§7Ваш главный навигационный инструмент.");
+        lore.add("");
+        lore.add("§8▪ §7ПКМ §8— §7Открыть меню целей");
+        lore.add("§8▪ §7Shift+ПКМ §8— §7Закрепить цель");
+        lore.add("§8▪ §7ЛКМ §8— §7Переключить цель");
+        lore.add("");
+        lore.add("§eТекущая цель: §7Не выбрана");
+        meta.setLore(lore);
+        meta.addEnchant(Enchantment.UNBREAKING, 1, true);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        meta.setUnbreakable(true);
+
+        meta.getPersistentDataContainer().set(targetKey, PersistentDataType.STRING, "none");
+        meta.getPersistentDataContainer().set(targetTypeKey, PersistentDataType.STRING, TargetType.ISLAND.name());
+
+        item.setItemMeta(meta);
+        return item;
+    }
+
+    public ItemStack createLogPoseWithTarget(Player player, LogPoseTarget target) {
+        ItemStack item = createLogPoseItem();
+        ItemMeta meta = item.getItemMeta();
+        if (meta == null) return item;
+
+        // Обновляем lore с текущей целью
+        List<String> lore = meta.getLore();
+        if (lore != null) {
+            for (int i = 0; i < lore.size(); i++) {
+                if (lore.get(i).contains("Текущая цель:")) {
+                    lore.set(i, "§eТекущая цель: §7" + target.getDisplayName());
+                    break;
+                }
+            }
+            meta.setLore(lore);
+        }
+
+        // Сохраняем метаданные
+        meta.getPersistentDataContainer().set(targetKey, PersistentDataType.STRING, target.getTargetId());
+        meta.getPersistentDataContainer().set(targetTypeKey, PersistentDataType.STRING, target.getType().name());
+        item.setItemMeta(meta);
+
+        return item;
+    }
+
+    public LogPoseTarget getTargetFromItem(ItemStack item) {
+        if (item == null || !item.hasItemMeta()) return null;
+        ItemMeta meta = item.getItemMeta();
+        if (meta == null) return null;
+
+        String targetId = meta.getPersistentDataContainer().get(targetKey, PersistentDataType.STRING);
+        String typeName = meta.getPersistentDataContainer().get(targetTypeKey, PersistentDataType.STRING);
+
+        if (targetId == null || typeName == null) return null;
+
+        try {
+            LogPoseTarget.TargetType.valueOf(typeName);
+        } catch (IllegalArgumentException e) {
+            return null;
+        }
+
+        IslandData island = plugin.getIslandService().getIslandById(targetId);
+        if (island == null) return null;
+
+        return LogPoseTarget.fromIsland(island, true);
+    }
+
+    public void setTargetForPlayer(Player player, LogPoseTarget target) {
+        // Сохраняем в данные игрока
+        PlayerData playerData = plugin.getPlayerDataService().getPlayerData(player.getUniqueId());
+        playerData.setActiveLogPoseTarget(target.getTargetId());
+        plugin.getPlayerDataService().savePlayer(player);
+
+        // Обновляем предмет в основной руке
+        ItemStack item = player.getInventory().getItemInMainHand();
+        if (item.getType() == Material.COMPASS && hasLogPose(item)) {
+            ItemStack newItem = createLogPoseWithTarget(player, target);
+            player.getInventory().setItemInMainHand(newItem);
+        }
+
+        // Устанавливаем компас на цель (ванильная механика)
+        if (target.getLocation() != null) {
+            player.setCompassTarget(target.getLocation());
+        }
+
+        // Отправляем сообщение
+        player.sendMessage("§6PeaceCraft §8» §aЦель установлена: §e" + target.getDisplayName());
+    }
+
+    public List<LogPoseTarget> getAvailableTargets(Player player) {
+        List<LogPoseTarget> targets = new ArrayList<>();
+        PlayerData playerData = plugin.getPlayerDataService().getPlayerData(player.getUniqueId());
+
+        for (IslandData island : plugin.getIslandService().getAllIslands()) {
+            boolean unlocked = playerData.isIslandUnlocked(island.getId());
+            targets.add(LogPoseTarget.fromIsland(island, unlocked));
+        }
+
+        return targets;
+    }
+
+    public boolean hasLogPose(ItemStack item) {
+        if (item == null || !item.hasItemMeta()) return false;
+        ItemMeta meta = item.getItemMeta();
+        if (meta == null) return false;
+        return meta.getPersistentDataContainer().has(targetKey, PersistentDataType.STRING);
+    }
+
+    public boolean playerHasLogPose(Player player) {
+        ItemStack[] contents = player.getInventory().getContents();
+        if (contents == null) return false;
+        for (ItemStack item : contents) {
+            if (hasLogPose(item)) return true;
+        }
+        return false;
+    }
+
+    public void giveLogPose(Player player) {
+        if (playerHasLogPose(player)) {
+            player.sendMessage("§6PeaceCraft §8» §7У вас уже есть Log Pose!");
+            return;
+        }
+
+        ItemStack logPose = createLogPoseItem();
+        player.getInventory().addItem(logPose);
+        player.sendMessage("§6PeaceCraft §8» §aВы получили Log Pose!");
+    }
+
+    public PeaceCraftPlugin getPlugin() {
+        return plugin;
+    }
+
+    public LogPoseSetResult setTargetByIslandId(Player player, String islandId) {
+        IslandData island = plugin.getIslandService().getIslandById(islandId);
+        if (island == null) {
+            return LogPoseSetResult.fail("§cОстров не найден: " + islandId);
+        }
+
+        PlayerData playerData = plugin.getPlayerDataService().getPlayerData(player);
+        if (!playerData.isIslandUnlocked(islandId) && !island.getId().equals(plugin.getMainConfigManager().getStarterIslandId())) {
+            return LogPoseSetResult.fail("§cЭтот остров ещё не открыт.");
+        }
+
+        LogPoseTarget target = LogPoseTarget.fromIsland(island, true);
+        setTargetForPlayer(player, target);
+        plugin.getPlayerDataService().markDirty(player);
+        plugin.getPlayerDataService().save(player);
+
+        return LogPoseSetResult.ok("§aЦель Log Pose установлена: §6" + island.getDisplayName());
+    }
+
+    public void resetTarget(Player player) {
+        PlayerData playerData = plugin.getPlayerDataService().getPlayerData(player);
+        playerData.setActiveLogPoseTarget(null);
+        plugin.getPlayerDataService().save(player);
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\message\MessageService.java
+------------------------------------------------------------
+package ru.peacecraft.core.message;
+
+import java.io.File;
+import org.bukkit.ChatColor;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.config.ConfigManager;
+
+public final class MessageService {
+
+    private final PeaceCraftPlugin plugin;
+    private final ConfigManager configManager;
+
+    private File messageFile;
+    private FileConfiguration messages;
+    private boolean loaded;
+
+    public MessageService(PeaceCraftPlugin plugin, ConfigManager configManager) {
+        this.plugin = plugin;
+        this.configManager = configManager;
+    }
+
+    public void load() {
+        String language = configManager.getLanguage();
+        String fileName = "messages_" + language + ".yml";
+
+        ensureBundledResourceExists(fileName);
+        ensureFileExistsInDataFolder(fileName);
+
+        this.messageFile = new File(plugin.getDataFolder(), fileName);
+        this.messages = YamlConfiguration.loadConfiguration(this.messageFile);
+        this.loaded = true;
+    }
+
+    public void reload() {
+        if (this.messageFile == null) {
+            load();
+            return;
+        }
+
+        this.messages = YamlConfiguration.loadConfiguration(this.messageFile);
+        this.loaded = true;
+    }
+
+    public boolean isLoaded() {
+        return loaded;
+    }
+
+    public String get(String path) {
+        String raw = messages.getString(path);
+
+        if (raw == null) {
+            String fallback = messages.getString("errors.missing-message", "Missing message: %path%");
+            if (fallback == null || fallback.isEmpty()) {
+                fallback = "Missing message: %path%";
+            }
+
+            return colorize(fallback.replace("%path%", path));
+        }
+
+        String prefix = messages.getString("prefix", "&6PeaceCraft &8» &f");
+        if (prefix == null || prefix.isEmpty()) {
+            prefix = "&6PeaceCraft &8» &f";
+        }
+
+        return colorize(raw.replace("%prefix%", prefix));
+    }
+
+    public String getPlain(String path) {
+        return ChatColor.stripColor(get(path));
+    }
+
+    private void ensureBundledResourceExists(String fileName) {
+        if (plugin.getResource(fileName) == null) {
+            throw new IllegalStateException("Embedded resource not found in jar: " + fileName);
+        }
+    }
+
+    private void ensureFileExistsInDataFolder(String fileName) {
+        File targetFile = new File(plugin.getDataFolder(), fileName);
+
+        if (!targetFile.exists()) {
+            plugin.saveResource(fileName, false);
+        }
+    }
+
+    private String colorize(String text) {
+        return ChatColor.translateAlternateColorCodes('&', text);
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\PeaceCraftPlugin.java
+------------------------------------------------------------
+package ru.peacecraft.core;
+
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.PluginCommand;
+import org.bukkit.command.TabCompleter;
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.java.JavaPlugin;
+import ru.peacecraft.core.bosses.config.BossesConfig;
+import ru.peacecraft.core.bosses.listener.BossSummonListener;
+import ru.peacecraft.core.bosses.service.BossRegistry;
+import ru.peacecraft.core.bosses.service.BossService;
+import ru.peacecraft.core.commands.admin.IslandAdminCommand;
+import ru.peacecraft.core.config.ConfigManager;
+import ru.peacecraft.core.currencies.commands.ShopCommand;
+import ru.peacecraft.core.currencies.drop.MobDropConfig;
+import ru.peacecraft.core.currencies.drop.MobDropService;
+import ru.peacecraft.core.currencies.listener.CurrencyDropListener;
+import ru.peacecraft.core.currencies.listener.ShopGuiListener;
+import ru.peacecraft.core.currencies.service.CurrencyService;
+import ru.peacecraft.core.currencies.service.PlayerCurrencyService;
+import ru.peacecraft.core.islands.config.IslandsConfig;
+import ru.peacecraft.core.islands.listener.IslandDiscoveryListener;
+import ru.peacecraft.core.islands.model.IslandData;
+import ru.peacecraft.core.islands.service.IslandRegistry;
+import ru.peacecraft.core.islands.service.IslandService;
+import ru.peacecraft.core.islands.service.PlayerOnboardingService;
+import ru.peacecraft.core.logpose.commands.LogPoseCommand;
+import ru.peacecraft.core.logpose.listener.LogPoseInteractionListener;
+import ru.peacecraft.core.logpose.service.LogPoseService;
+import ru.peacecraft.core.message.MessageService;
+import ru.peacecraft.core.persistence.listener.PlayerDataSessionListener;
+import ru.peacecraft.core.persistence.repository.PlayerDataRepository;
+import ru.peacecraft.core.persistence.service.PlayerDataService;
+import ru.peacecraft.core.persistence.task.PlayerDataAutosaveTask;
+import ru.peacecraft.core.travel.commands.FastTravelCommand;
+import ru.peacecraft.core.travel.commands.TravelCommand;
+import ru.peacecraft.core.travel.listener.TravelListener;
+import ru.peacecraft.core.travel.service.TravelService;
+
+public final class PeaceCraftPlugin extends JavaPlugin {
+
+    private ConfigManager configManager;
+    private MessageService messageService;
+
+    private IslandRegistry islandRegistry;
+    private IslandsConfig islandsConfig;
+    private IslandService islandService;
+    private PlayerOnboardingService playerOnboardingService;
+    private IslandDiscoveryListener islandDiscoveryListener;
+
+    private PlayerDataRepository playerDataRepository;
+    private PlayerDataService playerDataService;
+    private PlayerDataSessionListener playerDataSessionListener;
+    private PlayerDataAutosaveTask playerDataAutosaveTask;
+
+    private LogPoseService logPoseService;
+
+    private TravelService travelService;
+
+    private CurrencyService currencyService;
+    private PlayerCurrencyService playerCurrencyService;
+
+    private MobDropConfig mobDropConfig;
+    private MobDropService mobDropService;
+
+    private BossRegistry bossRegistry;
+    private BossesConfig bossesConfig;
+    private BossService bossService;
+
+    @Override
+    public void onEnable() {
+        createPluginDataFolder();
+
+        getLogger().info("Bootstrapping PeaceCraftCore...");
+
+        bootstrapCore();
+        bootstrapPersistence();
+        bootstrapIslands();
+        bootstrapLogPose();
+        bootstrapTravel();
+        bootstrapCurrencies();
+        bootstrapBosses();
+
+        registerCommands();
+        registerListeners();
+        startBackgroundTasks();
+
+        logLoadedIslands();
+        logLoadedBosses();
+        getLogger().info(messageService.getPlain("startup.plugin-enabled"));
+    }
+
+    @Override
+    public void onDisable() {
+        if (playerDataAutosaveTask != null) {
+            playerDataAutosaveTask.stop();
+        }
+
+        if (playerDataService != null) {
+            int saved = playerDataService.saveAll();
+            getLogger().info(() -> "Saved " + saved + " player data file(s) before shutdown.");
+            playerDataService.shutdown();
+        }
+
+        if (messageService != null && messageService.isLoaded()) {
+            getLogger().info(messageService.getPlain("startup.plugin-disabled"));
+        } else {
+            getLogger().info("PeaceCraftCore disabled.");
+        }
+    }
+
+    private void bootstrapCore() {
+        this.configManager = new ConfigManager(this);
+        this.configManager.load();
+
+        this.messageService = new MessageService(this, this.configManager);
+        this.messageService.load();
+    }
+
+    private void bootstrapPersistence() {
+        this.playerDataRepository = new PlayerDataRepository(this);
+        this.playerDataService = new PlayerDataService(this.playerDataRepository);
+        this.playerDataSessionListener = new PlayerDataSessionListener(this, this.playerDataService);
+        this.playerDataAutosaveTask = new PlayerDataAutosaveTask(
+            this,
+            this.playerDataService,
+            this.configManager.getAutosaveIntervalSeconds()
+        );
+    }
+
+    private void bootstrapIslands() {
+        this.islandRegistry = new IslandRegistry();
+        this.islandsConfig = new IslandsConfig(this, this.islandRegistry);
+        this.islandsConfig.load();
+
+        this.islandService = new IslandService(this.islandRegistry, this.configManager, this.playerDataService);
+    }
+
+    private void bootstrapLogPose() {
+        this.logPoseService = new LogPoseService(this);
+
+        this.playerOnboardingService = new PlayerOnboardingService(
+            this.configManager,
+            this.islandService,
+            this.playerDataService,
+            this.logPoseService,
+            getLogger()
+        );
+
+        this.islandDiscoveryListener = new IslandDiscoveryListener(this, this.islandService, this.playerOnboardingService);
+    }
+
+    private void bootstrapTravel() {
+        this.travelService = new TravelService(this);
+    }
+
+    private void bootstrapCurrencies() {
+        this.currencyService = new CurrencyService(this);
+        this.currencyService.load();
+
+        this.playerCurrencyService = new PlayerCurrencyService(this);
+
+        this.mobDropConfig = new MobDropConfig(this);
+        this.mobDropService = new MobDropService(this.mobDropConfig);
+        this.mobDropService.load();
+    }
+
+    private void bootstrapBosses() {
+        this.bossRegistry = new BossRegistry();
+        this.bossesConfig = new BossesConfig(this, this.bossRegistry);
+        this.bossesConfig.load();
+
+        this.bossService = new BossService(this, this.bossRegistry);
+    }
+
+    private void startBackgroundTasks() {
+        if (this.playerDataAutosaveTask != null) {
+            this.playerDataAutosaveTask.start();
+        }
+    }
+
+    private void registerCommands() {
+        registerCommand("pc", new IslandAdminCommand(this));
+        registerCommand("logpose", new LogPoseCommand(this, this.logPoseService));
+        registerCommand("travel", new TravelCommand(this, this.travelService));
+        registerCommand("fasttravel", new FastTravelCommand(this, this.travelService));
+        registerCommand("shop", new ShopCommand(this));
+    }
+
+    private void registerCommand(String commandName, CommandExecutor executor) {
+        PluginCommand command = getCommand(commandName);
+        if (command == null) {
+            getLogger().warning(() -> "Command not found in plugin.yml: " + commandName);
+            return;
+        }
+
+        command.setExecutor(executor);
+
+        if (executor instanceof TabCompleter tabCompleter) {
+            command.setTabCompleter(tabCompleter);
+        }
+    }
+
+    private void registerListeners() {
+        registerListener(this.playerDataSessionListener);
+        registerListener(this.islandDiscoveryListener);
+        registerListener(new LogPoseInteractionListener(this, this.logPoseService));
+        registerListener(new TravelListener(this));
+        registerListener(new CurrencyDropListener(this, this.playerCurrencyService));
+        registerListener(new ShopGuiListener());
+        registerListener(new BossSummonListener(this, this.bossService));
+    }
+
+    private void registerListener(Listener listener) {
+        getServer().getPluginManager().registerEvents(listener, this);
+        getLogger().info(() -> "Registered listener: " + listener.getClass().getSimpleName());
+    }
+
+    private void createPluginDataFolder() {
+        if (!getDataFolder().exists() && !getDataFolder().mkdirs()) {
+            throw new IllegalStateException("Could not create plugin data folder: " + getDataFolder().getAbsolutePath());
+        }
+    }
+
+    private void logLoadedIslands() {
+        getLogger().info(() -> "Loaded " + islandService.getLoadedIslandCount() + " islands.");
+
+        for (IslandData islandData : islandService.getAllIslands()) {
+            getLogger().info(() -> "- " + islandData.getId() + " (" + islandData.getDisplayName() + ")");
+        }
+
+        IslandData starterIsland = islandService.getStarterIsland();
+        if (starterIsland == null) {
+            throw new IllegalStateException("Starter island from config.yml was not found in islands.yml");
+        }
+
+        getLogger().info(() -> "Starter island: " + starterIsland.getId() + " (" + starterIsland.getDisplayName() + ")");
+    }
+
+    private void logLoadedBosses() {
+        getLogger().info(() -> "Loaded " + bossService.getLoadedBossCount() + " bosses.");
+        for (var boss : bossService.getAllBosses()) {
+            getLogger().info(() -> "- " + boss.getId() + " (" + boss.getDisplayName() + ") for island " + boss.getIslandId());
+        }
+    }
+
+    public ConfigManager getMainConfigManager() {
+        return configManager;
+    }
+
+    public MessageService getMessageService() {
+        return messageService;
+    }
+
+    public IslandRegistry getIslandRegistry() {
+        return islandRegistry;
+    }
+
+    public IslandsConfig getIslandsConfig() {
+        return islandsConfig;
+    }
+
+    public IslandService getIslandService() {
+        return islandService;
+    }
+
+    public PlayerDataRepository getPlayerDataRepository() {
+        return playerDataRepository;
+    }
+
+    public PlayerDataService getPlayerDataService() {
+        return playerDataService;
+    }
+
+    public LogPoseService getLogPoseService() {
+        return logPoseService;
+    }
+
+    public TravelService getTravelService() {
+        return travelService;
+    }
+
+    public CurrencyService getCurrencyService() {
+        return currencyService;
+    }
+
+    public PlayerCurrencyService getPlayerCurrencyService() {
+        return playerCurrencyService;
+    }
+
+    public MobDropService getMobDropService() {
+        return mobDropService;
+    }
+
+    public BossRegistry getBossRegistry() {
+        return bossRegistry;
+    }
+
+    public BossesConfig getBossesConfig() {
+        return bossesConfig;
+    }
+
+    public BossService getBossService() {
+        return bossService;
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\persistence\listener\PlayerDataSessionListener.java
+------------------------------------------------------------
+package ru.peacecraft.core.persistence.listener;
+
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.persistence.model.PlayerData;
+import ru.peacecraft.core.persistence.service.PlayerDataService;
+
+public final class PlayerDataSessionListener implements Listener {
+
+    private final PeaceCraftPlugin plugin;
+    private final PlayerDataService playerDataService;
+
+    public PlayerDataSessionListener(PeaceCraftPlugin plugin, PlayerDataService playerDataService) {
+        this.plugin = plugin;
+        this.playerDataService = playerDataService;
+    }
+
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent event) {
+        PlayerData data = playerDataService.getPlayerData(event.getPlayer());
+
+        plugin
+            .getLogger()
+            .info(
+                () ->
+                    "Loaded data for " +
+                    event.getPlayer().getName() +
+                    " | Island: " +
+                    data.getCurrentIslandId() +
+                    " | Unlocked: " +
+                    data.getUnlockedIslands().size()
+            );
+    }
+
+    @EventHandler
+    public void onPlayerQuit(PlayerQuitEvent event) {
+        playerDataService.unload(event.getPlayer());
+        plugin.getLogger().info(() -> "Saved and unloaded data for " + event.getPlayer().getName());
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\persistence\model\PlayerData.java
+------------------------------------------------------------
+package ru.peacecraft.core.persistence.model;
+
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.UUID;
+
+public final class PlayerData {
+
+    private int dataVersion;
+    private UUID uuid;
+
+    private String currentIslandId;
+    private Set<String> discoveredIslands;
+    private Set<String> unlockedIslands;
+
+    private String activeLogPoseTarget;
+    private String devilFruitId;
+
+    private int fisherLevel;
+    private int farmerLevel;
+    private String crewId;
+
+    private long lastSaveTime;
+
+    private transient boolean dirty;
+
+    public PlayerData(UUID uuid) {
+        this.dataVersion = 1;
+        this.uuid = uuid;
+        this.currentIslandId = null;
+        this.discoveredIslands = new LinkedHashSet<>();
+        this.unlockedIslands = new LinkedHashSet<>();
+        this.activeLogPoseTarget = null;
+        this.devilFruitId = null;
+        this.fisherLevel = 0;
+        this.farmerLevel = 0;
+        this.crewId = null;
+        this.lastSaveTime = System.currentTimeMillis();
+        this.dirty = false;
+    }
+
+    public void normalizeAfterLoad(UUID expectedUuid) {
+        if (this.dataVersion <= 0) {
+            this.dataVersion = 1;
+        }
+
+        if (this.uuid == null) {
+            this.uuid = expectedUuid;
+        }
+
+        if (this.discoveredIslands == null) {
+            this.discoveredIslands = new LinkedHashSet<>();
+        }
+
+        if (this.unlockedIslands == null) {
+            this.unlockedIslands = new LinkedHashSet<>();
+        }
+
+        this.dirty = false;
+    }
+
+    public int getDataVersion() {
+        return dataVersion;
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public String getCurrentIslandId() {
+        return currentIslandId;
+    }
+
+    public Set<String> getDiscoveredIslands() {
+        return Collections.unmodifiableSet(discoveredIslands);
+    }
+
+    public Set<String> getUnlockedIslands() {
+        return Collections.unmodifiableSet(unlockedIslands);
+    }
+
+    public String getActiveLogPoseTarget() {
+        return activeLogPoseTarget;
+    }
+
+    public String getDevilFruitId() {
+        return devilFruitId;
+    }
+
+    public int getFisherLevel() {
+        return fisherLevel;
+    }
+
+    public int getFarmerLevel() {
+        return farmerLevel;
+    }
+
+    public String getCrewId() {
+        return crewId;
+    }
+
+    public long getLastSaveTime() {
+        return lastSaveTime;
+    }
+
+    public boolean isDirty() {
+        return dirty;
+    }
+
+    public boolean hasAnyDiscoveredIsland() {
+        return !discoveredIslands.isEmpty();
+    }
+
+    public void markDirty() {
+        this.dirty = true;
+    }
+
+    public void markClean() {
+        this.dirty = false;
+    }
+
+    public boolean setCurrentIslandId(String islandId) {
+        if (Objects.equals(this.currentIslandId, islandId)) {
+            return false;
+        }
+
+        this.currentIslandId = islandId;
+        this.dirty = true;
+        return true;
+    }
+
+    public boolean addDiscoveredIsland(String islandId) {
+        boolean changed = this.discoveredIslands.add(islandId);
+        if (changed) {
+            this.dirty = true;
+        }
+        return changed;
+    }
+
+    public boolean addUnlockedIsland(String islandId) {
+        boolean changed = this.unlockedIslands.add(islandId);
+        if (changed) {
+            this.dirty = true;
+        }
+        return changed;
+    }
+
+    public boolean setActiveLogPoseTarget(String targetId) {
+        if (Objects.equals(this.activeLogPoseTarget, targetId)) {
+            return false;
+        }
+
+        this.activeLogPoseTarget = targetId;
+        this.dirty = true;
+        return true;
+    }
+
+    public boolean setDevilFruitId(String fruitId) {
+        if (Objects.equals(this.devilFruitId, fruitId)) {
+            return false;
+        }
+
+        this.devilFruitId = fruitId;
+        this.dirty = true;
+        return true;
+    }
+
+    public boolean setFisherLevel(int level) {
+        if (this.fisherLevel == level) {
+            return false;
+        }
+
+        this.fisherLevel = level;
+        this.dirty = true;
+        return true;
+    }
+
+    public boolean setFarmerLevel(int level) {
+        if (this.farmerLevel == level) {
+            return false;
+        }
+
+        this.farmerLevel = level;
+        this.dirty = true;
+        return true;
+    }
+
+    public boolean setCrewId(String crewId) {
+        if (Objects.equals(this.crewId, crewId)) {
+            return false;
+        }
+
+        this.crewId = crewId;
+        this.dirty = true;
+        return true;
+    }
+
+    public void setLastSaveTime(long time) {
+        this.lastSaveTime = time;
+    }
+
+    public boolean isIslandDiscovered(String islandId) {
+        return discoveredIslands.contains(islandId);
+    }
+
+    public boolean isIslandUnlocked(String islandId) {
+        return unlockedIslands.contains(islandId);
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\persistence\repository\PlayerDataRepository.java
+------------------------------------------------------------
+package ru.peacecraft.core.persistence.repository;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.AtomicMoveNotSupportedException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.util.UUID;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.persistence.model.PlayerData;
+
+public final class PlayerDataRepository {
+
+    private static final String DATA_FOLDER_NAME = "player-data";
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+
+    private final PeaceCraftPlugin plugin;
+    private final Path dataFolder;
+
+    public PlayerDataRepository(PeaceCraftPlugin plugin) {
+        this.plugin = plugin;
+        this.dataFolder = plugin.getDataFolder().toPath().resolve(DATA_FOLDER_NAME);
+
+        try {
+            Files.createDirectories(this.dataFolder);
+        } catch (IOException e) {
+            throw new IllegalStateException("Could not create player-data folder: " + this.dataFolder, e);
+        }
+    }
+
+    public PlayerData load(UUID uuid) {
+        Path file = getPlayerFile(uuid);
+
+        if (!Files.exists(file)) {
+            return new PlayerData(uuid);
+        }
+
+        try (Reader reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
+            PlayerData data = GSON.fromJson(reader, PlayerData.class);
+
+            if (data == null) {
+                data = new PlayerData(uuid);
+            }
+
+            data.normalizeAfterLoad(uuid);
+            return data;
+        } catch (Exception e) {
+            plugin.getLogger().severe(() -> "Failed to load player data for " + uuid + ": " + e.getMessage());
+            return new PlayerData(uuid);
+        }
+    }
+
+    public boolean save(PlayerData playerData) {
+        playerData.setLastSaveTime(System.currentTimeMillis());
+
+        Path file = getPlayerFile(playerData.getUuid());
+        Path tempFile = file.resolveSibling(file.getFileName() + ".tmp");
+
+        try (Writer writer = Files.newBufferedWriter(tempFile, StandardCharsets.UTF_8)) {
+            GSON.toJson(playerData, writer);
+        } catch (IOException e) {
+            plugin.getLogger().severe(() -> "Failed to write temp player data for " + playerData.getUuid() + ": " + e.getMessage());
+            return false;
+        }
+
+        try {
+            Files.move(tempFile, file, StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE);
+            return true;
+        } catch (AtomicMoveNotSupportedException e) {
+            try {
+                Files.move(tempFile, file, StandardCopyOption.REPLACE_EXISTING);
+                return true;
+            } catch (IOException moveFallbackException) {
+                plugin
+                    .getLogger()
+                    .severe(
+                        () -> "Failed to replace player data file for " + playerData.getUuid() + ": " + moveFallbackException.getMessage()
+                    );
+                return false;
+            }
+        } catch (IOException e) {
+            plugin.getLogger().severe(() -> "Failed to replace player data file for " + playerData.getUuid() + ": " + e.getMessage());
+            return false;
+        }
+    }
+
+    public boolean exists(UUID uuid) {
+        return Files.exists(getPlayerFile(uuid));
+    }
+
+    public boolean delete(UUID uuid) {
+        Path file = getPlayerFile(uuid);
+
+        if (!Files.exists(file)) {
+            return true;
+        }
+
+        try {
+            Files.delete(file);
+            return true;
+        } catch (IOException e) {
+            plugin.getLogger().warning(() -> "Could not delete player data file for " + uuid + ": " + e.getMessage());
+            return false;
+        }
+    }
+
+    private Path getPlayerFile(UUID uuid) {
+        return dataFolder.resolve(uuid.toString() + ".json");
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\persistence\service\PlayerDataService.java
+------------------------------------------------------------
+package ru.peacecraft.core.persistence.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+import org.bukkit.entity.Player;
+import ru.peacecraft.core.persistence.model.PlayerData;
+import ru.peacecraft.core.persistence.repository.PlayerDataRepository;
+
+public final class PlayerDataService {
+
+    private final PlayerDataRepository repository;
+    private final Map<UUID, PlayerData> cache = new ConcurrentHashMap<>();
+
+    private volatile boolean shutdown;
+
+    public PlayerDataService(PlayerDataRepository repository) {
+        this.repository = repository;
+    }
+
+    public PlayerData getOrLoad(UUID uuid) {
+        ensureNotShutdown();
+        return cache.computeIfAbsent(uuid, repository::load);
+    }
+
+    public PlayerData getPlayerData(UUID uuid) {
+        return getOrLoad(uuid);
+    }
+
+    public PlayerData getPlayerData(Player player) {
+        return getOrLoad(player.getUniqueId());
+    }
+
+    public boolean isLoaded(UUID uuid) {
+        return cache.containsKey(uuid);
+    }
+
+    public int getLoadedPlayerCount() {
+        return cache.size();
+    }
+
+    public void markDirty(UUID uuid) {
+        PlayerData data = cache.get(uuid);
+        if (data != null) {
+            data.markDirty();
+        }
+    }
+
+    public void markDirty(Player player) {
+        markDirty(player.getUniqueId());
+    }
+
+    public boolean save(UUID uuid) {
+        PlayerData data = cache.get(uuid);
+        if (data == null) {
+            return false;
+        }
+
+        boolean saved = repository.save(data);
+        if (saved) {
+            data.markClean();
+        }
+        return saved;
+    }
+
+    public boolean save(Player player) {
+        return save(player.getUniqueId());
+    }
+
+    public boolean savePlayer(UUID uuid) {
+        return save(uuid);
+    }
+
+    public boolean savePlayer(Player player) {
+        return save(player);
+    }
+
+    public boolean saveIfDirty(UUID uuid) {
+        PlayerData data = cache.get(uuid);
+        if (data == null || !data.isDirty()) {
+            return false;
+        }
+
+        return save(uuid);
+    }
+
+    public int saveAllDirty() {
+        int savedCount = 0;
+        List<UUID> uuids = new ArrayList<>(cache.keySet());
+
+        for (UUID uuid : uuids) {
+            if (saveIfDirty(uuid)) {
+                savedCount++;
+            }
+        }
+
+        return savedCount;
+    }
+
+    public int saveAll() {
+        int savedCount = 0;
+        List<UUID> uuids = new ArrayList<>(cache.keySet());
+
+        for (UUID uuid : uuids) {
+            if (save(uuid)) {
+                savedCount++;
+            }
+        }
+
+        return savedCount;
+    }
+
+    public void unload(UUID uuid) {
+        save(uuid);
+        cache.remove(uuid);
+    }
+
+    public void unload(Player player) {
+        unload(player.getUniqueId());
+    }
+
+    public void unloadPlayer(UUID uuid) {
+        unload(uuid);
+    }
+
+    public void unloadPlayer(Player player) {
+        unload(player);
+    }
+
+    public void shutdown() {
+        if (shutdown) {
+            return;
+        }
+
+        saveAll();
+        cache.clear();
+        shutdown = true;
+    }
+
+    private void ensureNotShutdown() {
+        if (shutdown) {
+            throw new IllegalStateException("PlayerDataService is already shut down.");
+        }
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\persistence\task\PlayerDataAutosaveTask.java
+------------------------------------------------------------
+package ru.peacecraft.core.persistence.task;
+
+import org.bukkit.scheduler.BukkitTask;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.persistence.service.PlayerDataService;
+
+public final class PlayerDataAutosaveTask {
+
+    private final PeaceCraftPlugin plugin;
+    private final PlayerDataService playerDataService;
+    private final int autosaveIntervalSeconds;
+
+    private BukkitTask task;
+
+    public PlayerDataAutosaveTask(PeaceCraftPlugin plugin, PlayerDataService playerDataService, int autosaveIntervalSeconds) {
+        this.plugin = plugin;
+        this.playerDataService = playerDataService;
+        this.autosaveIntervalSeconds = autosaveIntervalSeconds;
+    }
+
+    public void start() {
+        if (autosaveIntervalSeconds <= 0) {
+            plugin.getLogger().info("Autosave is disabled.");
+            return;
+        }
+
+        stop();
+
+        long intervalTicks = autosaveIntervalSeconds * 20L;
+        this.task = plugin
+            .getServer()
+            .getScheduler()
+            .runTaskTimer(
+                plugin,
+                () -> {
+                    int saved = playerDataService.saveAllDirty();
+                    if (saved > 0) {
+                        plugin.getLogger().info(() -> "Autosaved " + saved + " dirty player(s).");
+                    }
+                },
+                intervalTicks,
+                intervalTicks
+            );
+    }
+
+    public void stop() {
+        if (task != null) {
+            task.cancel();
+            task = null;
+        }
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\travel\commands\FastTravelCommand.java
+------------------------------------------------------------
+package ru.peacecraft.core.travel.commands;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.commands.BaseCommand;
+import ru.peacecraft.core.islands.model.IslandData;
+import ru.peacecraft.core.persistence.model.PlayerData;
+import ru.peacecraft.core.travel.model.TravelResult;
+import ru.peacecraft.core.travel.service.TravelService;
+
+public final class FastTravelCommand extends BaseCommand implements CommandExecutor, TabCompleter {
+
+    private final TravelService travelService;
+
+    public FastTravelCommand(PeaceCraftPlugin plugin, TravelService travelService) {
+        super(plugin);
+        this.travelService = travelService;
+    }
+
+    @Override
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        if (!(sender instanceof Player player)) {
+            sender.sendMessage(messageService.get("general.player-only"));
+            return true;
+        }
+
+        if (args.length < 1) {
+            player.sendMessage("§6PeaceCraft §8» §cИспользование: /fasttravel <остров>");
+            return true;
+        }
+
+        String targetIslandId = args[0];
+        TravelResult result = travelService.fastTravel(player, targetIslandId);
+
+        if (!result.isSuccess()) {
+            player.sendMessage("§6PeaceCraft §8» §c" + result.getErrorMessage());
+        }
+
+        return true;
+    }
+
+    @Override
+    public @Nullable List<String> onTabComplete(
+        @NotNull CommandSender sender,
+        @NotNull Command command,
+        @NotNull String label,
+        @NotNull String[] args
+    ) {
+        if (args.length == 1) {
+            return getMatchingUnlockedIslands(sender, args[0]);
+        }
+        return null;
+    }
+
+    private List<String> getMatchingUnlockedIslands(CommandSender sender, String arg) {
+        List<String> result = new ArrayList<>();
+
+        if (!(sender instanceof Player player)) {
+            return result;
+        }
+
+        PlayerData playerData = plugin.getPlayerDataService().getPlayerData(player.getUniqueId());
+
+        for (IslandData island : plugin.getIslandService().getAllIslands()) {
+            if (playerData.isIslandUnlocked(island.getId()) && island.getId().toLowerCase().startsWith(arg.toLowerCase())) {
+                result.add(island.getId());
+            }
+        }
+        return result;
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\travel\commands\TravelCommand.java
+------------------------------------------------------------
+package ru.peacecraft.core.travel.commands;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.commands.BaseCommand;
+import ru.peacecraft.core.islands.model.IslandData;
+import ru.peacecraft.core.persistence.model.PlayerData;
+import ru.peacecraft.core.travel.model.TravelResult;
+import ru.peacecraft.core.travel.service.TravelService;
+
+public final class TravelCommand extends BaseCommand implements CommandExecutor, TabCompleter {
+
+    private final TravelService travelService;
+
+    public TravelCommand(PeaceCraftPlugin plugin, TravelService travelService) {
+        super(plugin);
+        this.travelService = travelService;
+    }
+
+    @Override
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        if (!(sender instanceof Player player)) {
+            sender.sendMessage(messageService.get("general.player-only"));
+            return true;
+        }
+
+        if (args.length < 1) {
+            sendUsage(player);
+            return true;
+        }
+
+        String targetIslandId = args[0];
+
+        // Проверка существования острова
+        IslandData targetIsland = plugin.getIslandService().getIslandById(targetIslandId);
+        if (targetIsland == null) {
+            player.sendMessage("§6PeaceCraft §8» §cОстров не найден: " + targetIslandId);
+            return true;
+        }
+
+        // Попытка путешествия
+        TravelResult result = travelService.requestTravel(player, targetIslandId);
+
+        if (!result.isSuccess()) {
+            player.sendMessage("§6PeaceCraft §8» §c" + result.getErrorMessage());
+        }
+
+        return true;
+    }
+
+    private void sendUsage(Player player) {
+        player.sendMessage("§6§l=== Путешествие ===");
+        player.sendMessage("§e/travel <остров> §7- Путешествие на остров");
+        player.sendMessage("§e/fasttravel <остров> §7- Быстрое путешествие (открытые острова)");
+        player.sendMessage("");
+        player.sendMessage("§7Доступные острова:");
+
+        PlayerData playerData = plugin.getPlayerDataService().getPlayerData(player.getUniqueId());
+        for (IslandData island : plugin.getIslandService().getAllIslands()) {
+            String status = playerData.isIslandUnlocked(island.getId()) ? "§a[Открыт]" : "§7[Закрыт]";
+            player.sendMessage("  §e" + island.getId() + " §8- " + status);
+        }
+    }
+
+    @Override
+    public @Nullable List<String> onTabComplete(
+        @NotNull CommandSender sender,
+        @NotNull Command command,
+        @NotNull String label,
+        @NotNull String[] args
+    ) {
+        if (args.length == 1) {
+            return getMatchingIslands(args[0]);
+        }
+        return null;
+    }
+
+    private List<String> getMatchingIslands(String arg) {
+        List<String> result = new ArrayList<>();
+        for (IslandData island : plugin.getIslandService().getAllIslands()) {
+            if (island.getId().toLowerCase().startsWith(arg.toLowerCase())) {
+                result.add(island.getId());
+            }
+        }
+        return result;
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\travel\listener\TravelListener.java
+------------------------------------------------------------
+package ru.peacecraft.core.travel.listener;
+
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerTeleportEvent;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.islands.model.IslandData;
+import ru.peacecraft.core.persistence.model.PlayerData;
+
+public final class TravelListener implements Listener {
+
+    private final PeaceCraftPlugin plugin;
+
+    public TravelListener(PeaceCraftPlugin plugin) {
+        this.plugin = plugin;
+    }
+
+    /**
+     * Обновление текущего острова при перемещении между островами
+     */
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+    public void onPlayerTeleport(PlayerTeleportEvent event) {
+        if (event.getCause() != PlayerTeleportEvent.TeleportCause.COMMAND && event.getCause() != PlayerTeleportEvent.TeleportCause.PLUGIN) {
+            return;
+        }
+
+        PlayerData playerData = plugin.getPlayerDataService().getPlayerData(event.getPlayer().getUniqueId());
+
+        // Определить остров по координатам
+        String newIslandId = detectIslandByLocation(event.getTo());
+        if (newIslandId != null && !newIslandId.equals(playerData.getCurrentIslandId())) {
+            playerData.setCurrentIslandId(newIslandId);
+            plugin.getPlayerDataService().savePlayer(event.getPlayer());
+        }
+    }
+
+    /**
+     * Определить остров по координатам
+     */
+    private String detectIslandByLocation(org.bukkit.Location location) {
+        for (IslandData island : plugin.getIslandService().getAllIslands()) {
+            if (!island.getWorldName().equals(location.getWorld().getName())) {
+                continue;
+            }
+
+            double dx = location.getX() - island.getCenter().getX();
+            double dz = location.getZ() - island.getCenter().getZ();
+            double distance = Math.sqrt(dx * dx + dz * dz);
+
+            if (distance <= 500.0) {
+                return island.getId();
+            }
+        }
+        return null;
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\travel\model\TravelRequest.java
+------------------------------------------------------------
+package ru.peacecraft.core.travel.model;
+
+import java.util.UUID;
+
+public final class TravelRequest {
+
+    private final UUID playerId;
+    private final String fromIslandId;
+    private final String toIslandId;
+    private final long requestTime;
+    private final TravelType type;
+
+    public enum TravelType {
+        PORT_TRAVEL,
+        FAST_TRAVEL,
+        COMMAND_TRAVEL
+    }
+
+    public TravelRequest(UUID playerId, String fromIslandId, String toIslandId, TravelType type) {
+        this.playerId = playerId;
+        this.fromIslandId = fromIslandId;
+        this.toIslandId = toIslandId;
+        this.requestTime = System.currentTimeMillis();
+        this.type = type;
+    }
+
+    public UUID getPlayerId() {
+        return playerId;
+    }
+
+    public String getFromIslandId() {
+        return fromIslandId;
+    }
+
+    public String getToIslandId() {
+        return toIslandId;
+    }
+
+    public long getRequestTime() {
+        return requestTime;
+    }
+
+    public TravelType getType() {
+        return type;
+    }
+
+    public boolean isFastTravel() {
+        return type == TravelType.FAST_TRAVEL;
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\travel\model\TravelResult.java
+------------------------------------------------------------
+package ru.peacecraft.core.travel.model;
+
+public final class TravelResult {
+
+    private final boolean success;
+    private final TravelErrorCode errorCode;
+    private final String errorMessage;
+
+    public enum TravelErrorCode {
+        SUCCESS,
+        ISLAND_NOT_UNLOCKED,
+        ISLAND_NOT_FOUND,
+        ON_COOLDOWN,
+        INVALID_PORT,
+        CANCELLED
+    }
+
+    private TravelResult(boolean success, TravelErrorCode errorCode, String errorMessage) {
+        this.success = success;
+        this.errorCode = errorCode;
+        this.errorMessage = errorMessage;
+    }
+
+    public static TravelResult success() {
+        return new TravelResult(true, TravelErrorCode.SUCCESS, null);
+    }
+
+    public static TravelResult failure(TravelErrorCode errorCode, String errorMessage) {
+        return new TravelResult(false, errorCode, errorMessage);
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public TravelErrorCode getErrorCode() {
+        return errorCode;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\java\ru\peacecraft\core\travel\service\TravelService.java
+------------------------------------------------------------
+package ru.peacecraft.core.travel.service;
+
+import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.Particle;
+import org.bukkit.Sound;
+import org.bukkit.entity.Player;
+import ru.peacecraft.core.PeaceCraftPlugin;
+import ru.peacecraft.core.islands.model.IslandData;
+import ru.peacecraft.core.persistence.model.PlayerData;
+import ru.peacecraft.core.travel.model.TravelRequest;
+import ru.peacecraft.core.travel.model.TravelResult;
+
+public final class TravelService {
+
+    private final PeaceCraftPlugin plugin;
+    private final Map<UUID, Long> travelCooldowns;
+    private final long cooldownMillis;
+    private final int travelDelayTicks;
+
+    public TravelService(PeaceCraftPlugin plugin) {
+        this.plugin = plugin;
+        this.travelCooldowns = new ConcurrentHashMap<>();
+        this.cooldownMillis = 30000; // 30 секунд кулдаун
+        this.travelDelayTicks = 60; // 3 секунды задержка путешествия
+    }
+
+    /**
+     * Инициировать путешествие игрока
+     */
+    public TravelResult requestTravel(Player player, String targetIslandId) {
+        // Проверка кулдауна
+        if (isOnCooldown(player.getUniqueId())) {
+            return TravelResult.failure(
+                TravelResult.TravelErrorCode.ON_COOLDOWN,
+                "Путешествие доступно через " + getCooldownRemaining(player.getUniqueId()) + " сек."
+            );
+        }
+
+        // Получить текущий остров игрока
+        PlayerData playerData = plugin.getPlayerDataService().getPlayerData(player.getUniqueId());
+        String currentIslandId = playerData.getCurrentIslandId();
+
+        // Проверка целевого острова
+        IslandData targetIsland = plugin.getIslandService().getIslandById(targetIslandId);
+        if (targetIsland == null) {
+            return TravelResult.failure(TravelResult.TravelErrorCode.ISLAND_NOT_FOUND, "Остров не найден: " + targetIslandId);
+        }
+
+        // Проверка доступа к острову
+        if (!playerData.isIslandUnlocked(targetIslandId) && !targetIsland.getUnlockRequirement().equals("none")) {
+            return TravelResult.failure(
+                TravelResult.TravelErrorCode.ISLAND_NOT_UNLOCKED,
+                "Остров ещё не открыт! Выполните требования: " + targetIsland.getUnlockRequirement()
+            );
+        }
+
+        // Нельзя путешествовать на тот же остров
+        if (java.util.Objects.equals(currentIslandId, targetIslandId)) {
+            return TravelResult.failure(TravelResult.TravelErrorCode.INVALID_PORT, "Вы уже находитесь на этом острове");
+        }
+
+        // Создать запрос на путешествие
+        TravelRequest request = new TravelRequest(
+            player.getUniqueId(),
+            currentIslandId,
+            targetIslandId,
+            TravelRequest.TravelType.COMMAND_TRAVEL
+        );
+
+        // Запустить процесс путешествия
+        startTravelProcess(player, request);
+
+        return TravelResult.success();
+    }
+
+    /**
+     * Запустить процесс путешествия
+     */
+    private void startTravelProcess(Player player, TravelRequest request) {
+        Player targetPlayer = Bukkit.getPlayer(request.getPlayerId());
+        if (targetPlayer == null) return;
+
+        targetPlayer.sendMessage("§6PeaceCraft §8» §7Отплытие на §e" + request.getToIslandId() + "§7...");
+        targetPlayer.sendMessage("§8[§e■■■■■§8] §7Пожалуйста, не двигайтесь!");
+
+        playTravelEffect(targetPlayer.getLocation(), Particle.SMOKE, 20);
+        targetPlayer.playSound(targetPlayer.getLocation(), Sound.ENTITY_BOAT_PADDLE_WATER, 1.0f, 1.0f);
+
+        plugin
+            .getServer()
+            .getScheduler()
+            .runTaskLater(
+                plugin,
+                () -> {
+                    completeTravel(targetPlayer, request);
+                },
+                travelDelayTicks
+            );
+
+        // Установить кулдаун
+        travelCooldowns.put(player.getUniqueId(), System.currentTimeMillis());
+    }
+
+    /**
+     * Завершить путешествие (телепортация)
+     */
+    private void completeTravel(Player player, TravelRequest request) {
+        IslandData targetIsland = plugin.getIslandService().getIslandById(request.getToIslandId());
+        if (targetIsland == null) return;
+
+        // Телепортация на порт целевого острова
+        Location spawnLocation = new Location(
+            Bukkit.getWorld(targetIsland.getWorldName()),
+            targetIsland.getSpawn().getX(),
+            targetIsland.getSpawn().getY(),
+            targetIsland.getSpawn().getZ()
+        );
+
+        player.teleport(spawnLocation);
+
+        // Эффект прибытия
+        playTravelEffect(player.getLocation(), Particle.CLOUD, 30);
+        player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 1.0f);
+
+        // Обновить текущий остров в данных игрока
+        plugin.getIslandService().setCurrentIsland(player.getUniqueId(), request.getToIslandId());
+        plugin.getPlayerDataService().save(player);
+
+        // Сообщение о прибытии
+        player.sendMessage("§6PeaceCraft §8» §aВы прибыли на §e" + targetIsland.getDisplayName() + "§a!");
+        player.sendMessage("§7Исследуйте остров и найдите сокровища!");
+    }
+
+    /**
+     * Проверка кулдауна
+     */
+    private boolean isOnCooldown(UUID playerId) {
+        if (!travelCooldowns.containsKey(playerId)) return false;
+        return System.currentTimeMillis() - travelCooldowns.get(playerId) < cooldownMillis;
+    }
+
+    /**
+     * Оставшееся время кулдауна
+     */
+    private int getCooldownRemaining(UUID playerId) {
+        if (!travelCooldowns.containsKey(playerId)) return 0;
+        long elapsed = System.currentTimeMillis() - travelCooldowns.get(playerId);
+        return (int) Math.max(0, (cooldownMillis - elapsed) / 1000);
+    }
+
+    /**
+     * Эффект путешествия
+     */
+    private void playTravelEffect(Location location, Particle particle, int count) {
+        location.getWorld().spawnParticle(particle, location, count, 1, 1, 1, 0);
+    }
+
+    /**
+     * Быстрое путешествие (для открытых островов)
+     */
+    public TravelResult fastTravel(Player player, String targetIslandId) {
+        PlayerData playerData = plugin.getPlayerDataService().getPlayerData(player.getUniqueId());
+
+        if (!playerData.isIslandUnlocked(targetIslandId)) {
+            return TravelResult.failure(
+                TravelResult.TravelErrorCode.ISLAND_NOT_UNLOCKED,
+                "Быстрое путешествие доступно только на открытые острова!"
+            );
+        }
+
+        IslandData targetIsland = plugin.getIslandService().getIslandById(targetIslandId);
+        if (targetIsland == null) {
+            return TravelResult.failure(TravelResult.TravelErrorCode.ISLAND_NOT_FOUND, "Остров не найден: " + targetIslandId);
+        }
+
+        Location spawnLocation = new Location(
+            Bukkit.getWorld(targetIsland.getWorldName()),
+            targetIsland.getSpawn().getX(),
+            targetIsland.getSpawn().getY(),
+            targetIsland.getSpawn().getZ()
+        );
+
+        player.teleport(spawnLocation);
+
+        playerData.setCurrentIslandId(targetIslandId);
+        plugin.getPlayerDataService().savePlayer(player);
+
+        player.sendMessage("§6PeaceCraft §8» §aБыстрое путешествие на §e" + targetIsland.getDisplayName() + "§a!");
+
+        return TravelResult.success();
+    }
+}
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\resources\bosses.yml
+------------------------------------------------------------
+bosses:
+  starter_boss:
+    island-id: "starter_island"
+    display-name: "Morgan Trainee"
+    entity-type: "ZOMBIE"
+    max-health: 120.0
+    damage-multiplier: 1.2
+    summon:
+      currency-id: "scrap"
+      amount: 20
+    spawn:
+      world: "world"
+      x: 30.0
+      y: 71.0
+      z: -60.0
+    rewards:
+      currency-id: "scrap"
+      currency-amount: 30
+      unlock-next-island: true
+
+  orange_buggy:
+    island-id: "orange_island"
+    display-name: "Buggy the Clown"
+    entity-type: "ZOMBIE"
+    max-health: 200.0
+    damage-multiplier: 1.5
+    summon:
+      currency-id: "clown_nose"
+      amount: 25
+    spawn:
+      world: "world"
+      x: 1030.0
+      y: 65.0
+      z: 530.0
+    rewards:
+      currency-id: "clown_nose"
+      currency-amount: 50
+      unlock-next-island: true
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\resources\config.yml
+------------------------------------------------------------
+plugin:
+  debug: true
+  language: "ru"
+  prefix: "&6PeaceCraft &8» &f"
+
+autosave:
+  enabled: true
+  interval-seconds: 300
+
+starter:
+  give-log-pose-on-first-join: true
+  island-id: "starter_island"
+
+currencies:
+  scrap:
+    name: "Scrap"
+    display-name: "Металлолом"
+    symbol: "🔩"
+    decimal-places: 0
+  clown_nose:
+    name: "Clown Nose"
+    display-name: "Нос Клоуна"
+    symbol: "🤡"
+    decimal-places: 0
+  mandarins:
+    name: "Mandarins"
+    display-name: "Мандарины"
+    symbol: "🍊"
+    decimal-places: 0
+  beli:
+    name: "Beli"
+    display-name: "Бели"
+    symbol: "฿"
+    decimal-places: 0
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\resources\currencies.yml
+------------------------------------------------------------
+currencies:
+  scrap:
+    id: "scrap"
+    name: "Scrap"
+    display-name: "Металлолом"
+    symbol: "🔩"
+    decimal-places: 0
+    description: "Основная валюта Стартового острова"
+    islands:
+      - "starter_island"
+  clown_nose:
+    id: "clown_nose"
+    name: "Clown Nose"
+    display-name: "Нос Клоуна"
+    symbol: "🤡"
+    decimal-places: 0
+    description: "Валюта Оранжевого Города"
+    islands:
+      - "orange_island"
+  mandarins:
+    id: "mandarins"
+    name: "Mandarins"
+    display-name: "Мандарины"
+    symbol: "🍊"
+    decimal-places: 0
+    description: "Валюта Острова Мандаринов"
+    islands:
+      - "fuchsia_island"
+  beli:
+    id: "beli"
+    name: "Beli"
+    display-name: "Бели"
+    symbol: "฿"
+    decimal-places: 0
+    description: "Основная мировая валюта"
+    islands:
+      - "loguetown_island"
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\resources\islands.yml
+------------------------------------------------------------
+islands:
+  starter_island:
+    display-name: "Start Town"
+    world: "world"
+    region-id: "starter_island"
+    unlock-requirement: "none"
+    center:
+      x: 0.0
+      y: 80.0
+      z: 0.0
+    spawn:
+      x: 15.0
+      y: 71.0
+      z: -100.0
+    port:
+      x: 10.0
+      y: 63.0
+      z: 10.0
+    compass-target:
+      x: 10.0
+      y: 63.0
+      z: 10.0
+  orange_island:
+    display-name: "Orange Town"
+    world: "world"
+    region-id: "orange_island"
+    unlock-requirement: "starter_boss_complete"
+    center:
+      x: 1000.0
+      y: 80.0
+      z: 500.0
+    spawn:
+      x: 1010.0
+      y: 65.0
+      z: 490.0
+    port:
+      x: 995.0
+      y: 63.0
+      z: 505.0
+    compass-target:
+      x: 995.0
+      y: 63.0
+      z: 505.0
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\resources\messages_ru.yml
+------------------------------------------------------------
+prefix: "&6PeaceCraft &8» &f"
+startup:
+  loading-config: "Загрузка config.yml..."
+  loading-messages: "Загрузка файла сообщений..."
+  loading-islands: "Загрузка islands.yml..."
+  loading-persistence: "Инициализация системы сохранений..."
+  loading-logpose: "Инициализация системы Log Pose..."
+  loading-travel: "Инициализация системы путешествий..."
+  plugin-enabled: "PeaceCraftCore успешно запущен."
+  plugin-disabled: "PeaceCraftCore остановлен."
+errors:
+  missing-message: "Отсутствует сообщение: %path%"
+  missing-resource: "В jar не найден ресурс: %file%"
+  failed-create-data-folder: "Не удалось создать папку данных плагина."
+  failed-load-player-data: "Не удалось загрузить данные игрока."
+  failed-save-player-data: "Не удалось сохранить данные игрока."
+general:
+  no-permission: "%prefix%У тебя нет прав."
+  player-only: "%prefix%Эту команду может использовать только игрок."
+  reload-success: "%prefix%Конфиги успешно перезагружены."
+  data-loaded: "%prefix%Твои данные загружены."
+  data-saved: "%prefix%Твои данные сохранены."
+logpose:
+  received: "%prefix%Вы получили Log Pose!"
+  already-have: "%prefix%У вас уже есть Log Pose!"
+  target-set: "%prefix%Цель установлена: %target%"
+  target-reset: "%prefix%Цель сброшена."
+  no-target: "%prefix%У вас нет активной цели."
+travel:
+  departure: "%prefix%Отплытие на §e%island%§7..."
+  arrival: "%prefix%Вы прибыли на §e%island%§a!"
+  cooldown: "%prefix%Путешествие доступно через %seconds% сек."
+  not-unlocked: "%prefix%Остров ещё не открыт! %requirement%"
+  not-found: "%prefix%Остров не найден: %island%"
+  already-here: "%prefix%Вы уже находитесь на этом острове"
+  fast-travel: "%prefix%Быстрое путешествие на §e%island%§a!"
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\resources\mob_drops.yml
+------------------------------------------------------------
+drops:
+  starter_island:
+    ZOMBIE:
+      currency: scrap
+      min: 1
+      max: 2
+      chance: 0.75
+    SPIDER:
+      currency: scrap
+      min: 1
+      max: 2
+      chance: 0.60
+
+  orange_island:
+    ZOMBIE:
+      currency: clown_nose
+      min: 1
+      max: 2
+      chance: 0.70
+    SKELETON:
+      currency: clown_nose
+      min: 1
+      max: 3
+      chance: 0.65
+
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraft\PeaceCraftCore\src\main\resources\plugin.yml
+------------------------------------------------------------
+name: PeaceCraftCore
+version: 0.1.0
+main: ru.peacecraft.core.PeaceCraftPlugin
+description: Core plugin for the PeaceCraft server
+author: mironoouv
+website: https://peacecraft.ru
+api-version: "1.21.11"
+
+commands:
+  pc:
+    description: PeaceCraft admin command
+    usage: /pc <subcommand>
+    permission: peacecraft.admin.use
+
+  logpose:
+    description: Log Pose navigation command
+    usage: /logpose [set|reset|info]
+    permission: peacecraft.player.logpose
+    aliases: [lp, compass]
+
+  travel:
+    description: Travel to island
+    usage: /travel <island>
+    permission: peacecraft.player.travel
+
+  fasttravel:
+    description: Fast travel to island
+    usage: /fasttravel <island>
+    permission: peacecraft.player.travel
+
+  shop:
+    description: Open shop menu
+    usage: /shop [sell|balance]
+    permission: peacecraft.player.shop
+
+  currency:
+    description: Currency commands
+    usage: /currency <balance>
+    permission: peacecraft.player.currency
+
+permissions:
+  peacecraft.admin.use:
+    description: Allows using PeaceCraft admin commands
+    default: op
+
+  peacecraft.admin.island.manage:
+    description: Allows managing island data
+    default: op
+
+  peacecraft.player.logpose:
+    description: Allows using Log Pose commands
+    default: true
+
+  peacecraft.player.travel:
+    description: Allows using travel commands
+    default: true
+
+  peacecraft.player.shop:
+    description: Allows using shop
+    default: true
+
+  peacecraft.player.currency:
+    description: Allows using currency commands
+    default: true
+
+
