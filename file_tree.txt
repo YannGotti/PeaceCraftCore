@@ -3,27 +3,207 @@ E:\PeaceCraftCore
 ├── .github
 │   └── workflows
 │       └── build.yml
+├── build
+│   ├── classes
+│   │   └── java
+│   │       ├── client
+│   │       │   └── ru
+│   │       │       └── peacecraft
+│   │       │           └── grandline
+│   │       │               ├── client
+│   │       │               │   └── bootstrap
+│   │       │               │       └── ClientBootstrap.class
+│   │       │               └── PeaceCraftClient.class
+│   │       └── main
+│   │           └── ru
+│   │               └── peacecraft
+│   │                   └── grandline
+│   │                       ├── common
+│   │                       │   ├── constant
+│   │                       │   │   └── ModIds.class
+│   │                       │   ├── registry
+│   │                       │   │   └── CommonBootstrap.class
+│   │                       │   └── util
+│   │                       │       └── ModLog.class
+│   │                       ├── server
+│   │                       │   ├── bootstrap
+│   │                       │   │   └── ServerBootstrap.class
+│   │                       │   ├── island
+│   │                       │   │   ├── bootstrap
+│   │                       │   │   │   └── IslandBootstrap.class
+│   │                       │   │   ├── command
+│   │                       │   │   │   └── IslandDebugCommand.class
+│   │                       │   │   ├── lifecycle
+│   │                       │   │   │   └── IslandDataReloadListener.class
+│   │                       │   │   ├── model
+│   │                       │   │   │   ├── IslandDefinition.class
+│   │                       │   │   │   └── IslandSpawnPoint.class
+│   │                       │   │   ├── persistence
+│   │                       │   │   │   ├── IslandDefinitionJson$SpawnJson.class
+│   │                       │   │   │   ├── IslandDefinitionJson.class
+│   │                       │   │   │   └── IslandDefinitionLoader.class
+│   │                       │   │   └── service
+│   │                       │   │       ├── IslandProfileSanitizer.class
+│   │                       │   │       └── IslandRegistry.class
+│   │                       │   └── player
+│   │                       │       ├── lifecycle
+│   │                       │       │   └── PlayerProfileLifecycle.class
+│   │                       │       ├── model
+│   │                       │       │   └── PlayerProfile.class
+│   │                       │       ├── persistence
+│   │                       │       │   ├── PlayerProfilePaths.class
+│   │                       │       │   └── PlayerProfileRepository.class
+│   │                       │       └── service
+│   │                       │           └── PlayerProfileService.class
+│   │                       └── PeaceCraftMod.class
+│   ├── devlibs
+│   │   ├── peacecraft-0.1.0-dev-dev.jar
+│   │   └── peacecraft-0.1.0-dev-sources.jar
+│   ├── generated
+│   │   └── sources
+│   │       ├── annotationProcessor
+│   │       │   └── java
+│   │       │       ├── client
+│   │       │       └── main
+│   │       └── headers
+│   │           └── java
+│   │               ├── client
+│   │               └── main
+│   ├── libs
+│   │   ├── peacecraft-0.1.0-dev-sources.jar
+│   │   └── peacecraft-0.1.0-dev.jar
+│   ├── loom-cache
+│   │   └── argFiles
+│   │       ├── runClient
+│   │       └── runServer
+│   ├── processIncludeJars
+│   ├── reports
+│   │   └── problems
+│   │       └── problems-report.html
+│   ├── resources
+│   │   └── main
+│   │       ├── assets
+│   │       │   └── peacecraft
+│   │       │       ├── lang
+│   │       │       │   ├── en_us.json
+│   │       │       │   └── ru_ru.json
+│   │       │       ├── models
+│   │       │       ├── sounds
+│   │       │       ├── textures
+│   │       │       └── icon.png
+│   │       ├── data
+│   │       │   └── peacecraft
+│   │       │       ├── peacecraft
+│   │       │       │   ├── bosses
+│   │       │       │   ├── currencies
+│   │       │       │   ├── fruits
+│   │       │       │   ├── islands
+│   │       │       │   │   └── starter_island.json
+│   │       │       │   ├── npc
+│   │       │       │   └── quests
+│   │       │       └── tags
+│   │       ├── fabric.mod.json
+│   │       └── peacecraft.mixins.json
+│   └── tmp
+│       ├── .cache
+│       │   └── expanded
+│       │       ├── zip_5c308bebc101489a226ba30119b5445a
+│       │       └── zip_738e626e06e7cb00203eba8a9db111c2
+│       ├── compileClientJava
+│       │   └── previous-compilation-data.bin
+│       ├── compileJava
+│       │   └── previous-compilation-data.bin
+│       ├── jar
+│       │   └── MANIFEST.MF
+│       ├── remapJar
+│       │   └── MANIFEST.MF
+│       ├── remapSourcesJar
+│       │   └── MANIFEST.MF
+│       └── sourcesJar
+│           └── MANIFEST.MF
 ├── run
 │   ├── config
 │   │   └── fabric
 │   │       └── indigo-renderer.properties
 │   ├── data
 │   │   └── fabric_default_resource_packs.json
+│   ├── debug
+│   │   └── disconnect-2026-03-21_22.44.55-client.txt
 │   ├── downloads
 │   │   └── log.json
 │   ├── logs
 │   │   ├── telemetry
 │   │   ├── 2026-03-21-1.log.gz
 │   │   ├── 2026-03-21-2.log.gz
+│   │   ├── 2026-03-21-3.log.gz
+│   │   ├── 2026-03-21-4.log.gz
+│   │   ├── 2026-03-21-5.log.gz
+│   │   ├── 2026-03-21-6.log.gz
+│   │   ├── 2026-03-21-7.log.gz
 │   │   ├── debug-1.log.gz
 │   │   ├── debug-2.log.gz
+│   │   ├── debug-3.log.gz
+│   │   ├── debug-4.log.gz
+│   │   ├── debug-5.log.gz
 │   │   ├── debug.log
 │   │   └── latest.log
 │   ├── mods
+│   ├── peacecraft
+│   │   └── player_profiles
+│   │       └── b9f5e998-520a-3fa2-8208-0c20f22aa20f.json
 │   ├── resourcepacks
 │   ├── resources
 │   ├── saves
+│   │   └── New World
+│   │       ├── advancements
+│   │       │   └── fc74fe37-e9f9-3198-8e46-1eee97cacfa6.json
+│   │       ├── data
+│   │       │   ├── chunks.dat
+│   │       │   ├── raids.dat
+│   │       │   ├── random_sequences.dat
+│   │       │   ├── scoreboard.dat
+│   │       │   ├── stopwatches.dat
+│   │       │   └── world_border.dat
+│   │       ├── datapacks
+│   │       ├── DIM-1
+│   │       │   └── data
+│   │       │       ├── chunks.dat
+│   │       │       ├── raids.dat
+│   │       │       └── world_border.dat
+│   │       ├── DIM1
+│   │       │   └── data
+│   │       │       ├── chunks.dat
+│   │       │       ├── raids_end.dat
+│   │       │       └── world_border.dat
+│   │       ├── entities
+│   │       │   ├── r.-1.-1.mca
+│   │       │   ├── r.-1.0.mca
+│   │       │   ├── r.0.-1.mca
+│   │       │   └── r.0.0.mca
+│   │       ├── playerdata
+│   │       │   ├── fc74fe37-e9f9-3198-8e46-1eee97cacfa6.dat
+│   │       │   └── fc74fe37-e9f9-3198-8e46-1eee97cacfa6.dat_old
+│   │       ├── poi
+│   │       │   ├── r.-1.-1.mca
+│   │       │   ├── r.-1.0.mca
+│   │       │   ├── r.0.-1.mca
+│   │       │   └── r.0.0.mca
+│   │       ├── region
+│   │       │   ├── r.-1.-1.mca
+│   │       │   ├── r.-1.0.mca
+│   │       │   ├── r.0.-1.mca
+│   │       │   └── r.0.0.mca
+│   │       ├── stats
+│   │       │   └── fc74fe37-e9f9-3198-8e46-1eee97cacfa6.json
+│   │       ├── icon.png
+│   │       ├── level.dat
+│   │       ├── level.dat_old
+│   │       └── session.lock
 │   ├── world
+│   │   ├── advancements
+│   │   │   ├── b9f5e998-520a-3fa2-8208-0c20f22aa20f.json
+│   │   │   ├── fc74fe37-e9f9-3198-8e46-1eee97cacfa6.json
+│   │   │   └── fe736038-102e-365b-a97e-eabc472944ec.json
 │   │   ├── data
 │   │   │   ├── chunks.dat
 │   │   │   ├── raids.dat
@@ -43,8 +223,15 @@ E:\PeaceCraftCore
 │   │   │       ├── raids_end.dat
 │   │   │       └── world_border.dat
 │   │   ├── entities
-│   │   │   └── r.-1.0.mca
+│   │   │   ├── r.-1.-1.mca
+│   │   │   ├── r.-1.0.mca
+│   │   │   ├── r.0.-1.mca
+│   │   │   └── r.0.0.mca
 │   │   ├── playerdata
+│   │   │   ├── b9f5e998-520a-3fa2-8208-0c20f22aa20f.dat
+│   │   │   ├── fc74fe37-e9f9-3198-8e46-1eee97cacfa6.dat
+│   │   │   ├── fc74fe37-e9f9-3198-8e46-1eee97cacfa6.dat_old
+│   │   │   └── fe736038-102e-365b-a97e-eabc472944ec.dat
 │   │   ├── poi
 │   │   │   ├── r.-1.-1.mca
 │   │   │   ├── r.-1.0.mca
@@ -55,16 +242,22 @@ E:\PeaceCraftCore
 │   │   │   ├── r.-1.0.mca
 │   │   │   ├── r.0.-1.mca
 │   │   │   └── r.0.0.mca
+│   │   ├── stats
+│   │   │   ├── b9f5e998-520a-3fa2-8208-0c20f22aa20f.json
+│   │   │   ├── fc74fe37-e9f9-3198-8e46-1eee97cacfa6.json
+│   │   │   └── fe736038-102e-365b-a97e-eabc472944ec.json
 │   │   ├── level.dat
 │   │   ├── level.dat_old
 │   │   └── session.lock
 │   ├── banned-ips.json
 │   ├── banned-players.json
+│   ├── command_history.txt
 │   ├── eula.txt
 │   ├── ops.json
 │   ├── options.txt
 │   ├── server.properties
 │   ├── servers.dat
+│   ├── servers.dat_old
 │   ├── usercache.json
 │   └── whitelist.json
 ├── src
@@ -97,6 +290,47 @@ E:\PeaceCraftCore
 │   │   │               │   └── util
 │   │   │               │       └── ModLog.java
 │   │   │               ├── mixin
+│   │   │               ├── server
+│   │   │               │   ├── ability
+│   │   │               │   ├── bootstrap
+│   │   │               │   │   └── ServerBootstrap.java
+│   │   │               │   ├── boss
+│   │   │               │   ├── command
+│   │   │               │   ├── currency
+│   │   │               │   ├── dev
+│   │   │               │   ├── fruit
+│   │   │               │   ├── island
+│   │   │               │   │   ├── bootstrap
+│   │   │               │   │   │   └── IslandBootstrap.java
+│   │   │               │   │   ├── command
+│   │   │               │   │   │   └── IslandDebugCommand.java
+│   │   │               │   │   ├── lifecycle
+│   │   │               │   │   │   └── IslandDataReloadListener.java
+│   │   │               │   │   ├── model
+│   │   │               │   │   │   ├── IslandDefinition.java
+│   │   │               │   │   │   └── IslandSpawnPoint.java
+│   │   │               │   │   ├── persistence
+│   │   │               │   │   │   ├── IslandDefinitionJson.java
+│   │   │               │   │   │   └── IslandDefinitionLoader.java
+│   │   │               │   │   └── service
+│   │   │               │   │       ├── IslandProfileSanitizer.java
+│   │   │               │   │       └── IslandRegistry.java
+│   │   │               │   ├── logpose
+│   │   │               │   ├── npc
+│   │   │               │   ├── persistence
+│   │   │               │   ├── player
+│   │   │               │   │   ├── lifecycle
+│   │   │               │   │   │   └── PlayerProfileLifecycle.java
+│   │   │               │   │   ├── model
+│   │   │               │   │   │   └── PlayerProfile.java
+│   │   │               │   │   ├── persistence
+│   │   │               │   │   │   ├── PlayerProfilePaths.java
+│   │   │               │   │   │   └── PlayerProfileRepository.java
+│   │   │               │   │   └── service
+│   │   │               │   │       └── PlayerProfileService.java
+│   │   │               │   ├── quest
+│   │   │               │   ├── travel
+│   │   │               │   └── world
 │   │   │               └── PeaceCraftMod.java
 │   │   └── resources
 │   │       ├── assets
@@ -115,6 +349,7 @@ E:\PeaceCraftCore
 │   │       │       │   ├── currencies
 │   │       │       │   ├── fruits
 │   │       │       │   ├── islands
+│   │       │       │   │   └── starter_island.json
 │   │       │       │   ├── npc
 │   │       │       │   └── quests
 │   │       │       └── tags
@@ -174,6 +409,94 @@ jobs:
           name: Artifacts
           path: build/libs/
 
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\build\resources\main\assets\peacecraft\lang\en_us.json
+------------------------------------------------------------
+{
+  "modmenu.nameTranslation.peacecraft": "PeaceCraft"
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\build\resources\main\assets\peacecraft\lang\ru_ru.json
+------------------------------------------------------------
+{
+  "modmenu.nameTranslation.peacecraft": "PeaceCraft"
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\build\resources\main\data\peacecraft\peacecraft\islands\starter_island.json
+------------------------------------------------------------
+{
+  "id": "starter_island",
+  "displayName": "Starter Island",
+  "spawnDimension": "minecraft:overworld",
+  "spawn": {
+    "x": 0.5,
+    "y": 64.0,
+    "z": 0.5,
+    "yaw": 0.0,
+    "pitch": 0.0
+  },
+  "starter": true,
+  "unlockedByDefault": true
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\build\resources\main\fabric.mod.json
+------------------------------------------------------------
+{
+  "schemaVersion": 1,
+  "id": "peacecraft",
+  "version": "0.1.0-dev",
+  "name": "PeaceCraft",
+  "description": "One Piece-inspired Fabric project focused on islands, navigation, progression, bosses, fruits, NPCs, and world systems.",
+  "authors": [
+    "YannGotti"
+  ],
+  "contact": {
+    "sources": "https://github.com/YannGotti/PeaceCraftCore"
+  },
+  "license": "All Rights Reserved",
+  "icon": "assets/peacecraft/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "ru.peacecraft.grandline.PeaceCraftMod"
+    ],
+    "client": [
+      "ru.peacecraft.grandline.PeaceCraftClient"
+    ]
+  },
+  "mixins": [
+    "peacecraft.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.18.4",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\build\resources\main\peacecraft.mixins.json
+------------------------------------------------------------
+{
+  "required": false,
+  "package": "ru.peacecraft.grandline.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
 
 
 ------------------------------------------------------------
@@ -367,7 +690,7 @@ archives_base_name=peacecraft
 Файл: E:\PeaceCraftCore\run\config\fabric\indigo-renderer.properties
 ------------------------------------------------------------
 #Indigo properties file
-#Sat Mar 21 21:48:36 MSK 2026
+#Sat Mar 21 22:43:17 MSK 2026
 ambient-occlusion-mode=hybrid
 debug-compare-lighting=auto
 fix-exterior-vertex-lighting=auto
@@ -392,14 +715,82 @@ fix-smooth-lighting-offset=auto
 ------------------------------------------------------------
 Файл: E:\PeaceCraftCore\run\ops.json
 ------------------------------------------------------------
-[]
+[
+  {
+    "uuid": "2b83ebdc-0604-37b1-94a0-4298b1021b84",
+    "name": "Player577",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  }
+]
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\peacecraft\player_profiles\b9f5e998-520a-3fa2-8208-0c20f22aa20f.json
+------------------------------------------------------------
+{
+  "profileVersion": 1,
+  "playerUuid": "b9f5e998-520a-3fa2-8208-0c20f22aa20f",
+  "lastKnownName": "Player321",
+  "currentIslandId": "starter_island",
+  "discoveredIslandIds": [
+    "starter_island"
+  ],
+  "unlockedIslandIds": [
+    "starter_island"
+  ],
+  "createdAtEpochMs": 1774120722883,
+  "updatedAtEpochMs": 1774120729536
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\saves\New World\advancements\fc74fe37-e9f9-3198-8e46-1eee97cacfa6.json
+------------------------------------------------------------
+{
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2026-03-21 22:11:15 +0300"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:flower_forest": "2026-03-21 22:11:16 +0300"
+    },
+    "done": false
+  },
+  "DataVersion": 4671
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\saves\New World\stats\fc74fe37-e9f9-3198-8e46-1eee97cacfa6.json
+------------------------------------------------------------
+{
+  "stats": {
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 345,
+      "minecraft:time_since_rest": 250,
+      "minecraft:fall_one_cm": 225,
+      "minecraft:walk_one_cm": 407,
+      "minecraft:total_world_time": 527,
+      "minecraft:leave_game": 1,
+      "minecraft:fly_one_cm": 672,
+      "minecraft:play_time": 250,
+      "minecraft:jump": 5,
+      "minecraft:time_since_death": 250
+    }
+  },
+  "DataVersion": 4671
+}
 
 
 ------------------------------------------------------------
 Файл: E:\PeaceCraftCore\run\server.properties
 ------------------------------------------------------------
 #Minecraft server properties
-#Sat Mar 21 21:50:31 MSK 2026
+#Sat Mar 21 22:45:15 MSK 2026
 accepts-transfers=false
 allow-flight=false
 broadcast-console-to-ops=true
@@ -409,7 +800,7 @@ difficulty=easy
 enable-code-of-conduct=false
 enable-jmx-monitoring=false
 enable-query=false
-enable-rcon=false
+enable-rcon=true
 enable-status=true
 enforce-secure-profile=true
 enforce-whitelist=false
@@ -448,7 +839,7 @@ player-idle-timeout=0
 prevent-proxy-connections=false
 query.port=25565
 rate-limit=0
-rcon.password=
+rcon.password=tyebaZTv
 rcon.port=25575
 region-file-compression=deflate
 require-resource-pack=false
@@ -473,13 +864,159 @@ white-list=false
 ------------------------------------------------------------
 Файл: E:\PeaceCraftCore\run\usercache.json
 ------------------------------------------------------------
-[]
+[{"uuid":"2b83ebdc-0604-37b1-94a0-4298b1021b84","name":"Player577","expiresOn":"2026-04-21 22:45:34 +0300"},{"uuid":"b9f5e998-520a-3fa2-8208-0c20f22aa20f","name":"Player321","expiresOn":"2026-04-21 22:18:42 +0300"},{"uuid":"fc74fe37-e9f9-3198-8e46-1eee97cacfa6","name":"Player455","expiresOn":"2026-04-21 22:14:04 +0300"},{"uuid":"fe736038-102e-365b-a97e-eabc472944ec","name":"Player31","expiresOn":"2026-04-21 21:51:39 +0300"}]
 
 
 ------------------------------------------------------------
 Файл: E:\PeaceCraftCore\run\whitelist.json
 ------------------------------------------------------------
 []
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\world\advancements\b9f5e998-520a-3fa2-8208-0c20f22aa20f.json
+------------------------------------------------------------
+{
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2026-03-21 22:18:42 +0300"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:old_growth_birch_forest": "2026-03-21 22:18:43 +0300"
+    },
+    "done": false
+  },
+  "DataVersion": 4671
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\world\advancements\fc74fe37-e9f9-3198-8e46-1eee97cacfa6.json
+------------------------------------------------------------
+{
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2026-03-21 22:07:30 +0300"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:old_growth_birch_forest": "2026-03-21 22:07:31 +0300"
+    },
+    "done": false
+  },
+  "DataVersion": 4671
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\world\advancements\fe736038-102e-365b-a97e-eabc472944ec.json
+------------------------------------------------------------
+{
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2026-03-21 21:51:39 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/yellow_dye_from_wildflowers": {
+    "criteria": {
+      "has_wildflowers": "2026-03-21 21:52:19 +0300"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:old_growth_birch_forest": "2026-03-21 21:51:51 +0300",
+      "minecraft:forest": "2026-03-21 21:51:39 +0300"
+    },
+    "done": false
+  },
+  "DataVersion": 4671
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\world\stats\b9f5e998-520a-3fa2-8208-0c20f22aa20f.json
+------------------------------------------------------------
+{
+  "stats": {
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 135,
+      "minecraft:walk_one_cm": 83,
+      "minecraft:total_world_time": 135,
+      "minecraft:leave_game": 1,
+      "minecraft:play_time": 135,
+      "minecraft:jump": 1,
+      "minecraft:time_since_death": 135
+    }
+  },
+  "DataVersion": 4671
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\world\stats\fc74fe37-e9f9-3198-8e46-1eee97cacfa6.json
+------------------------------------------------------------
+{
+  "stats": {
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 801,
+      "minecraft:time_since_rest": 2218,
+      "minecraft:fall_one_cm": 725,
+      "minecraft:walk_one_cm": 579,
+      "minecraft:total_world_time": 2218,
+      "minecraft:leave_game": 3,
+      "minecraft:fly_one_cm": 445,
+      "minecraft:damage_taken": 40,
+      "minecraft:play_time": 2218,
+      "minecraft:jump": 5,
+      "minecraft:time_since_death": 2218
+    }
+  },
+  "DataVersion": 4671
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\world\stats\fe736038-102e-365b-a97e-eabc472944ec.json
+------------------------------------------------------------
+{
+  "stats": {
+    "minecraft:picked_up": {
+      "minecraft:dirt": 1,
+      "minecraft:wildflowers": 7
+    },
+    "minecraft:mined": {
+      "minecraft:wildflowers": 2,
+      "minecraft:oak_leaves": 1,
+      "minecraft:grass_block": 1
+    },
+    "minecraft:dropped": {
+      "minecraft:wildflowers": 7,
+      "minecraft:dirt": 1
+    },
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 1468,
+      "minecraft:time_since_rest": 1176,
+      "minecraft:fall_one_cm": 1370,
+      "minecraft:walk_one_cm": 1145,
+      "minecraft:total_world_time": 1176,
+      "minecraft:leave_game": 1,
+      "minecraft:fly_one_cm": 1543,
+      "minecraft:damage_taken": 30,
+      "minecraft:play_time": 1176,
+      "minecraft:jump": 4,
+      "minecraft:time_since_death": 1176,
+      "minecraft:drop": 7
+    }
+  },
+  "DataVersion": 4671
+}
 
 
 ------------------------------------------------------------
@@ -618,6 +1155,858 @@ public final class PeaceCraftMod implements ModInitializer {
 
 
 ------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\bootstrap\ServerBootstrap.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.bootstrap;
+
+import ru.peacecraft.grandline.common.util.ModLog;
+import ru.peacecraft.grandline.server.island.bootstrap.IslandBootstrap;
+import ru.peacecraft.grandline.server.player.lifecycle.PlayerProfileLifecycle;
+
+public final class ServerBootstrap {
+    private static boolean initialized = false;
+
+    private ServerBootstrap() {
+    }
+
+    public static void init() {
+        if (initialized) {
+            ModLog.LOGGER.warn("ServerBootstrap.init() called more than once. Skipping.");
+            return;
+        }
+
+        initialized = true;
+        ModLog.LOGGER.info("Initializing server PeaceCraft systems...");
+
+        IslandBootstrap.init();
+        PlayerProfileLifecycle.init();
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\island\bootstrap\IslandBootstrap.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.island.bootstrap;
+
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.minecraft.resource.ResourceType;
+import ru.peacecraft.grandline.common.util.ModLog;
+import ru.peacecraft.grandline.server.island.command.IslandDebugCommand;
+import ru.peacecraft.grandline.server.island.lifecycle.IslandDataReloadListener;
+
+public final class IslandBootstrap {
+    private static boolean initialized = false;
+
+    private IslandBootstrap() {
+    }
+
+    public static void init() {
+        if (initialized) {
+            ModLog.LOGGER.warn("IslandBootstrap.init() called more than once. Skipping.");
+            return;
+        }
+
+        initialized = true;
+
+        ResourceManagerHelper.get(ResourceType.SERVER_DATA)
+                .registerReloadListener(new IslandDataReloadListener());
+
+        IslandDebugCommand.register();
+
+        ModLog.LOGGER.info("IslandBootstrap initialized.");
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\island\command\IslandDebugCommand.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.island.command;
+
+import com.mojang.brigadier.CommandDispatcher;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.minecraft.command.DefaultPermissions;
+import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
+import ru.peacecraft.grandline.server.island.model.IslandDefinition;
+import ru.peacecraft.grandline.server.island.service.IslandRegistry;
+import ru.peacecraft.grandline.server.player.model.PlayerProfile;
+import ru.peacecraft.grandline.server.player.service.PlayerProfileService;
+
+import java.util.stream.Collectors;
+
+import static net.minecraft.server.command.CommandManager.literal;
+
+public final class IslandDebugCommand {
+    private static boolean registered = false;
+
+    private IslandDebugCommand() {
+    }
+
+    public static void register() {
+        if (registered) {
+            return;
+        }
+
+        registered = true;
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> register(dispatcher));
+    }
+
+    private static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
+        dispatcher.register(
+                literal("pcdev")
+                        .requires(source -> source.getPermissions().hasPermission(DefaultPermissions.GAMEMASTERS))
+                        .then(literal("islands")
+                                .then(literal("list")
+                                        .executes(context -> executeList(context.getSource())))
+                                .then(literal("starter")
+                                        .executes(context -> executeStarter(context.getSource())))
+                                .then(literal("me")
+                                        .executes(context -> executeMe(context.getSource()))))
+        );
+    }
+
+    private static int executeList(ServerCommandSource source) {
+        IslandRegistry registry = IslandRegistry.getInstance();
+
+        String joinedIds = registry.getAll().stream()
+                .map(IslandDefinition::id)
+                .collect(Collectors.joining(", "));
+
+        source.sendFeedback(
+                () -> Text.literal("Loaded islands (" + registry.getAll().size() + "): " + joinedIds),
+                false
+        );
+
+        return 1;
+    }
+
+    private static int executeStarter(ServerCommandSource source) {
+        IslandDefinition starter = IslandRegistry.getInstance().getStarterIsland()
+                .orElseThrow(() -> new IllegalStateException("Starter island not found"));
+
+        source.sendFeedback(
+                () -> Text.literal("Starter island: " + starter.id() + " [" + starter.displayName() + "]"),
+                false
+        );
+
+        return 1;
+    }
+
+    private static int executeMe(ServerCommandSource source) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        ServerPlayerEntity player = source.getPlayerOrThrow();
+
+        PlayerProfile profile = PlayerProfileService.getInstance()
+                .getOrLoadProfile(source.getServer(), player);
+
+        source.sendFeedback(
+                () -> Text.literal(
+                        "Current=" + profile.getCurrentIslandId()
+                                + ", discovered=" + profile.getDiscoveredIslandIds()
+                                + ", unlocked=" + profile.getUnlockedIslandIds()
+                                + ", logPoseTarget=" + profile.getActiveLogPoseTargetId()
+                ),
+                false
+        );
+
+        return 1;
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\island\lifecycle\IslandDataReloadListener.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.island.lifecycle;
+
+import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
+import net.minecraft.resource.ResourceManager;
+import net.minecraft.util.Identifier;
+import ru.peacecraft.grandline.common.constant.ModIds;
+import ru.peacecraft.grandline.common.util.ModLog;
+import ru.peacecraft.grandline.server.island.model.IslandDefinition;
+import ru.peacecraft.grandline.server.island.persistence.IslandDefinitionLoader;
+import ru.peacecraft.grandline.server.island.service.IslandRegistry;
+
+import java.util.List;
+
+public final class IslandDataReloadListener implements SimpleSynchronousResourceReloadListener {
+
+    @Override
+    public Identifier getFabricId() {
+        return ModIds.id("island_data_reload");
+    }
+
+    @Override
+    public void reload(ResourceManager manager) {
+        try {
+            List<IslandDefinition> loadedDefinitions = IslandDefinitionLoader.loadAll(manager);
+            IslandRegistry.getInstance().replaceAll(loadedDefinitions);
+            ModLog.LOGGER.info("Island data reload completed successfully.");
+        } catch (Exception e) {
+            ModLog.LOGGER.error("Island data reload failed.", e);
+        }
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\island\model\IslandDefinition.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.island.model;
+
+import net.minecraft.util.Identifier;
+
+public record IslandDefinition(
+        String id,
+        String displayName,
+        Identifier spawnDimension,
+        IslandSpawnPoint spawnPoint,
+        boolean starter,
+        boolean unlockedByDefault
+) {
+    public boolean hasId(String islandId) {
+        return id != null && id.equals(islandId);
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\island\model\IslandSpawnPoint.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.island.model;
+
+public record IslandSpawnPoint(
+        double x,
+        double y,
+        double z,
+        float yaw,
+        float pitch
+) {
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\island\persistence\IslandDefinitionJson.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.island.persistence;
+
+public final class IslandDefinitionJson {
+    public String id;
+    public String displayName;
+    public String spawnDimension;
+    public SpawnJson spawn;
+    public boolean starter;
+    public boolean unlockedByDefault;
+
+    public static final class SpawnJson {
+        public double x;
+        public double y;
+        public double z;
+        public float yaw;
+        public float pitch;
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\island\persistence\IslandDefinitionLoader.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.island.persistence;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import net.minecraft.resource.Resource;
+import net.minecraft.resource.ResourceManager;
+import net.minecraft.util.Identifier;
+import ru.peacecraft.grandline.common.util.ModLog;
+import ru.peacecraft.grandline.server.island.model.IslandDefinition;
+import ru.peacecraft.grandline.server.island.model.IslandSpawnPoint;
+
+public final class IslandDefinitionLoader {
+    private static final Gson GSON = new GsonBuilder()
+            .setPrettyPrinting()
+            .create();
+
+    private IslandDefinitionLoader() {
+    }
+
+    public static List<IslandDefinition> loadAll(ResourceManager resourceManager) {
+        Map<Identifier, Resource> resources = resourceManager.findResources(
+                "peacecraft/islands",
+                id -> id.getPath().endsWith(".json")
+        );
+
+        List<IslandDefinition> result = new ArrayList<>();
+
+        for (Map.Entry<Identifier, Resource> entry : resources.entrySet()) {
+            Identifier resourceId = entry.getKey();
+            Resource resource = entry.getValue();
+
+            try (BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(resource.getInputStream(), StandardCharsets.UTF_8)
+            )) {
+                IslandDefinitionJson json = GSON.fromJson(reader, IslandDefinitionJson.class);
+                result.add(toDefinition(resourceId, json));
+            } catch (Exception e) {
+                throw new IllegalStateException("Failed to load island definition from " + resourceId, e);
+            }
+        }
+
+        ModLog.LOGGER.info("Discovered {} island json resource(s)", result.size());
+        return result;
+    }
+
+    private static IslandDefinition toDefinition(Identifier resourceId, IslandDefinitionJson json) {
+        if (json == null) {
+            throw new IllegalStateException("Island json is null: " + resourceId);
+        }
+
+        if (isBlank(json.id)) {
+            throw new IllegalStateException("Island id is blank in " + resourceId);
+        }
+
+        if (isBlank(json.displayName)) {
+            throw new IllegalStateException("Island displayName is blank in " + resourceId);
+        }
+
+        if (isBlank(json.spawnDimension)) {
+            throw new IllegalStateException("Island spawnDimension is blank in " + resourceId);
+        }
+
+        if (json.spawn == null) {
+            throw new IllegalStateException("Island spawn block is missing in " + resourceId);
+        }
+
+        Identifier dimensionId;
+        try {
+            dimensionId = Identifier.of(json.spawnDimension);
+        } catch (Exception e) {
+            throw new IllegalStateException("Invalid spawnDimension '" + json.spawnDimension + "' in " + resourceId, e);
+        }
+
+        IslandSpawnPoint spawnPoint = new IslandSpawnPoint(
+                json.spawn.x,
+                json.spawn.y,
+                json.spawn.z,
+                json.spawn.yaw,
+                json.spawn.pitch
+        );
+
+        return new IslandDefinition(
+                json.id,
+                json.displayName,
+                dimensionId,
+                spawnPoint,
+                json.starter,
+                json.unlockedByDefault
+        );
+    }
+
+    private static boolean isBlank(String value) {
+        return value == null || value.isBlank();
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\island\service\IslandProfileSanitizer.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.island.service;
+
+import java.util.HashSet;
+
+import ru.peacecraft.grandline.server.player.model.PlayerProfile;
+
+public final class IslandProfileSanitizer {
+    private IslandProfileSanitizer() {
+    }
+
+    public static void sanitize(PlayerProfile profile) {
+        IslandRegistry registry = IslandRegistry.getInstance();
+
+        if (profile.getDiscoveredIslandIds() == null) {
+            profile.setDiscoveredIslandIds(new HashSet<>());
+        }
+
+        if (profile.getUnlockedIslandIds() == null) {
+            profile.setUnlockedIslandIds(new HashSet<>());
+        }
+
+        if (registry.isEmpty()) {
+            return;
+        }
+
+        String starterIslandId = registry.getRequiredStarterIslandId();
+
+        profile.getDiscoveredIslandIds().removeIf(id -> !registry.contains(id));
+        profile.getUnlockedIslandIds().removeIf(id -> !registry.contains(id));
+
+        if (profile.getCurrentIslandId() == null || !registry.contains(profile.getCurrentIslandId())) {
+            profile.setCurrentIslandId(starterIslandId);
+        }
+
+        if (profile.getActiveLogPoseTargetId() != null && !registry.contains(profile.getActiveLogPoseTargetId())) {
+            profile.setActiveLogPoseTargetId(null);
+        }
+
+        profile.getDiscoveredIslandIds().add(starterIslandId);
+        profile.getUnlockedIslandIds().add(starterIslandId);
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\island\service\IslandRegistry.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.island.service;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Optional;
+
+import ru.peacecraft.grandline.common.util.ModLog;
+import ru.peacecraft.grandline.server.island.model.IslandDefinition;
+
+public final class IslandRegistry {
+    private static final IslandRegistry INSTANCE = new IslandRegistry();
+
+    private final Map<String, IslandDefinition> islands = new LinkedHashMap<>();
+
+    private IslandRegistry() {
+    }
+
+    public static IslandRegistry getInstance() {
+        return INSTANCE;
+    }
+
+    public synchronized void replaceAll(Collection<IslandDefinition> definitions) {
+        Map<String, IslandDefinition> next = new LinkedHashMap<>();
+
+        for (IslandDefinition definition : definitions) {
+            if (definition == null) {
+                continue;
+            }
+
+            String id = definition.id();
+            if (id == null || id.isBlank()) {
+                throw new IllegalStateException("Encountered island definition with blank id");
+            }
+
+            if (next.containsKey(id)) {
+                throw new IllegalStateException("Duplicate island id detected: " + id);
+            }
+
+            next.put(id, definition);
+        }
+
+        long starterCount = next.values().stream()
+                .filter(IslandDefinition::starter)
+                .count();
+
+        if (starterCount != 1) {
+            throw new IllegalStateException("Exactly one starter island is required, but found " + starterCount);
+        }
+
+        islands.clear();
+        islands.putAll(next);
+
+        ModLog.LOGGER.info(
+                "IslandRegistry loaded {} island(s). Starter={}",
+                islands.size(),
+                getStarterIsland().map(IslandDefinition::id).orElse("none")
+        );
+    }
+
+    public synchronized Optional<IslandDefinition> get(String islandId) {
+        return Optional.ofNullable(islands.get(islandId));
+    }
+
+    public synchronized boolean contains(String islandId) {
+        return islands.containsKey(islandId);
+    }
+
+    public synchronized Collection<IslandDefinition> getAll() {
+        return Collections.unmodifiableCollection(islands.values());
+    }
+
+    public synchronized Optional<IslandDefinition> getStarterIsland() {
+        return islands.values().stream()
+                .filter(IslandDefinition::starter)
+                .findFirst();
+    }
+
+    public synchronized String getRequiredStarterIslandId() {
+        return getStarterIsland()
+                .map(IslandDefinition::id)
+                .orElseThrow(() -> new IllegalStateException("Starter island is not loaded"));
+    }
+
+    public synchronized boolean isEmpty() {
+        return islands.isEmpty();
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\player\lifecycle\PlayerProfileLifecycle.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.player.lifecycle;
+
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import ru.peacecraft.grandline.common.util.ModLog;
+import ru.peacecraft.grandline.server.player.service.PlayerProfileService;
+
+public final class PlayerProfileLifecycle {
+    private static boolean initialized = false;
+
+    private PlayerProfileLifecycle() {
+    }
+
+    public static void init() {
+        if (initialized) {
+            ModLog.LOGGER.warn("PlayerProfileLifecycle.init() called more than once. Skipping.");
+            return;
+        }
+
+        initialized = true;
+
+        ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
+            PlayerProfileService.getInstance().getOrLoadProfile(server, handler.getPlayer());
+        });
+
+        ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> {
+            PlayerProfileService.getInstance().saveAndUnloadProfile(server, handler.getPlayer().getUuid());
+        });
+
+        ServerLifecycleEvents.SERVER_STOPPING.register(server -> {
+            ModLog.LOGGER.info("Server stopping: saving all player profiles...");
+            PlayerProfileService.getInstance().saveAll(server);
+        });
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\player\model\PlayerProfile.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.player.model;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+
+public final class PlayerProfile {
+    private int profileVersion;
+    private UUID playerUuid;
+    private String lastKnownName;
+    private String currentIslandId;
+    private Set<String> discoveredIslandIds;
+    private Set<String> unlockedIslandIds;
+    private String activeLogPoseTargetId;
+    private String activeFruitId;
+    private String crewId;
+    private long createdAtEpochMs;
+    private long updatedAtEpochMs;
+
+    public PlayerProfile() {
+        this.profileVersion = 1;
+        this.discoveredIslandIds = new HashSet<>();
+        this.unlockedIslandIds = new HashSet<>();
+    }
+
+    public static PlayerProfile createDefault(UUID playerUuid, String lastKnownName) {
+        PlayerProfile profile = new PlayerProfile();
+        long now = System.currentTimeMillis();
+
+        profile.profileVersion = 1;
+        profile.playerUuid = playerUuid;
+        profile.lastKnownName = lastKnownName;
+        profile.currentIslandId = "starter_island";
+        profile.activeLogPoseTargetId = null;
+        profile.activeFruitId = null;
+        profile.crewId = null;
+        profile.createdAtEpochMs = now;
+        profile.updatedAtEpochMs = now;
+
+        profile.discoveredIslandIds.add("starter_island");
+        profile.unlockedIslandIds.add("starter_island");
+
+        return profile;
+    }
+
+    public void touch() {
+        this.updatedAtEpochMs = System.currentTimeMillis();
+    }
+
+    public int getProfileVersion() {
+        return profileVersion;
+    }
+
+    public void setProfileVersion(int profileVersion) {
+        this.profileVersion = profileVersion;
+    }
+
+    public UUID getPlayerUuid() {
+        return playerUuid;
+    }
+
+    public void setPlayerUuid(UUID playerUuid) {
+        this.playerUuid = playerUuid;
+    }
+
+    public String getLastKnownName() {
+        return lastKnownName;
+    }
+
+    public void setLastKnownName(String lastKnownName) {
+        this.lastKnownName = lastKnownName;
+    }
+
+    public String getCurrentIslandId() {
+        return currentIslandId;
+    }
+
+    public void setCurrentIslandId(String currentIslandId) {
+        this.currentIslandId = currentIslandId;
+    }
+
+    public Set<String> getDiscoveredIslandIds() {
+        return discoveredIslandIds;
+    }
+
+    public void setDiscoveredIslandIds(Set<String> discoveredIslandIds) {
+        this.discoveredIslandIds = discoveredIslandIds;
+    }
+
+    public Set<String> getUnlockedIslandIds() {
+        return unlockedIslandIds;
+    }
+
+    public void setUnlockedIslandIds(Set<String> unlockedIslandIds) {
+        this.unlockedIslandIds = unlockedIslandIds;
+    }
+
+    public String getActiveLogPoseTargetId() {
+        return activeLogPoseTargetId;
+    }
+
+    public void setActiveLogPoseTargetId(String activeLogPoseTargetId) {
+        this.activeLogPoseTargetId = activeLogPoseTargetId;
+    }
+
+    public String getActiveFruitId() {
+        return activeFruitId;
+    }
+
+    public void setActiveFruitId(String activeFruitId) {
+        this.activeFruitId = activeFruitId;
+    }
+
+    public String getCrewId() {
+        return crewId;
+    }
+
+    public void setCrewId(String crewId) {
+        this.crewId = crewId;
+    }
+
+    public long getCreatedAtEpochMs() {
+        return createdAtEpochMs;
+    }
+
+    public void setCreatedAtEpochMs(long createdAtEpochMs) {
+        this.createdAtEpochMs = createdAtEpochMs;
+    }
+
+    public long getUpdatedAtEpochMs() {
+        return updatedAtEpochMs;
+    }
+
+    public void setUpdatedAtEpochMs(long updatedAtEpochMs) {
+        this.updatedAtEpochMs = updatedAtEpochMs;
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\player\persistence\PlayerProfilePaths.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.player.persistence;
+
+import java.nio.file.Path;
+import java.util.UUID;
+
+public final class PlayerProfilePaths {
+    private PlayerProfilePaths() {
+    }
+
+    public static Path getProfilesDirectory(Path serverRoot) {
+        return serverRoot.resolve("peacecraft").resolve("player_profiles");
+    }
+
+    public static Path getProfilePath(Path serverRoot, UUID playerUuid) {
+        return getProfilesDirectory(serverRoot).resolve(playerUuid.toString() + ".json");
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\player\persistence\PlayerProfileRepository.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.player.persistence;
+
+import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Optional;
+import java.util.UUID;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import ru.peacecraft.grandline.common.util.ModLog;
+import ru.peacecraft.grandline.server.player.model.PlayerProfile;
+
+public final class PlayerProfileRepository {
+    private final Gson gson;
+
+    public PlayerProfileRepository() {
+        this.gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .create();
+    }
+
+    public Optional<PlayerProfile> load(Path serverRoot, UUID playerUuid) {
+        Path profilePath = PlayerProfilePaths.getProfilePath(serverRoot, playerUuid);
+
+        if (!Files.exists(profilePath)) {
+            return Optional.empty();
+        }
+
+        try (Reader reader = Files.newBufferedReader(profilePath)) {
+            PlayerProfile profile = gson.fromJson(reader, PlayerProfile.class);
+            return Optional.ofNullable(profile);
+        } catch (IOException e) {
+            ModLog.LOGGER.error("Failed to load player profile for UUID {}", playerUuid, e);
+            return Optional.empty();
+        }
+    }
+
+    public void save(Path serverRoot, PlayerProfile profile) {
+        Path profilesDirectory = PlayerProfilePaths.getProfilesDirectory(serverRoot);
+        Path profilePath = PlayerProfilePaths.getProfilePath(serverRoot, profile.getPlayerUuid());
+
+        try {
+            Files.createDirectories(profilesDirectory);
+
+            try (Writer writer = Files.newBufferedWriter(profilePath)) {
+                gson.toJson(profile, writer);
+            }
+        } catch (IOException e) {
+            ModLog.LOGGER.error("Failed to save player profile for UUID {}", profile.getPlayerUuid(), e);
+        }
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\player\service\PlayerProfileService.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.player.service;
+
+import java.nio.file.Path;
+import java.util.Map;
+import java.util.Optional;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.network.ServerPlayerEntity;
+import ru.peacecraft.grandline.common.util.ModLog;
+import ru.peacecraft.grandline.server.island.service.IslandProfileSanitizer;
+import ru.peacecraft.grandline.server.player.model.PlayerProfile;
+import ru.peacecraft.grandline.server.player.persistence.PlayerProfileRepository;
+
+public final class PlayerProfileService {
+    private static final PlayerProfileService INSTANCE = new PlayerProfileService();
+
+    private final Map<UUID, PlayerProfile> loadedProfiles = new ConcurrentHashMap<>();
+    private final PlayerProfileRepository repository = new PlayerProfileRepository();
+
+    private PlayerProfileService() {
+    }
+
+    public static PlayerProfileService getInstance() {
+        return INSTANCE;
+    }
+
+    public PlayerProfile getOrLoadProfile(MinecraftServer server, ServerPlayerEntity player) {
+        UUID uuid = player.getUuid();
+
+        PlayerProfile cached = loadedProfiles.get(uuid);
+        if (cached != null) {
+            return cached;
+        }
+
+        Path serverRoot = server.getRunDirectory();
+
+        Optional<PlayerProfile> loaded = repository.load(serverRoot, uuid);
+        PlayerProfile profile = loaded.orElseGet(() -> {
+            ModLog.LOGGER.info("Creating new player profile for {}", player.getName().getString());
+            return PlayerProfile.createDefault(uuid, player.getName().getString());
+        });
+
+        profile.setLastKnownName(player.getName().getString());
+
+        IslandProfileSanitizer.sanitize(profile);
+
+        profile.touch();
+
+        loadedProfiles.put(uuid, profile);
+        return profile;
+    }
+
+    public Optional<PlayerProfile> getLoadedProfile(UUID uuid) {
+        return Optional.ofNullable(loadedProfiles.get(uuid));
+    }
+
+    public void saveProfile(MinecraftServer server, PlayerProfile profile) {
+        profile.touch();
+        repository.save(server.getRunDirectory(), profile);
+    }
+
+    public void saveAndUnloadProfile(MinecraftServer server, UUID uuid) {
+        PlayerProfile profile = loadedProfiles.remove(uuid);
+        if (profile != null) {
+            saveProfile(server, profile);
+        }
+    }
+
+    public void saveAll(MinecraftServer server) {
+        for (PlayerProfile profile : loadedProfiles.values()) {
+            saveProfile(server, profile);
+        }
+    }
+}
+
+
+------------------------------------------------------------
 Файл: E:\PeaceCraftCore\src\main\resources\assets\peacecraft\lang\en_us.json
 ------------------------------------------------------------
 {
@@ -630,6 +2019,25 @@ public final class PeaceCraftMod implements ModInitializer {
 ------------------------------------------------------------
 {
   "modmenu.nameTranslation.peacecraft": "PeaceCraft"
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\resources\data\peacecraft\peacecraft\islands\starter_island.json
+------------------------------------------------------------
+{
+  "id": "starter_island",
+  "displayName": "Starter Island",
+  "spawnDimension": "minecraft:overworld",
+  "spawn": {
+    "x": 0.5,
+    "y": 64.0,
+    "z": 0.5,
+    "yaw": 0.0,
+    "pitch": 0.0
+  },
+  "starter": true,
+  "unlockedByDefault": true
 }
 
 

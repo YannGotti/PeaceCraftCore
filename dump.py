@@ -1,7 +1,7 @@
 from pathlib import Path
 import argparse
 
-EXCLUDED_DIRS = {".git", "gradle", ".gradle", "node_modules", "target", "build", "out", "dist", "server"}
+EXCLUDED_DIRS = {".git", "gradle", ".gradle", "node_modules"}
 # Расширения файлов, содержимое которых нужно записывать
 CONTENT_EXTENSIONS = {".java", ".yml", ".yaml", ".json", ".xml", ".properties"}
 

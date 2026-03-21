@@ -1,0 +1,14 @@
+{
+  "id": "starter_island",
+  "displayName": "Starter Island",
+  "spawnDimension": "minecraft:overworld",
+  "spawn": {
+    "x": 0.5,
+    "y": 64.0,
+    "z": 0.5,
+    "yaw": 0.0,
+    "pitch": 0.0
+  },
+  "starter": true,
+  "unlockedByDefault": true
+}

@@ -1,6 +1,8 @@
 package ru.peacecraft.grandline.server.bootstrap;
 
 import ru.peacecraft.grandline.common.util.ModLog;
+import ru.peacecraft.grandline.server.island.bootstrap.IslandBootstrap;
+import ru.peacecraft.grandline.server.player.lifecycle.PlayerProfileLifecycle;
 
 public final class ServerBootstrap {
     private static boolean initialized = false;
@@ -16,5 +18,8 @@ public final class ServerBootstrap {
 
         initialized = true;
         ModLog.LOGGER.info("Initializing server PeaceCraft systems...");
+
+        IslandBootstrap.init();
+        PlayerProfileLifecycle.init();
     }
 }
