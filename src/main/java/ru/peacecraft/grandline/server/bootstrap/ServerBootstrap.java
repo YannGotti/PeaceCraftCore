@@ -2,6 +2,7 @@ package ru.peacecraft.grandline.server.bootstrap;
 
 import ru.peacecraft.grandline.common.util.ModLog;
 import ru.peacecraft.grandline.server.island.bootstrap.IslandBootstrap;
+import ru.peacecraft.grandline.server.logpose.bootstrap.LogPoseBootstrap;
 import ru.peacecraft.grandline.server.player.lifecycle.PlayerProfileLifecycle;
 
 public final class ServerBootstrap {
@@ -20,6 +21,7 @@ public final class ServerBootstrap {
         ModLog.LOGGER.info("Initializing server PeaceCraft systems...");
 
         IslandBootstrap.init();
+        LogPoseBootstrap.init();
         PlayerProfileLifecycle.init();
     }
 }

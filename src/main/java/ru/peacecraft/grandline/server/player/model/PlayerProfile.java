@@ -14,6 +14,7 @@ public final class PlayerProfile {
     private String activeLogPoseTargetId;
     private String activeFruitId;
     private String crewId;
+    private boolean starterLogPoseGranted;
     private long createdAtEpochMs;
     private long updatedAtEpochMs;
 
@@ -21,6 +22,7 @@ public final class PlayerProfile {
         this.profileVersion = 1;
         this.discoveredIslandIds = new HashSet<>();
         this.unlockedIslandIds = new HashSet<>();
+        this.starterLogPoseGranted = false;
     }
 
     public static PlayerProfile createDefault(UUID playerUuid, String lastKnownName) {
@@ -34,6 +36,7 @@ public final class PlayerProfile {
         profile.activeLogPoseTargetId = null;
         profile.activeFruitId = null;
         profile.crewId = null;
+        profile.starterLogPoseGranted = false;
         profile.createdAtEpochMs = now;
         profile.updatedAtEpochMs = now;
 
@@ -41,10 +44,6 @@ public final class PlayerProfile {
         profile.unlockedIslandIds.add("starter_island");
 
         return profile;
-    }
-
-    public void touch() {
-        this.updatedAtEpochMs = System.currentTimeMillis();
     }
 
     public int getProfileVersion() {
@@ -119,6 +118,14 @@ public final class PlayerProfile {
         this.crewId = crewId;
     }
 
+    public boolean isStarterLogPoseGranted() {
+        return starterLogPoseGranted;
+    }
+
+    public void setStarterLogPoseGranted(boolean starterLogPoseGranted) {
+        this.starterLogPoseGranted = starterLogPoseGranted;
+    }
+
     public long getCreatedAtEpochMs() {
         return createdAtEpochMs;
     }
@@ -133,5 +140,9 @@ public final class PlayerProfile {
 
     public void setUpdatedAtEpochMs(long updatedAtEpochMs) {
         this.updatedAtEpochMs = updatedAtEpochMs;
+    }
+
+    public void touch() {
+        this.updatedAtEpochMs = System.currentTimeMillis();
     }
 }

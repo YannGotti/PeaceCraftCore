@@ -53,10 +53,17 @@ E:\PeaceCraftCore
 │   │                       │   │       ├── IslandProfileSanitizer.class
 │   │                       │   │       └── IslandRegistry.class
 │   │                       │   ├── logpose
+│   │                       │   │   ├── bootstrap
+│   │                       │   │   │   └── LogPoseBootstrap.class
+│   │                       │   │   ├── command
+│   │                       │   │   │   └── LogPoseCommand.class
 │   │                       │   │   ├── model
+│   │                       │   │   │   ├── LogPoseItemGrantResult.class
+│   │                       │   │   │   ├── LogPoseItemGrantStatus.class
 │   │                       │   │   │   ├── LogPoseTargetSelectionResult.class
 │   │                       │   │   │   └── LogPoseTargetSelectionStatus.class
 │   │                       │   │   └── service
+│   │                       │   │       ├── LogPoseItemGrantService.class
 │   │                       │   │       └── LogPoseTargetService.class
 │   │                       │   └── player
 │   │                       │       ├── lifecycle
@@ -127,8 +134,8 @@ E:\PeaceCraftCore
 │   └── tmp
 │       ├── .cache
 │       │   └── expanded
-│       │       ├── zip_1da1a71515ea4b471df357ed905bf12d
-│       │       └── zip_bac646fd9b82cafd94d89e79bcf6363d
+│       │       ├── zip_29dfcfb6b4e5904e001c44f05e03c76d
+│       │       └── zip_3685e601c2e941094c3a43cc8eeeb878
 │       ├── compileClientJava
 │       │   └── previous-compilation-data.bin
 │       ├── compileJava
@@ -167,6 +174,7 @@ E:\PeaceCraftCore
 │   │   ├── 2026-03-22-3.log.gz
 │   │   ├── 2026-03-22-4.log.gz
 │   │   ├── 2026-03-22-5.log.gz
+│   │   ├── 2026-03-22-6.log.gz
 │   │   ├── debug-1.log.gz
 │   │   ├── debug-2.log.gz
 │   │   ├── debug-3.log.gz
@@ -180,6 +188,7 @@ E:\PeaceCraftCore
 │   │       ├── 2250da04-2be8-3508-9a2e-a09e550d0033.json
 │   │       ├── 2b83ebdc-0604-37b1-94a0-4298b1021b84.json
 │   │       ├── 49b1c99f-ddf7-3830-8802-b69461c51429.json
+│   │       ├── 6f3f457a-8ce3-3a45-8767-61c2dfd0e70f.json
 │   │       ├── 9da9c19c-8c76-3722-b34c-263305f5c6ba.json
 │   │       └── b9f5e998-520a-3fa2-8208-0c20f22aa20f.json
 │   ├── resourcepacks
@@ -235,6 +244,8 @@ E:\PeaceCraftCore
 │   │   │   ├── 2250da04-2be8-3508-9a2e-a09e550d0033.json
 │   │   │   ├── 2b83ebdc-0604-37b1-94a0-4298b1021b84.json
 │   │   │   ├── 49b1c99f-ddf7-3830-8802-b69461c51429.json
+│   │   │   ├── 6f3f457a-8ce3-3a45-8767-61c2dfd0e70f.json
+│   │   │   ├── 9da9c19c-8c76-3722-b34c-263305f5c6ba.json
 │   │   │   ├── b9f5e998-520a-3fa2-8208-0c20f22aa20f.json
 │   │   │   ├── fc74fe37-e9f9-3198-8e46-1eee97cacfa6.json
 │   │   │   └── fe736038-102e-365b-a97e-eabc472944ec.json
@@ -267,6 +278,9 @@ E:\PeaceCraftCore
 │   │   │   ├── 2b83ebdc-0604-37b1-94a0-4298b1021b84.dat_old
 │   │   │   ├── 49b1c99f-ddf7-3830-8802-b69461c51429.dat
 │   │   │   ├── 49b1c99f-ddf7-3830-8802-b69461c51429.dat_old
+│   │   │   ├── 6f3f457a-8ce3-3a45-8767-61c2dfd0e70f.dat
+│   │   │   ├── 9da9c19c-8c76-3722-b34c-263305f5c6ba.dat
+│   │   │   ├── 9da9c19c-8c76-3722-b34c-263305f5c6ba.dat_old
 │   │   │   ├── b9f5e998-520a-3fa2-8208-0c20f22aa20f.dat
 │   │   │   ├── fc74fe37-e9f9-3198-8e46-1eee97cacfa6.dat
 │   │   │   ├── fc74fe37-e9f9-3198-8e46-1eee97cacfa6.dat_old
@@ -285,6 +299,8 @@ E:\PeaceCraftCore
 │   │   │   ├── 2250da04-2be8-3508-9a2e-a09e550d0033.json
 │   │   │   ├── 2b83ebdc-0604-37b1-94a0-4298b1021b84.json
 │   │   │   ├── 49b1c99f-ddf7-3830-8802-b69461c51429.json
+│   │   │   ├── 6f3f457a-8ce3-3a45-8767-61c2dfd0e70f.json
+│   │   │   ├── 9da9c19c-8c76-3722-b34c-263305f5c6ba.json
 │   │   │   ├── b9f5e998-520a-3fa2-8208-0c20f22aa20f.json
 │   │   │   ├── fc74fe37-e9f9-3198-8e46-1eee97cacfa6.json
 │   │   │   └── fe736038-102e-365b-a97e-eabc472944ec.json
@@ -365,10 +381,17 @@ E:\PeaceCraftCore
 │   │   │               │   │       ├── IslandProfileSanitizer.java
 │   │   │               │   │       └── IslandRegistry.java
 │   │   │               │   ├── logpose
+│   │   │               │   │   ├── bootstrap
+│   │   │               │   │   │   └── LogPoseBootstrap.java
+│   │   │               │   │   ├── command
+│   │   │               │   │   │   └── LogPoseCommand.java
 │   │   │               │   │   ├── model
+│   │   │               │   │   │   ├── LogPoseItemGrantResult.java
+│   │   │               │   │   │   ├── LogPoseItemGrantStatus.java
 │   │   │               │   │   │   ├── LogPoseTargetSelectionResult.java
 │   │   │               │   │   │   └── LogPoseTargetSelectionStatus.java
 │   │   │               │   │   └── service
+│   │   │               │   │       ├── LogPoseItemGrantService.java
 │   │   │               │   │       └── LogPoseTargetService.java
 │   │   │               │   ├── npc
 │   │   │               │   ├── persistence
@@ -798,7 +821,7 @@ archives_base_name=peacecraft
 Файл: E:\PeaceCraftCore\run\config\fabric\indigo-renderer.properties
 ------------------------------------------------------------
 #Indigo properties file
-#Sun Mar 22 20:00:17 MSK 2026
+#Sun Mar 22 20:17:57 MSK 2026
 ambient-occlusion-mode=hybrid
 debug-compare-lighting=auto
 fix-exterior-vertex-lighting=auto
@@ -912,6 +935,26 @@ fix-smooth-lighting-offset=auto
 
 
 ------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\peacecraft\player_profiles\6f3f457a-8ce3-3a45-8767-61c2dfd0e70f.json
+------------------------------------------------------------
+{
+  "profileVersion": 1,
+  "playerUuid": "6f3f457a-8ce3-3a45-8767-61c2dfd0e70f",
+  "lastKnownName": "Player159",
+  "currentIslandId": "starter_island",
+  "discoveredIslandIds": [
+    "starter_island"
+  ],
+  "unlockedIslandIds": [
+    "starter_island"
+  ],
+  "starterLogPoseGranted": true,
+  "createdAtEpochMs": 1774199906482,
+  "updatedAtEpochMs": 1774199961519
+}
+
+
+------------------------------------------------------------
 Файл: E:\PeaceCraftCore\run\peacecraft\player_profiles\9da9c19c-8c76-3722-b34c-263305f5c6ba.json
 ------------------------------------------------------------
 {
@@ -928,7 +971,7 @@ fix-smooth-lighting-offset=auto
   ],
   "activeLogPoseTargetId": "first_adventure_island",
   "createdAtEpochMs": 1774198848284,
-  "updatedAtEpochMs": 1774198970493
+  "updatedAtEpochMs": 1774199827883
 }
 
 
@@ -997,7 +1040,7 @@ fix-smooth-lighting-offset=auto
 Файл: E:\PeaceCraftCore\run\server.properties
 ------------------------------------------------------------
 #Minecraft server properties
-#Sun Mar 22 20:00:41 MSK 2026
+#Sun Mar 22 20:18:00 MSK 2026
 accepts-transfers=false
 allow-flight=false
 broadcast-console-to-ops=true
@@ -1071,7 +1114,7 @@ white-list=false
 ------------------------------------------------------------
 Файл: E:\PeaceCraftCore\run\usercache.json
 ------------------------------------------------------------
-[{"uuid":"9da9c19c-8c76-3722-b34c-263305f5c6ba","name":"Player724","expiresOn":"2026-04-22 20:00:48 +0300"},{"uuid":"49b1c99f-ddf7-3830-8802-b69461c51429","name":"Player741","expiresOn":"2026-04-22 19:18:29 +0300"},{"uuid":"2250da04-2be8-3508-9a2e-a09e550d0033","name":"Player943","expiresOn":"2026-04-21 23:02:01 +0300"},{"uuid":"2b83ebdc-0604-37b1-94a0-4298b1021b84","name":"Player577","expiresOn":"2026-04-21 22:45:34 +0300"},{"uuid":"b9f5e998-520a-3fa2-8208-0c20f22aa20f","name":"Player321","expiresOn":"2026-04-21 22:18:42 +0300"},{"uuid":"fc74fe37-e9f9-3198-8e46-1eee97cacfa6","name":"Player455","expiresOn":"2026-04-21 22:14:04 +0300"},{"uuid":"fe736038-102e-365b-a97e-eabc472944ec","name":"Player31","expiresOn":"2026-04-21 21:51:39 +0300"}]
+[{"uuid":"6f3f457a-8ce3-3a45-8767-61c2dfd0e70f","name":"Player159","expiresOn":"2026-04-22 20:18:26 +0300"},{"uuid":"9da9c19c-8c76-3722-b34c-263305f5c6ba","name":"Player724","expiresOn":"2026-04-22 20:00:48 +0300"},{"uuid":"49b1c99f-ddf7-3830-8802-b69461c51429","name":"Player741","expiresOn":"2026-04-22 19:18:29 +0300"},{"uuid":"2250da04-2be8-3508-9a2e-a09e550d0033","name":"Player943","expiresOn":"2026-04-21 23:02:01 +0300"},{"uuid":"2b83ebdc-0604-37b1-94a0-4298b1021b84","name":"Player577","expiresOn":"2026-04-21 22:45:34 +0300"},{"uuid":"b9f5e998-520a-3fa2-8208-0c20f22aa20f","name":"Player321","expiresOn":"2026-04-21 22:18:42 +0300"},{"uuid":"fc74fe37-e9f9-3198-8e46-1eee97cacfa6","name":"Player455","expiresOn":"2026-04-21 22:14:04 +0300"},{"uuid":"fe736038-102e-365b-a97e-eabc472944ec","name":"Player31","expiresOn":"2026-04-21 21:51:39 +0300"}]
 
 
 ------------------------------------------------------------
@@ -1134,6 +1177,48 @@ white-list=false
   "minecraft:adventure/adventuring_time": {
     "criteria": {
       "minecraft:forest": "2026-03-22 19:18:30 +0300"
+    },
+    "done": false
+  },
+  "DataVersion": 4671
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\world\advancements\6f3f457a-8ce3-3a45-8767-61c2dfd0e70f.json
+------------------------------------------------------------
+{
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2026-03-22 20:18:26 +0300"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:old_growth_birch_forest": "2026-03-22 20:18:28 +0300",
+      "minecraft:forest": "2026-03-22 20:19:08 +0300"
+    },
+    "done": false
+  },
+  "DataVersion": 4671
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\world\advancements\9da9c19c-8c76-3722-b34c-263305f5c6ba.json
+------------------------------------------------------------
+{
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2026-03-22 20:00:48 +0300"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:old_growth_birch_forest": "2026-03-22 20:01:43 +0300",
+      "minecraft:forest": "2026-03-22 20:00:49 +0300"
     },
     "done": false
   },
@@ -1267,6 +1352,60 @@ white-list=false
       "minecraft:play_time": 21421,
       "minecraft:jump": 1,
       "minecraft:time_since_death": 21421
+    }
+  },
+  "DataVersion": 4671
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\world\stats\6f3f457a-8ce3-3a45-8767-61c2dfd0e70f.json
+------------------------------------------------------------
+{
+  "stats": {
+    "minecraft:dropped": {
+      "peacecraft:log_pose": 2
+    },
+    "minecraft:picked_up": {
+      "peacecraft:log_pose": 1
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 1113,
+      "minecraft:walk_one_cm": 2264,
+      "minecraft:leave_game": 1,
+      "minecraft:damage_taken": 120,
+      "minecraft:play_time": 1113,
+      "minecraft:damage_dealt": 76,
+      "minecraft:jump": 17,
+      "minecraft:time_since_death": 1113,
+      "minecraft:drop": 2,
+      "minecraft:sprint_one_cm": 1948,
+      "minecraft:total_world_time": 1113,
+      "minecraft:fly_one_cm": 3405,
+      "minecraft:crouch_one_cm": 3,
+      "minecraft:sneak_time": 52
+    }
+  },
+  "DataVersion": 4671
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\world\stats\9da9c19c-8c76-3722-b34c-263305f5c6ba.json
+------------------------------------------------------------
+{
+  "stats": {
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 1645,
+      "minecraft:time_since_rest": 19592,
+      "minecraft:walk_one_cm": 1508,
+      "minecraft:total_world_time": 19592,
+      "minecraft:leave_game": 1,
+      "minecraft:fly_one_cm": 5405,
+      "minecraft:sneak_time": 20,
+      "minecraft:play_time": 19592,
+      "minecraft:jump": 22,
+      "minecraft:time_since_death": 19592
     }
   },
   "DataVersion": 4671
@@ -1662,6 +1801,7 @@ package ru.peacecraft.grandline.server.bootstrap;
 
 import ru.peacecraft.grandline.common.util.ModLog;
 import ru.peacecraft.grandline.server.island.bootstrap.IslandBootstrap;
+import ru.peacecraft.grandline.server.logpose.bootstrap.LogPoseBootstrap;
 import ru.peacecraft.grandline.server.player.lifecycle.PlayerProfileLifecycle;
 
 public final class ServerBootstrap {
@@ -1680,6 +1820,7 @@ public final class ServerBootstrap {
         ModLog.LOGGER.info("Initializing server PeaceCraft systems...");
 
         IslandBootstrap.init();
+        LogPoseBootstrap.init();
         PlayerProfileLifecycle.init();
     }
 }
@@ -2672,6 +2813,119 @@ public final class IslandRegistry {
 
 
 ------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\logpose\bootstrap\LogPoseBootstrap.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.logpose.bootstrap;
+
+import ru.peacecraft.grandline.common.util.ModLog;
+import ru.peacecraft.grandline.server.logpose.command.LogPoseCommand;
+
+public final class LogPoseBootstrap {
+    private static boolean initialized = false;
+
+    private LogPoseBootstrap() {
+    }
+
+    public static void init() {
+        if (initialized) {
+            ModLog.LOGGER.warn("LogPoseBootstrap.init() called more than once. Skipping.");
+            return;
+        }
+
+        initialized = true;
+
+        LogPoseCommand.register();
+
+        ModLog.LOGGER.info("LogPoseBootstrap initialized.");
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\logpose\command\LogPoseCommand.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.logpose.command;
+
+import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
+import ru.peacecraft.grandline.server.logpose.model.LogPoseItemGrantResult;
+import ru.peacecraft.grandline.server.logpose.model.LogPoseItemGrantStatus;
+import ru.peacecraft.grandline.server.logpose.service.LogPoseItemGrantService;
+
+import static net.minecraft.server.command.CommandManager.literal;
+
+public final class LogPoseCommand {
+    private static boolean registered = false;
+
+    private LogPoseCommand() {
+    }
+
+    public static void register() {
+        if (registered) {
+            return;
+        }
+
+        registered = true;
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> register(dispatcher));
+    }
+
+    private static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
+        dispatcher.register(
+                literal("logpose")
+                        .executes(context -> executeGive(context.getSource()))
+        );
+    }
+
+    private static int executeGive(ServerCommandSource source) throws CommandSyntaxException {
+        ServerPlayerEntity player = source.getPlayerOrThrow();
+
+        LogPoseItemGrantResult result = LogPoseItemGrantService.getInstance()
+                .grantByCommandIfAbsent(player);
+
+        if (result.status() == LogPoseItemGrantStatus.ALREADY_HAS_IN_INVENTORY) {
+            source.sendError(Text.literal(result.message()));
+            return 0;
+        }
+
+        source.sendFeedback(() -> Text.literal(result.message()), false);
+        return 1;
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\logpose\model\LogPoseItemGrantResult.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.logpose.model;
+
+public record LogPoseItemGrantResult(
+        boolean changedProfile,
+        boolean gaveItem,
+        LogPoseItemGrantStatus status,
+        String message
+) {
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\logpose\model\LogPoseItemGrantStatus.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.logpose.model;
+
+public enum LogPoseItemGrantStatus {
+    ALREADY_GRANTED_ON_FIRST_JOIN,
+    ALREADY_HAS_IN_INVENTORY,
+    MARKED_GRANTED_EXISTING_ITEM,
+    GIVEN_TO_INVENTORY,
+    DROPPED_NEAR_PLAYER
+}
+
+
+------------------------------------------------------------
 Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\logpose\model\LogPoseTargetSelectionResult.java
 ------------------------------------------------------------
 package ru.peacecraft.grandline.server.logpose.model;
@@ -2698,6 +2952,120 @@ public enum LogPoseTargetSelectionStatus {
     TARGET_NOT_DISCOVERED,
     TARGET_IS_CURRENT_ISLAND,
     TARGET_ALREADY_SELECTED
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\logpose\service\LogPoseItemGrantService.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.logpose.service;
+
+import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
+import ru.peacecraft.grandline.common.item.ModItems;
+import ru.peacecraft.grandline.server.logpose.model.LogPoseItemGrantResult;
+import ru.peacecraft.grandline.server.logpose.model.LogPoseItemGrantStatus;
+import ru.peacecraft.grandline.server.player.model.PlayerProfile;
+
+public final class LogPoseItemGrantService {
+    private static final LogPoseItemGrantService INSTANCE = new LogPoseItemGrantService();
+
+    private LogPoseItemGrantService() {
+    }
+
+    public static LogPoseItemGrantService getInstance() {
+        return INSTANCE;
+    }
+
+    public boolean hasLogPoseInInventory(ServerPlayerEntity player) {
+        for (int i = 0; i < player.getInventory().size(); i++) {
+            if (player.getInventory().getStack(i).isOf(ModItems.LOG_POSE)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public LogPoseItemGrantResult grantStarterIfNeeded(ServerPlayerEntity player, PlayerProfile profile) {
+        if (profile.isStarterLogPoseGranted()) {
+            return new LogPoseItemGrantResult(
+                    false,
+                    false,
+                    LogPoseItemGrantStatus.ALREADY_GRANTED_ON_FIRST_JOIN,
+                    "Starter Log Pose was already processed earlier."
+            );
+        }
+
+        if (hasLogPoseInInventory(player)) {
+            profile.setStarterLogPoseGranted(true);
+
+            return new LogPoseItemGrantResult(
+                    true,
+                    false,
+                    LogPoseItemGrantStatus.MARKED_GRANTED_EXISTING_ITEM,
+                    "Player already had a Log Pose. Starter grant marked as completed."
+            );
+        }
+
+        ItemStack stack = new ItemStack(ModItems.LOG_POSE);
+        boolean inserted = player.getInventory().insertStack(stack);
+
+        profile.setStarterLogPoseGranted(true);
+
+        if (inserted && stack.isEmpty()) {
+            return new LogPoseItemGrantResult(
+                    true,
+                    true,
+                    LogPoseItemGrantStatus.GIVEN_TO_INVENTORY,
+                    "You received a Log Pose."
+            );
+        }
+
+        if (!stack.isEmpty()) {
+            player.dropItem(stack, false);
+        }
+
+        return new LogPoseItemGrantResult(
+                true,
+                true,
+                LogPoseItemGrantStatus.DROPPED_NEAR_PLAYER,
+                "You received a Log Pose. Your inventory was full, so it was dropped near you."
+        );
+    }
+
+    public LogPoseItemGrantResult grantByCommandIfAbsent(ServerPlayerEntity player) {
+        if (hasLogPoseInInventory(player)) {
+            return new LogPoseItemGrantResult(
+                    false,
+                    false,
+                    LogPoseItemGrantStatus.ALREADY_HAS_IN_INVENTORY,
+                    "You already have a Log Pose in your inventory."
+            );
+        }
+
+        ItemStack stack = new ItemStack(ModItems.LOG_POSE);
+        boolean inserted = player.getInventory().insertStack(stack);
+
+        if (inserted && stack.isEmpty()) {
+            return new LogPoseItemGrantResult(
+                    false,
+                    true,
+                    LogPoseItemGrantStatus.GIVEN_TO_INVENTORY,
+                    "You received a Log Pose."
+            );
+        }
+
+        if (!stack.isEmpty()) {
+            player.dropItem(stack, false);
+        }
+
+        return new LogPoseItemGrantResult(
+                false,
+                true,
+                LogPoseItemGrantStatus.DROPPED_NEAR_PLAYER,
+                "Your inventory was full, so the Log Pose was dropped near you."
+        );
+    }
 }
 
 
@@ -2854,7 +3222,12 @@ package ru.peacecraft.grandline.server.player.lifecycle;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import ru.peacecraft.grandline.common.util.ModLog;
+import ru.peacecraft.grandline.server.logpose.model.LogPoseItemGrantResult;
+import ru.peacecraft.grandline.server.logpose.service.LogPoseItemGrantService;
+import ru.peacecraft.grandline.server.player.model.PlayerProfile;
 import ru.peacecraft.grandline.server.player.service.PlayerProfileService;
 
 public final class PlayerProfileLifecycle {
@@ -2872,7 +3245,22 @@ public final class PlayerProfileLifecycle {
         initialized = true;
 
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
-            PlayerProfileService.getInstance().getOrLoadProfile(server, handler.getPlayer());
+            PlayerProfileService profileService = PlayerProfileService.getInstance();
+            PlayerProfile profile = profileService.getOrLoadProfile(server, handler.getPlayer());
+
+            LogPoseItemGrantResult grantResult = LogPoseItemGrantService.getInstance()
+                    .grantStarterIfNeeded(handler.getPlayer(), profile);
+
+            if (grantResult.changedProfile()) {
+                profileService.saveProfile(server, profile);
+            }
+
+            if (grantResult.gaveItem()) {
+                handler.getPlayer().sendMessage(
+                        Text.literal(grantResult.message()).formatted(Formatting.AQUA),
+                        false
+                );
+            }
         });
 
         ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> {
@@ -2906,6 +3294,7 @@ public final class PlayerProfile {
     private String activeLogPoseTargetId;
     private String activeFruitId;
     private String crewId;
+    private boolean starterLogPoseGranted;
     private long createdAtEpochMs;
     private long updatedAtEpochMs;
 
@@ -2913,6 +3302,7 @@ public final class PlayerProfile {
         this.profileVersion = 1;
         this.discoveredIslandIds = new HashSet<>();
         this.unlockedIslandIds = new HashSet<>();
+        this.starterLogPoseGranted = false;
     }
 
     public static PlayerProfile createDefault(UUID playerUuid, String lastKnownName) {
@@ -2926,6 +3316,7 @@ public final class PlayerProfile {
         profile.activeLogPoseTargetId = null;
         profile.activeFruitId = null;
         profile.crewId = null;
+        profile.starterLogPoseGranted = false;
         profile.createdAtEpochMs = now;
         profile.updatedAtEpochMs = now;
 
@@ -2933,10 +3324,6 @@ public final class PlayerProfile {
         profile.unlockedIslandIds.add("starter_island");
 
         return profile;
-    }
-
-    public void touch() {
-        this.updatedAtEpochMs = System.currentTimeMillis();
     }
 
     public int getProfileVersion() {
@@ -3011,6 +3398,14 @@ public final class PlayerProfile {
         this.crewId = crewId;
     }
 
+    public boolean isStarterLogPoseGranted() {
+        return starterLogPoseGranted;
+    }
+
+    public void setStarterLogPoseGranted(boolean starterLogPoseGranted) {
+        this.starterLogPoseGranted = starterLogPoseGranted;
+    }
+
     public long getCreatedAtEpochMs() {
         return createdAtEpochMs;
     }
@@ -3025,6 +3420,10 @@ public final class PlayerProfile {
 
     public void setUpdatedAtEpochMs(long updatedAtEpochMs) {
         this.updatedAtEpochMs = updatedAtEpochMs;
+    }
+
+    public void touch() {
+        this.updatedAtEpochMs = System.currentTimeMillis();
     }
 }
 
