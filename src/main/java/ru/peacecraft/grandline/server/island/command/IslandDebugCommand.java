@@ -1,9 +1,16 @@
 package ru.peacecraft.grandline.server.island.command;
 
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
+
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.command.DefaultPermissions;
+import static net.minecraft.server.command.CommandManager.argument;
+import static net.minecraft.server.command.CommandManager.literal;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
@@ -12,14 +19,10 @@ import ru.peacecraft.grandline.server.island.model.IslandEntryValidationResult;
 import ru.peacecraft.grandline.server.island.service.IslandDiscoveryService;
 import ru.peacecraft.grandline.server.island.service.IslandEntryValidationService;
 import ru.peacecraft.grandline.server.island.service.IslandRegistry;
+import ru.peacecraft.grandline.server.logpose.model.LogPoseTargetSelectionResult;
+import ru.peacecraft.grandline.server.logpose.service.LogPoseTargetService;
 import ru.peacecraft.grandline.server.player.model.PlayerProfile;
 import ru.peacecraft.grandline.server.player.service.PlayerProfileService;
-
-import java.util.Set;
-import java.util.stream.Collectors;
-
-import static net.minecraft.server.command.CommandManager.argument;
-import static net.minecraft.server.command.CommandManager.literal;
 
 public final class IslandDebugCommand {
     private static boolean registered = false;
@@ -65,6 +68,21 @@ public final class IslandDebugCommand {
                                                         context.getSource(),
                                                         StringArgumentType.getString(context, "id")
                                                 ))))
+                                .then(literal("pose")
+                                        .then(literal("list")
+                                                .executes(context -> executePoseList(context.getSource())))
+                                        .then(literal("current")
+                                                .executes(context -> executePoseCurrent(context.getSource())))
+                                        .then(literal("set")
+                                                .then(argument("id", StringArgumentType.word())
+                                                        .executes(context -> executePoseSet(
+                                                                context.getSource(),
+                                                                StringArgumentType.getString(context, "id")
+                                                        ))))
+                                        .then(literal("clear")
+                                                .executes(context -> executePoseClear(context.getSource())))
+                                        .then(literal("validate")
+                                                .executes(context -> executePoseValidate(context.getSource()))))
                         )
         );
     }
@@ -97,10 +115,7 @@ public final class IslandDebugCommand {
     }
 
     private static int executeMe(ServerCommandSource source) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
-        ServerPlayerEntity player = source.getPlayerOrThrow();
-
-        PlayerProfile profile = PlayerProfileService.getInstance()
-                .getOrLoadProfile(source.getServer(), player);
+        PlayerProfile profile = getProfile(source);
 
         source.sendFeedback(
                 () -> Text.literal(
@@ -173,9 +188,7 @@ public final class IslandDebugCommand {
 
     private static int executeValidate(ServerCommandSource source, String islandId)
             throws com.mojang.brigadier.exceptions.CommandSyntaxException {
-        ServerPlayerEntity player = source.getPlayerOrThrow();
-        PlayerProfile profile = PlayerProfileService.getInstance()
-                .getOrLoadProfile(source.getServer(), player);
+        PlayerProfile profile = getProfile(source);
 
         IslandEntryValidationResult result = IslandEntryValidationService.getInstance()
                 .validate(profile, islandId);
@@ -190,5 +203,124 @@ public final class IslandDebugCommand {
         );
 
         return result.allowed() ? 1 : 0;
+    }
+
+    private static int executePoseList(ServerCommandSource source)
+            throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        PlayerProfile profile = getProfile(source);
+        List<String> availableTargets = LogPoseTargetService.getInstance().getAvailableTargetIds(profile);
+
+        String message = availableTargets.isEmpty()
+                ? "Available Log Pose targets: none"
+                : "Available Log Pose targets: " + availableTargets;
+
+        source.sendFeedback(() -> Text.literal(message), false);
+        return 1;
+    }
+
+    private static int executePoseCurrent(ServerCommandSource source)
+            throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        PlayerProfile profile = getProfile(source);
+        LogPoseTargetService logPoseTargetService = LogPoseTargetService.getInstance();
+
+        String activeTargetId = profile.getActiveLogPoseTargetId();
+        if (activeTargetId == null) {
+            source.sendFeedback(() -> Text.literal("Active Log Pose target: none"), false);
+            return 1;
+        }
+
+        boolean valid = logPoseTargetService.hasValidActiveTarget(profile);
+        IslandEntryValidationResult entryResult = IslandEntryValidationService.getInstance()
+                .validate(profile, activeTargetId);
+
+        source.sendFeedback(
+                () -> Text.literal(
+                        "Active Log Pose target=" + activeTargetId
+                                + ", valid=" + valid
+                                + ", entryAllowed=" + entryResult.allowed()
+                                + ", entryStatus=" + entryResult.status()
+                ),
+                false
+        );
+
+        return 1;
+    }
+
+    private static int executePoseSet(ServerCommandSource source, String islandId)
+            throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        ServerPlayerEntity player = source.getPlayerOrThrow();
+        PlayerProfileService profileService = PlayerProfileService.getInstance();
+        PlayerProfile profile = profileService.getOrLoadProfile(source.getServer(), player);
+
+        LogPoseTargetSelectionResult result = LogPoseTargetService.getInstance().selectTarget(profile, islandId);
+        if (!result.success()) {
+            source.sendError(Text.literal(
+                    "Set Log Pose target failed: status=" + result.status() + ", message=" + result.message()
+            ));
+            return 0;
+        }
+
+        profileService.saveProfile(source.getServer(), profile);
+
+        source.sendFeedback(
+                () -> Text.literal(
+                        "Set Log Pose target: target=" + result.targetIslandId()
+                                + ", changed=" + result.changed()
+                                + ", status=" + result.status()
+                ),
+                false
+        );
+
+        return 1;
+    }
+
+    private static int executePoseClear(ServerCommandSource source)
+            throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        ServerPlayerEntity player = source.getPlayerOrThrow();
+        PlayerProfileService profileService = PlayerProfileService.getInstance();
+        PlayerProfile profile = profileService.getOrLoadProfile(source.getServer(), player);
+
+        boolean changed = LogPoseTargetService.getInstance().clearTarget(profile);
+        if (changed) {
+            profileService.saveProfile(source.getServer(), profile);
+        }
+
+        source.sendFeedback(
+                () -> Text.literal("Clear Log Pose target: changed=" + changed),
+                false
+        );
+
+        return 1;
+    }
+
+    private static int executePoseValidate(ServerCommandSource source)
+            throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        PlayerProfile profile = getProfile(source);
+
+        String activeTargetId = profile.getActiveLogPoseTargetId();
+        if (activeTargetId == null) {
+            source.sendError(Text.literal("Active Log Pose target is not set"));
+            return 0;
+        }
+
+        IslandEntryValidationResult result = IslandEntryValidationService.getInstance()
+                .validate(profile, activeTargetId);
+
+        source.sendFeedback(
+                () -> Text.literal(
+                        "Validate active Log Pose target '" + activeTargetId + "': allowed=" + result.allowed()
+                                + ", status=" + result.status()
+                                + ", message=" + result.message()
+                ),
+                false
+        );
+
+        return result.allowed() ? 1 : 0;
+    }
+
+    private static PlayerProfile getProfile(ServerCommandSource source)
+            throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        ServerPlayerEntity player = source.getPlayerOrThrow();
+        return PlayerProfileService.getInstance().getOrLoadProfile(source.getServer(), player);
     }
 }

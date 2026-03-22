@@ -1,5 +1,6 @@
 package ru.peacecraft.grandline.common.registry;
 
+import ru.peacecraft.grandline.common.item.ModItems;
 import ru.peacecraft.grandline.common.util.ModLog;
 
 public final class CommonBootstrap {
@@ -17,11 +18,6 @@ public final class CommonBootstrap {
         initialized = true;
         ModLog.LOGGER.info("Initializing common PeaceCraft systems...");
 
-        // Future:
-        // - item registry bootstrap
-        // - block registry bootstrap
-        // - sound registry bootstrap
-        // - shared codecs / serializers
-        // - content definition loaders
+        ModItems.initialize();
     }
 }

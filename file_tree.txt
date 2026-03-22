@@ -21,6 +21,9 @@ E:\PeaceCraftCore
 │   │                       ├── common
 │   │                       │   ├── constant
 │   │                       │   │   └── ModIds.class
+│   │                       │   ├── item
+│   │                       │   │   ├── LogPoseItem.class
+│   │                       │   │   └── ModItems.class
 │   │                       │   ├── registry
 │   │                       │   │   └── CommonBootstrap.class
 │   │                       │   └── util
@@ -49,6 +52,12 @@ E:\PeaceCraftCore
 │   │                       │   │       ├── IslandEntryValidationService.class
 │   │                       │   │       ├── IslandProfileSanitizer.class
 │   │                       │   │       └── IslandRegistry.class
+│   │                       │   ├── logpose
+│   │                       │   │   ├── model
+│   │                       │   │   │   ├── LogPoseTargetSelectionResult.class
+│   │                       │   │   │   └── LogPoseTargetSelectionStatus.class
+│   │                       │   │   └── service
+│   │                       │   │       └── LogPoseTargetService.class
 │   │                       │   └── player
 │   │                       │       ├── lifecycle
 │   │                       │       │   └── PlayerProfileLifecycle.class
@@ -88,12 +97,18 @@ E:\PeaceCraftCore
 │   │   └── main
 │   │       ├── assets
 │   │       │   └── peacecraft
+│   │       │       ├── items
+│   │       │       │   └── log_pose.json
 │   │       │       ├── lang
 │   │       │       │   ├── en_us.json
 │   │       │       │   └── ru_ru.json
 │   │       │       ├── models
+│   │       │       │   └── item
+│   │       │       │       └── log_pose.json
 │   │       │       ├── sounds
 │   │       │       ├── textures
+│   │       │       │   └── item
+│   │       │       │       └── log_pose.png
 │   │       │       └── icon.png
 │   │       ├── data
 │   │       │   └── peacecraft
@@ -112,8 +127,8 @@ E:\PeaceCraftCore
 │   └── tmp
 │       ├── .cache
 │       │   └── expanded
-│       │       ├── zip_0e6e24e62779f9e89fd7c43386a0c9b0
-│       │       └── zip_e76446f8ed6e085135019f2d296e2cbc
+│       │       ├── zip_1da1a71515ea4b471df357ed905bf12d
+│       │       └── zip_bac646fd9b82cafd94d89e79bcf6363d
 │       ├── compileClientJava
 │       │   └── previous-compilation-data.bin
 │       ├── compileJava
@@ -130,6 +145,9 @@ E:\PeaceCraftCore
 │   ├── config
 │   │   └── fabric
 │   │       └── indigo-renderer.properties
+│   ├── crash-reports
+│   │   ├── crash-2026-03-22_19.54.15-client.txt
+│   │   └── crash-2026-03-22_19.57.44-client.txt
 │   ├── data
 │   │   └── fabric_default_resource_packs.json
 │   ├── debug
@@ -144,7 +162,11 @@ E:\PeaceCraftCore
 │   │   ├── 2026-03-21-4.log.gz
 │   │   ├── 2026-03-21-5.log.gz
 │   │   ├── 2026-03-21-6.log.gz
-│   │   ├── 2026-03-21-7.log.gz
+│   │   ├── 2026-03-22-1.log.gz
+│   │   ├── 2026-03-22-2.log.gz
+│   │   ├── 2026-03-22-3.log.gz
+│   │   ├── 2026-03-22-4.log.gz
+│   │   ├── 2026-03-22-5.log.gz
 │   │   ├── debug-1.log.gz
 │   │   ├── debug-2.log.gz
 │   │   ├── debug-3.log.gz
@@ -157,6 +179,8 @@ E:\PeaceCraftCore
 │   │   └── player_profiles
 │   │       ├── 2250da04-2be8-3508-9a2e-a09e550d0033.json
 │   │       ├── 2b83ebdc-0604-37b1-94a0-4298b1021b84.json
+│   │       ├── 49b1c99f-ddf7-3830-8802-b69461c51429.json
+│   │       ├── 9da9c19c-8c76-3722-b34c-263305f5c6ba.json
 │   │       └── b9f5e998-520a-3fa2-8208-0c20f22aa20f.json
 │   ├── resourcepacks
 │   ├── resources
@@ -208,7 +232,9 @@ E:\PeaceCraftCore
 │   │       └── session.lock
 │   ├── world
 │   │   ├── advancements
+│   │   │   ├── 2250da04-2be8-3508-9a2e-a09e550d0033.json
 │   │   │   ├── 2b83ebdc-0604-37b1-94a0-4298b1021b84.json
+│   │   │   ├── 49b1c99f-ddf7-3830-8802-b69461c51429.json
 │   │   │   ├── b9f5e998-520a-3fa2-8208-0c20f22aa20f.json
 │   │   │   ├── fc74fe37-e9f9-3198-8e46-1eee97cacfa6.json
 │   │   │   └── fe736038-102e-365b-a97e-eabc472944ec.json
@@ -236,8 +262,11 @@ E:\PeaceCraftCore
 │   │   │   ├── r.0.-1.mca
 │   │   │   └── r.0.0.mca
 │   │   ├── playerdata
+│   │   │   ├── 2250da04-2be8-3508-9a2e-a09e550d0033.dat
 │   │   │   ├── 2b83ebdc-0604-37b1-94a0-4298b1021b84.dat
 │   │   │   ├── 2b83ebdc-0604-37b1-94a0-4298b1021b84.dat_old
+│   │   │   ├── 49b1c99f-ddf7-3830-8802-b69461c51429.dat
+│   │   │   ├── 49b1c99f-ddf7-3830-8802-b69461c51429.dat_old
 │   │   │   ├── b9f5e998-520a-3fa2-8208-0c20f22aa20f.dat
 │   │   │   ├── fc74fe37-e9f9-3198-8e46-1eee97cacfa6.dat
 │   │   │   ├── fc74fe37-e9f9-3198-8e46-1eee97cacfa6.dat_old
@@ -253,7 +282,9 @@ E:\PeaceCraftCore
 │   │   │   ├── r.0.-1.mca
 │   │   │   └── r.0.0.mca
 │   │   ├── stats
+│   │   │   ├── 2250da04-2be8-3508-9a2e-a09e550d0033.json
 │   │   │   ├── 2b83ebdc-0604-37b1-94a0-4298b1021b84.json
+│   │   │   ├── 49b1c99f-ddf7-3830-8802-b69461c51429.json
 │   │   │   ├── b9f5e998-520a-3fa2-8208-0c20f22aa20f.json
 │   │   │   ├── fc74fe37-e9f9-3198-8e46-1eee97cacfa6.json
 │   │   │   └── fe736038-102e-365b-a97e-eabc472944ec.json
@@ -295,6 +326,9 @@ E:\PeaceCraftCore
 │   │   │               │   │   └── ModIds.java
 │   │   │               │   ├── data
 │   │   │               │   ├── id
+│   │   │               │   ├── item
+│   │   │               │   │   ├── LogPoseItem.java
+│   │   │               │   │   └── ModItems.java
 │   │   │               │   ├── registry
 │   │   │               │   │   └── CommonBootstrap.java
 │   │   │               │   ├── serialization
@@ -331,6 +365,11 @@ E:\PeaceCraftCore
 │   │   │               │   │       ├── IslandProfileSanitizer.java
 │   │   │               │   │       └── IslandRegistry.java
 │   │   │               │   ├── logpose
+│   │   │               │   │   ├── model
+│   │   │               │   │   │   ├── LogPoseTargetSelectionResult.java
+│   │   │               │   │   │   └── LogPoseTargetSelectionStatus.java
+│   │   │               │   │   └── service
+│   │   │               │   │       └── LogPoseTargetService.java
 │   │   │               │   ├── npc
 │   │   │               │   ├── persistence
 │   │   │               │   ├── player
@@ -350,12 +389,18 @@ E:\PeaceCraftCore
 │   │   └── resources
 │   │       ├── assets
 │   │       │   └── peacecraft
+│   │       │       ├── items
+│   │       │       │   └── log_pose.json
 │   │       │       ├── lang
 │   │       │       │   ├── en_us.json
 │   │       │       │   └── ru_ru.json
 │   │       │       ├── models
+│   │       │       │   └── item
+│   │       │       │       └── log_pose.json
 │   │       │       ├── sounds
 │   │       │       ├── textures
+│   │       │       │   └── item
+│   │       │       │       └── log_pose.png
 │   │       │       └── icon.png
 │   │       ├── data
 │   │       │   └── peacecraft
@@ -428,10 +473,22 @@ jobs:
 
 
 ------------------------------------------------------------
+Файл: E:\PeaceCraftCore\build\resources\main\assets\peacecraft\items\log_pose.json
+------------------------------------------------------------
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "peacecraft:item/log_pose"
+  }
+}
+
+
+------------------------------------------------------------
 Файл: E:\PeaceCraftCore\build\resources\main\assets\peacecraft\lang\en_us.json
 ------------------------------------------------------------
 {
-  "modmenu.nameTranslation.peacecraft": "PeaceCraft"
+  "modmenu.nameTranslation.peacecraft": "PeaceCraft",
+  "item.peacecraft.log_pose": "Log Pose"
 }
 
 
@@ -439,7 +496,19 @@ jobs:
 Файл: E:\PeaceCraftCore\build\resources\main\assets\peacecraft\lang\ru_ru.json
 ------------------------------------------------------------
 {
-  "modmenu.nameTranslation.peacecraft": "PeaceCraft"
+  "modmenu.nameTranslation.peacecraft": "PeaceCraft",
+  "item.peacecraft.log_pose": "Логпос"
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\build\resources\main\assets\peacecraft\models\item\log_pose.json
+------------------------------------------------------------
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "peacecraft:item/log_pose"
+  }
 }
 
 
@@ -729,7 +798,7 @@ archives_base_name=peacecraft
 Файл: E:\PeaceCraftCore\run\config\fabric\indigo-renderer.properties
 ------------------------------------------------------------
 #Indigo properties file
-#Sat Mar 21 23:01:38 MSK 2026
+#Sun Mar 22 20:00:17 MSK 2026
 ambient-occlusion-mode=hybrid
 debug-compare-lighting=auto
 fix-exterior-vertex-lighting=auto
@@ -762,8 +831,20 @@ fix-smooth-lighting-offset=auto
     "bypassesPlayerLimit": false
   },
   {
+    "uuid": "9da9c19c-8c76-3722-b34c-263305f5c6ba",
+    "name": "Player724",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  },
+  {
     "uuid": "2250da04-2be8-3508-9a2e-a09e550d0033",
     "name": "Player943",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  },
+  {
+    "uuid": "49b1c99f-ddf7-3830-8802-b69461c51429",
+    "name": "Player741",
     "level": 4,
     "bypassesPlayerLimit": false
   }
@@ -807,6 +888,47 @@ fix-smooth-lighting-offset=auto
   ],
   "createdAtEpochMs": 1774122334632,
   "updatedAtEpochMs": 1774123273153
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\peacecraft\player_profiles\49b1c99f-ddf7-3830-8802-b69461c51429.json
+------------------------------------------------------------
+{
+  "profileVersion": 1,
+  "playerUuid": "49b1c99f-ddf7-3830-8802-b69461c51429",
+  "lastKnownName": "Player741",
+  "currentIslandId": "starter_island",
+  "discoveredIslandIds": [
+    "first_adventure_island",
+    "starter_island"
+  ],
+  "unlockedIslandIds": [
+    "starter_island"
+  ],
+  "createdAtEpochMs": 1774196309603,
+  "updatedAtEpochMs": 1774197380588
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\peacecraft\player_profiles\9da9c19c-8c76-3722-b34c-263305f5c6ba.json
+------------------------------------------------------------
+{
+  "profileVersion": 1,
+  "playerUuid": "9da9c19c-8c76-3722-b34c-263305f5c6ba",
+  "lastKnownName": "Player724",
+  "currentIslandId": "starter_island",
+  "discoveredIslandIds": [
+    "first_adventure_island",
+    "starter_island"
+  ],
+  "unlockedIslandIds": [
+    "starter_island"
+  ],
+  "activeLogPoseTargetId": "first_adventure_island",
+  "createdAtEpochMs": 1774198848284,
+  "updatedAtEpochMs": 1774198970493
 }
 
 
@@ -875,7 +997,7 @@ fix-smooth-lighting-offset=auto
 Файл: E:\PeaceCraftCore\run\server.properties
 ------------------------------------------------------------
 #Minecraft server properties
-#Sat Mar 21 23:01:42 MSK 2026
+#Sun Mar 22 20:00:41 MSK 2026
 accepts-transfers=false
 allow-flight=false
 broadcast-console-to-ops=true
@@ -949,13 +1071,34 @@ white-list=false
 ------------------------------------------------------------
 Файл: E:\PeaceCraftCore\run\usercache.json
 ------------------------------------------------------------
-[{"uuid":"2250da04-2be8-3508-9a2e-a09e550d0033","name":"Player943","expiresOn":"2026-04-21 23:02:01 +0300"},{"uuid":"2b83ebdc-0604-37b1-94a0-4298b1021b84","name":"Player577","expiresOn":"2026-04-21 22:45:34 +0300"},{"uuid":"b9f5e998-520a-3fa2-8208-0c20f22aa20f","name":"Player321","expiresOn":"2026-04-21 22:18:42 +0300"},{"uuid":"fc74fe37-e9f9-3198-8e46-1eee97cacfa6","name":"Player455","expiresOn":"2026-04-21 22:14:04 +0300"},{"uuid":"fe736038-102e-365b-a97e-eabc472944ec","name":"Player31","expiresOn":"2026-04-21 21:51:39 +0300"}]
+[{"uuid":"9da9c19c-8c76-3722-b34c-263305f5c6ba","name":"Player724","expiresOn":"2026-04-22 20:00:48 +0300"},{"uuid":"49b1c99f-ddf7-3830-8802-b69461c51429","name":"Player741","expiresOn":"2026-04-22 19:18:29 +0300"},{"uuid":"2250da04-2be8-3508-9a2e-a09e550d0033","name":"Player943","expiresOn":"2026-04-21 23:02:01 +0300"},{"uuid":"2b83ebdc-0604-37b1-94a0-4298b1021b84","name":"Player577","expiresOn":"2026-04-21 22:45:34 +0300"},{"uuid":"b9f5e998-520a-3fa2-8208-0c20f22aa20f","name":"Player321","expiresOn":"2026-04-21 22:18:42 +0300"},{"uuid":"fc74fe37-e9f9-3198-8e46-1eee97cacfa6","name":"Player455","expiresOn":"2026-04-21 22:14:04 +0300"},{"uuid":"fe736038-102e-365b-a97e-eabc472944ec","name":"Player31","expiresOn":"2026-04-21 21:51:39 +0300"}]
 
 
 ------------------------------------------------------------
 Файл: E:\PeaceCraftCore\run\whitelist.json
 ------------------------------------------------------------
 []
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\world\advancements\2250da04-2be8-3508-9a2e-a09e550d0033.json
+------------------------------------------------------------
+{
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2026-03-21 23:02:01 +0300"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:old_growth_birch_forest": "2026-03-21 23:02:02 +0300",
+      "minecraft:forest": "2026-03-21 23:06:18 +0300"
+    },
+    "done": false
+  },
+  "DataVersion": 4671
+}
 
 
 ------------------------------------------------------------
@@ -971,6 +1114,26 @@ white-list=false
   "minecraft:adventure/adventuring_time": {
     "criteria": {
       "minecraft:forest": "2026-03-21 22:45:35 +0300"
+    },
+    "done": false
+  },
+  "DataVersion": 4671
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\world\advancements\49b1c99f-ddf7-3830-8802-b69461c51429.json
+------------------------------------------------------------
+{
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2026-03-22 19:18:29 +0300"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:forest": "2026-03-22 19:18:30 +0300"
     },
     "done": false
   },
@@ -1046,6 +1209,26 @@ white-list=false
 
 
 ------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\world\stats\2250da04-2be8-3508-9a2e-a09e550d0033.json
+------------------------------------------------------------
+{
+  "stats": {
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 540,
+      "minecraft:time_since_rest": 5657,
+      "minecraft:walk_one_cm": 242,
+      "minecraft:total_world_time": 5657,
+      "minecraft:fly_one_cm": 466,
+      "minecraft:play_time": 5657,
+      "minecraft:jump": 5,
+      "minecraft:time_since_death": 5657
+    }
+  },
+  "DataVersion": 4671
+}
+
+
+------------------------------------------------------------
 Файл: E:\PeaceCraftCore\run\world\stats\2b83ebdc-0604-37b1-94a0-4298b1021b84.json
 ------------------------------------------------------------
 {
@@ -1061,6 +1244,29 @@ white-list=false
       "minecraft:play_time": 18776,
       "minecraft:jump": 3,
       "minecraft:time_since_death": 18776
+    }
+  },
+  "DataVersion": 4671
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\world\stats\49b1c99f-ddf7-3830-8802-b69461c51429.json
+------------------------------------------------------------
+{
+  "stats": {
+    "minecraft:custom": {
+      "minecraft:sprint_one_cm": 433,
+      "minecraft:time_since_rest": 21421,
+      "minecraft:fall_one_cm": 460,
+      "minecraft:walk_one_cm": 386,
+      "minecraft:total_world_time": 21421,
+      "minecraft:leave_game": 1,
+      "minecraft:fly_one_cm": 114,
+      "minecraft:damage_taken": 185,
+      "minecraft:play_time": 21421,
+      "minecraft:jump": 1,
+      "minecraft:time_since_death": 21421
     }
   },
   "DataVersion": 4671
@@ -1211,10 +1417,183 @@ public final class ModIds {
 
 
 ------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\common\item\LogPoseItem.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.common.item;
+
+import java.util.List;
+import java.util.function.Consumer;
+
+import net.minecraft.component.type.TooltipDisplayComponent;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
+import net.minecraft.util.Hand;
+import net.minecraft.world.World;
+import ru.peacecraft.grandline.server.logpose.model.LogPoseTargetSelectionResult;
+import ru.peacecraft.grandline.server.logpose.service.LogPoseTargetService;
+import ru.peacecraft.grandline.server.player.model.PlayerProfile;
+import ru.peacecraft.grandline.server.player.service.PlayerProfileService;
+
+public final class LogPoseItem extends Item {
+
+    public LogPoseItem(Settings settings) {
+        super(settings);
+    }
+
+    @Override
+    public ActionResult use(World world, PlayerEntity user, Hand hand) {
+        if (world.isClient()) {
+            return ActionResult.SUCCESS;
+        }
+
+        if (!(user instanceof ServerPlayerEntity serverPlayer)) {
+            return ActionResult.PASS;
+        }
+
+        MinecraftServer server = world.getServer();
+        if (server == null) {
+            return ActionResult.PASS;
+        }
+
+        PlayerProfileService profileService = PlayerProfileService.getInstance();
+        PlayerProfile profile = profileService.getOrLoadProfile(server, serverPlayer);
+        LogPoseTargetService targetService = LogPoseTargetService.getInstance();
+
+        if (user.isSneaking()) {
+            boolean changed = targetService.clearTarget(profile);
+
+            if (changed) {
+                profileService.saveProfile(server, profile);
+                serverPlayer.sendMessage(
+                        Text.literal("Log Pose target cleared.").formatted(Formatting.YELLOW),
+                        true
+                );
+            } else {
+                serverPlayer.sendMessage(
+                        Text.literal("Log Pose target is already empty.").formatted(Formatting.GRAY),
+                        true
+                );
+            }
+
+            return ActionResult.SUCCESS;
+        }
+
+        List<String> availableTargets = targetService.getAvailableTargetIds(profile);
+        if (availableTargets.isEmpty()) {
+            serverPlayer.sendMessage(
+                    Text.literal("No available Log Pose targets.").formatted(Formatting.RED),
+                    true
+            );
+            return ActionResult.SUCCESS;
+        }
+
+        String currentTargetId = profile.getActiveLogPoseTargetId();
+        String nextTargetId = selectNextTarget(availableTargets, currentTargetId);
+
+        LogPoseTargetSelectionResult result = targetService.selectTarget(profile, nextTargetId);
+        if (result.success()) {
+            profileService.saveProfile(server, profile);
+            serverPlayer.sendMessage(
+                    Text.literal("Log Pose target: " + result.targetIslandId()).formatted(Formatting.AQUA),
+                    true
+            );
+        } else {
+            serverPlayer.sendMessage(
+                    Text.literal("Failed to set Log Pose target: " + result.message()).formatted(Formatting.RED),
+                    true
+            );
+        }
+
+        return ActionResult.SUCCESS;
+    }
+
+    private String selectNextTarget(List<String> availableTargets, String currentTargetId) {
+        if (currentTargetId == null || !availableTargets.contains(currentTargetId)) {
+            return availableTargets.getFirst();
+        }
+
+        int currentIndex = availableTargets.indexOf(currentTargetId);
+        int nextIndex = (currentIndex + 1) % availableTargets.size();
+        return availableTargets.get(nextIndex);
+    }
+
+    @Override
+    public void appendTooltip(
+            ItemStack stack,
+            Item.TooltipContext context,
+            TooltipDisplayComponent displayComponent,
+            Consumer<Text> textConsumer,
+            TooltipType type
+    ) {
+        textConsumer.accept(Text.literal("Right click: cycle target").formatted(Formatting.GRAY));
+        textConsumer.accept(Text.literal("Shift + Right click: clear target").formatted(Formatting.DARK_GRAY));
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\common\item\ModItems.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.common.item;
+
+import java.util.function.Function;
+
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroups;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import ru.peacecraft.grandline.common.constant.ModIds;
+import ru.peacecraft.grandline.common.util.ModLog;
+
+public final class ModItems {
+    public static final Item LOG_POSE = register(
+            "log_pose",
+            LogPoseItem::new,
+            new Item.Settings().maxCount(1)
+    );
+
+    private static boolean initialized = false;
+
+    private ModItems() {
+    }
+
+    private static <T extends Item> T register(String name, Function<Item.Settings, T> factory, Item.Settings settings) {
+        RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, ModIds.id(name));
+        T item = factory.apply(settings.registryKey(key));
+        return Registry.register(Registries.ITEM, key, item);
+    }
+
+    public static void initialize() {
+        if (initialized) {
+            return;
+        }
+
+        initialized = true;
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS)
+                .register(entries -> entries.add(LOG_POSE));
+
+        ModLog.LOGGER.info("ModItems initialized.");
+    }
+}
+
+
+------------------------------------------------------------
 Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\common\registry\CommonBootstrap.java
 ------------------------------------------------------------
 package ru.peacecraft.grandline.common.registry;
 
+import ru.peacecraft.grandline.common.item.ModItems;
 import ru.peacecraft.grandline.common.util.ModLog;
 
 public final class CommonBootstrap {
@@ -1232,12 +1611,7 @@ public final class CommonBootstrap {
         initialized = true;
         ModLog.LOGGER.info("Initializing common PeaceCraft systems...");
 
-        // Future:
-        // - item registry bootstrap
-        // - block registry bootstrap
-        // - sound registry bootstrap
-        // - shared codecs / serializers
-        // - content definition loaders
+        ModItems.initialize();
     }
 }
 
@@ -1351,10 +1725,17 @@ public final class IslandBootstrap {
 ------------------------------------------------------------
 package ru.peacecraft.grandline.server.island.command;
 
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
+
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.command.DefaultPermissions;
+import static net.minecraft.server.command.CommandManager.argument;
+import static net.minecraft.server.command.CommandManager.literal;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
@@ -1363,14 +1744,10 @@ import ru.peacecraft.grandline.server.island.model.IslandEntryValidationResult;
 import ru.peacecraft.grandline.server.island.service.IslandDiscoveryService;
 import ru.peacecraft.grandline.server.island.service.IslandEntryValidationService;
 import ru.peacecraft.grandline.server.island.service.IslandRegistry;
+import ru.peacecraft.grandline.server.logpose.model.LogPoseTargetSelectionResult;
+import ru.peacecraft.grandline.server.logpose.service.LogPoseTargetService;
 import ru.peacecraft.grandline.server.player.model.PlayerProfile;
 import ru.peacecraft.grandline.server.player.service.PlayerProfileService;
-
-import java.util.Set;
-import java.util.stream.Collectors;
-
-import static net.minecraft.server.command.CommandManager.argument;
-import static net.minecraft.server.command.CommandManager.literal;
 
 public final class IslandDebugCommand {
     private static boolean registered = false;
@@ -1416,6 +1793,21 @@ public final class IslandDebugCommand {
                                                         context.getSource(),
                                                         StringArgumentType.getString(context, "id")
                                                 ))))
+                                .then(literal("pose")
+                                        .then(literal("list")
+                                                .executes(context -> executePoseList(context.getSource())))
+                                        .then(literal("current")
+                                                .executes(context -> executePoseCurrent(context.getSource())))
+                                        .then(literal("set")
+                                                .then(argument("id", StringArgumentType.word())
+                                                        .executes(context -> executePoseSet(
+                                                                context.getSource(),
+                                                                StringArgumentType.getString(context, "id")
+                                                        ))))
+                                        .then(literal("clear")
+                                                .executes(context -> executePoseClear(context.getSource())))
+                                        .then(literal("validate")
+                                                .executes(context -> executePoseValidate(context.getSource()))))
                         )
         );
     }
@@ -1448,10 +1840,7 @@ public final class IslandDebugCommand {
     }
 
     private static int executeMe(ServerCommandSource source) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
-        ServerPlayerEntity player = source.getPlayerOrThrow();
-
-        PlayerProfile profile = PlayerProfileService.getInstance()
-                .getOrLoadProfile(source.getServer(), player);
+        PlayerProfile profile = getProfile(source);
 
         source.sendFeedback(
                 () -> Text.literal(
@@ -1524,9 +1913,7 @@ public final class IslandDebugCommand {
 
     private static int executeValidate(ServerCommandSource source, String islandId)
             throws com.mojang.brigadier.exceptions.CommandSyntaxException {
-        ServerPlayerEntity player = source.getPlayerOrThrow();
-        PlayerProfile profile = PlayerProfileService.getInstance()
-                .getOrLoadProfile(source.getServer(), player);
+        PlayerProfile profile = getProfile(source);
 
         IslandEntryValidationResult result = IslandEntryValidationService.getInstance()
                 .validate(profile, islandId);
@@ -1541,6 +1928,125 @@ public final class IslandDebugCommand {
         );
 
         return result.allowed() ? 1 : 0;
+    }
+
+    private static int executePoseList(ServerCommandSource source)
+            throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        PlayerProfile profile = getProfile(source);
+        List<String> availableTargets = LogPoseTargetService.getInstance().getAvailableTargetIds(profile);
+
+        String message = availableTargets.isEmpty()
+                ? "Available Log Pose targets: none"
+                : "Available Log Pose targets: " + availableTargets;
+
+        source.sendFeedback(() -> Text.literal(message), false);
+        return 1;
+    }
+
+    private static int executePoseCurrent(ServerCommandSource source)
+            throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        PlayerProfile profile = getProfile(source);
+        LogPoseTargetService logPoseTargetService = LogPoseTargetService.getInstance();
+
+        String activeTargetId = profile.getActiveLogPoseTargetId();
+        if (activeTargetId == null) {
+            source.sendFeedback(() -> Text.literal("Active Log Pose target: none"), false);
+            return 1;
+        }
+
+        boolean valid = logPoseTargetService.hasValidActiveTarget(profile);
+        IslandEntryValidationResult entryResult = IslandEntryValidationService.getInstance()
+                .validate(profile, activeTargetId);
+
+        source.sendFeedback(
+                () -> Text.literal(
+                        "Active Log Pose target=" + activeTargetId
+                                + ", valid=" + valid
+                                + ", entryAllowed=" + entryResult.allowed()
+                                + ", entryStatus=" + entryResult.status()
+                ),
+                false
+        );
+
+        return 1;
+    }
+
+    private static int executePoseSet(ServerCommandSource source, String islandId)
+            throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        ServerPlayerEntity player = source.getPlayerOrThrow();
+        PlayerProfileService profileService = PlayerProfileService.getInstance();
+        PlayerProfile profile = profileService.getOrLoadProfile(source.getServer(), player);
+
+        LogPoseTargetSelectionResult result = LogPoseTargetService.getInstance().selectTarget(profile, islandId);
+        if (!result.success()) {
+            source.sendError(Text.literal(
+                    "Set Log Pose target failed: status=" + result.status() + ", message=" + result.message()
+            ));
+            return 0;
+        }
+
+        profileService.saveProfile(source.getServer(), profile);
+
+        source.sendFeedback(
+                () -> Text.literal(
+                        "Set Log Pose target: target=" + result.targetIslandId()
+                                + ", changed=" + result.changed()
+                                + ", status=" + result.status()
+                ),
+                false
+        );
+
+        return 1;
+    }
+
+    private static int executePoseClear(ServerCommandSource source)
+            throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        ServerPlayerEntity player = source.getPlayerOrThrow();
+        PlayerProfileService profileService = PlayerProfileService.getInstance();
+        PlayerProfile profile = profileService.getOrLoadProfile(source.getServer(), player);
+
+        boolean changed = LogPoseTargetService.getInstance().clearTarget(profile);
+        if (changed) {
+            profileService.saveProfile(source.getServer(), profile);
+        }
+
+        source.sendFeedback(
+                () -> Text.literal("Clear Log Pose target: changed=" + changed),
+                false
+        );
+
+        return 1;
+    }
+
+    private static int executePoseValidate(ServerCommandSource source)
+            throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        PlayerProfile profile = getProfile(source);
+
+        String activeTargetId = profile.getActiveLogPoseTargetId();
+        if (activeTargetId == null) {
+            source.sendError(Text.literal("Active Log Pose target is not set"));
+            return 0;
+        }
+
+        IslandEntryValidationResult result = IslandEntryValidationService.getInstance()
+                .validate(profile, activeTargetId);
+
+        source.sendFeedback(
+                () -> Text.literal(
+                        "Validate active Log Pose target '" + activeTargetId + "': allowed=" + result.allowed()
+                                + ", status=" + result.status()
+                                + ", message=" + result.message()
+                ),
+                false
+        );
+
+        return result.allowed() ? 1 : 0;
+    }
+
+    private static PlayerProfile getProfile(ServerCommandSource source)
+            throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        ServerPlayerEntity player = source.getPlayerOrThrow();
+        return PlayerProfileService.getInstance().getOrLoadProfile(source.getServer(), player);
     }
 }
 
@@ -1968,10 +2474,10 @@ public final class IslandEntryValidationService {
 ------------------------------------------------------------
 package ru.peacecraft.grandline.server.island.service;
 
+import java.util.HashSet;
+
 import ru.peacecraft.grandline.server.island.model.IslandDefinition;
 import ru.peacecraft.grandline.server.player.model.PlayerProfile;
-
-import java.util.HashSet;
 
 public final class IslandProfileSanitizer {
     private IslandProfileSanitizer() {
@@ -2001,10 +2507,6 @@ public final class IslandProfileSanitizer {
             profile.setCurrentIslandId(starterIslandId);
         }
 
-        if (profile.getActiveLogPoseTargetId() != null && !registry.contains(profile.getActiveLogPoseTargetId())) {
-            profile.setActiveLogPoseTargetId(null);
-        }
-
         for (IslandDefinition definition : registry.getAll()) {
             if (definition.unlockedByDefault()) {
                 profile.getDiscoveredIslandIds().add(definition.id());
@@ -2017,6 +2519,29 @@ public final class IslandProfileSanitizer {
 
         profile.getDiscoveredIslandIds().add(profile.getCurrentIslandId());
         profile.getUnlockedIslandIds().add(profile.getCurrentIslandId());
+
+        sanitizeActiveLogPoseTarget(profile, registry);
+    }
+
+    private static void sanitizeActiveLogPoseTarget(PlayerProfile profile, IslandRegistry registry) {
+        String activeTargetId = profile.getActiveLogPoseTargetId();
+        if (activeTargetId == null) {
+            return;
+        }
+
+        if (!registry.contains(activeTargetId)) {
+            profile.setActiveLogPoseTargetId(null);
+            return;
+        }
+
+        if (activeTargetId.equals(profile.getCurrentIslandId())) {
+            profile.setActiveLogPoseTargetId(null);
+            return;
+        }
+
+        if (!profile.getDiscoveredIslandIds().contains(activeTargetId)) {
+            profile.setActiveLogPoseTargetId(null);
+        }
     }
 }
 
@@ -2142,6 +2667,182 @@ public final class IslandRegistry {
 
     public synchronized boolean isEmpty() {
         return islands.isEmpty();
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\logpose\model\LogPoseTargetSelectionResult.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.logpose.model;
+
+public record LogPoseTargetSelectionResult(
+        boolean success,
+        boolean changed,
+        String targetIslandId,
+        LogPoseTargetSelectionStatus status,
+        String message
+) {
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\logpose\model\LogPoseTargetSelectionStatus.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.logpose.model;
+
+public enum LogPoseTargetSelectionStatus {
+    SELECTED,
+    TARGET_NOT_FOUND,
+    CURRENT_ISLAND_NOT_FOUND,
+    TARGET_NOT_DISCOVERED,
+    TARGET_IS_CURRENT_ISLAND,
+    TARGET_ALREADY_SELECTED
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\logpose\service\LogPoseTargetService.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.logpose.service;
+
+import java.util.List;
+import java.util.Objects;
+
+import ru.peacecraft.grandline.server.island.model.IslandDefinition;
+import ru.peacecraft.grandline.server.island.service.IslandDiscoveryService;
+import ru.peacecraft.grandline.server.island.service.IslandRegistry;
+import ru.peacecraft.grandline.server.logpose.model.LogPoseTargetSelectionResult;
+import ru.peacecraft.grandline.server.logpose.model.LogPoseTargetSelectionStatus;
+import ru.peacecraft.grandline.server.player.model.PlayerProfile;
+
+public final class LogPoseTargetService {
+    private static final LogPoseTargetService INSTANCE = new LogPoseTargetService();
+
+    private LogPoseTargetService() {
+    }
+
+    public static LogPoseTargetService getInstance() {
+        return INSTANCE;
+    }
+
+    public List<String> getAvailableTargetIds(PlayerProfile profile) {
+        IslandRegistry registry = IslandRegistry.getInstance();
+        IslandDiscoveryService discoveryService = IslandDiscoveryService.getInstance();
+        String currentIslandId = profile.getCurrentIslandId();
+
+        return registry.getAll().stream()
+                .map(IslandDefinition::id)
+                .filter(id -> !Objects.equals(id, currentIslandId))
+                .filter(id -> discoveryService.isDiscovered(profile, id))
+                .sorted()
+                .toList();
+    }
+
+    public boolean hasValidActiveTarget(PlayerProfile profile) {
+        return getValidatedActiveTargetIdOrNull(profile) != null;
+    }
+
+    public String getValidatedActiveTargetIdOrNull(PlayerProfile profile) {
+        IslandRegistry registry = IslandRegistry.getInstance();
+        IslandDiscoveryService discoveryService = IslandDiscoveryService.getInstance();
+
+        String targetIslandId = profile.getActiveLogPoseTargetId();
+        if (targetIslandId == null || targetIslandId.isBlank()) {
+            return null;
+        }
+
+        if (!registry.contains(targetIslandId)) {
+            return null;
+        }
+
+        String currentIslandId = profile.getCurrentIslandId();
+        if (currentIslandId == null || !registry.contains(currentIslandId)) {
+            return null;
+        }
+
+        if (currentIslandId.equals(targetIslandId)) {
+            return null;
+        }
+
+        if (!discoveryService.isDiscovered(profile, targetIslandId)) {
+            return null;
+        }
+
+        return targetIslandId;
+    }
+
+    public LogPoseTargetSelectionResult selectTarget(PlayerProfile profile, String targetIslandId) {
+        IslandRegistry registry = IslandRegistry.getInstance();
+        IslandDiscoveryService discoveryService = IslandDiscoveryService.getInstance();
+
+        if (targetIslandId == null || targetIslandId.isBlank() || !registry.contains(targetIslandId)) {
+            return fail(
+                    targetIslandId,
+                    LogPoseTargetSelectionStatus.TARGET_NOT_FOUND,
+                    "Log Pose target island not found: " + targetIslandId
+            );
+        }
+
+        String currentIslandId = profile.getCurrentIslandId();
+        if (currentIslandId == null || !registry.contains(currentIslandId)) {
+            return fail(
+                    targetIslandId,
+                    LogPoseTargetSelectionStatus.CURRENT_ISLAND_NOT_FOUND,
+                    "Current island is missing or invalid: " + currentIslandId
+            );
+        }
+
+        if (currentIslandId.equals(targetIslandId)) {
+            return fail(
+                    targetIslandId,
+                    LogPoseTargetSelectionStatus.TARGET_IS_CURRENT_ISLAND,
+                    "Cannot set Log Pose target to current island: " + targetIslandId
+            );
+        }
+
+        if (!discoveryService.isDiscovered(profile, targetIslandId)) {
+            return fail(
+                    targetIslandId,
+                    LogPoseTargetSelectionStatus.TARGET_NOT_DISCOVERED,
+                    "Cannot set Log Pose target to undiscovered island: " + targetIslandId
+            );
+        }
+
+        if (targetIslandId.equals(profile.getActiveLogPoseTargetId())) {
+            return fail(
+                    targetIslandId,
+                    LogPoseTargetSelectionStatus.TARGET_ALREADY_SELECTED,
+                    "Log Pose target is already selected: " + targetIslandId
+            );
+        }
+
+        profile.setActiveLogPoseTargetId(targetIslandId);
+
+        return new LogPoseTargetSelectionResult(
+                true,
+                true,
+                targetIslandId,
+                LogPoseTargetSelectionStatus.SELECTED,
+                "Log Pose target selected: " + targetIslandId
+        );
+    }
+
+    public boolean clearTarget(PlayerProfile profile) {
+        if (profile.getActiveLogPoseTargetId() == null) {
+            return false;
+        }
+
+        profile.setActiveLogPoseTargetId(null);
+        return true;
+    }
+
+    private LogPoseTargetSelectionResult fail(
+            String targetIslandId,
+            LogPoseTargetSelectionStatus status,
+            String message
+    ) {
+        return new LogPoseTargetSelectionResult(false, false, targetIslandId, status, message);
     }
 }
 
@@ -2493,10 +3194,22 @@ public final class PlayerProfileService {
 
 
 ------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\resources\assets\peacecraft\items\log_pose.json
+------------------------------------------------------------
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "peacecraft:item/log_pose"
+  }
+}
+
+
+------------------------------------------------------------
 Файл: E:\PeaceCraftCore\src\main\resources\assets\peacecraft\lang\en_us.json
 ------------------------------------------------------------
 {
-  "modmenu.nameTranslation.peacecraft": "PeaceCraft"
+  "modmenu.nameTranslation.peacecraft": "PeaceCraft",
+  "item.peacecraft.log_pose": "Log Pose"
 }
 
 
@@ -2504,7 +3217,19 @@ public final class PlayerProfileService {
 Файл: E:\PeaceCraftCore\src\main\resources\assets\peacecraft\lang\ru_ru.json
 ------------------------------------------------------------
 {
-  "modmenu.nameTranslation.peacecraft": "PeaceCraft"
+  "modmenu.nameTranslation.peacecraft": "PeaceCraft",
+  "item.peacecraft.log_pose": "Логпос"
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\resources\assets\peacecraft\models\item\log_pose.json
+------------------------------------------------------------
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "peacecraft:item/log_pose"
+  }
 }
 
 

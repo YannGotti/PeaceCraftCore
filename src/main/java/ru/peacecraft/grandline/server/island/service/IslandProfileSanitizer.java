@@ -1,9 +1,9 @@
 package ru.peacecraft.grandline.server.island.service;
 
+import java.util.HashSet;
+
 import ru.peacecraft.grandline.server.island.model.IslandDefinition;
 import ru.peacecraft.grandline.server.player.model.PlayerProfile;
-
-import java.util.HashSet;
 
 public final class IslandProfileSanitizer {
     private IslandProfileSanitizer() {
@@ -33,10 +33,6 @@ public final class IslandProfileSanitizer {
             profile.setCurrentIslandId(starterIslandId);
         }
 
-        if (profile.getActiveLogPoseTargetId() != null && !registry.contains(profile.getActiveLogPoseTargetId())) {
-            profile.setActiveLogPoseTargetId(null);
-        }
-
         for (IslandDefinition definition : registry.getAll()) {
             if (definition.unlockedByDefault()) {
                 profile.getDiscoveredIslandIds().add(definition.id());
@@ -49,5 +45,28 @@ public final class IslandProfileSanitizer {
 
         profile.getDiscoveredIslandIds().add(profile.getCurrentIslandId());
         profile.getUnlockedIslandIds().add(profile.getCurrentIslandId());
+
+        sanitizeActiveLogPoseTarget(profile, registry);
+    }
+
+    private static void sanitizeActiveLogPoseTarget(PlayerProfile profile, IslandRegistry registry) {
+        String activeTargetId = profile.getActiveLogPoseTargetId();
+        if (activeTargetId == null) {
+            return;
+        }
+
+        if (!registry.contains(activeTargetId)) {
+            profile.setActiveLogPoseTargetId(null);
+            return;
+        }
+
+        if (activeTargetId.equals(profile.getCurrentIslandId())) {
+            profile.setActiveLogPoseTargetId(null);
+            return;
+        }
+
+        if (!profile.getDiscoveredIslandIds().contains(activeTargetId)) {
+            profile.setActiveLogPoseTargetId(null);
+        }
     }
 }
