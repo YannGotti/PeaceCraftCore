@@ -65,16 +65,28 @@ E:\PeaceCraftCore
 │   │                       │   │   └── service
 │   │                       │   │       ├── LogPoseItemGrantService.class
 │   │                       │   │       └── LogPoseTargetService.class
-│   │                       │   └── player
-│   │                       │       ├── lifecycle
-│   │                       │       │   └── PlayerProfileLifecycle.class
+│   │                       │   ├── player
+│   │                       │   │   ├── lifecycle
+│   │                       │   │   │   └── PlayerProfileLifecycle.class
+│   │                       │   │   ├── model
+│   │                       │   │   │   └── PlayerProfile.class
+│   │                       │   │   ├── persistence
+│   │                       │   │   │   ├── PlayerProfilePaths.class
+│   │                       │   │   │   └── PlayerProfileRepository.class
+│   │                       │   │   └── service
+│   │                       │   │       └── PlayerProfileService.class
+│   │                       │   └── travel
+│   │                       │       ├── bootstrap
+│   │                       │       │   └── TravelBootstrap.class
+│   │                       │       ├── command
+│   │                       │       │   └── TravelCommand.class
 │   │                       │       ├── model
-│   │                       │       │   └── PlayerProfile.class
-│   │                       │       ├── persistence
-│   │                       │       │   ├── PlayerProfilePaths.class
-│   │                       │       │   └── PlayerProfileRepository.class
+│   │                       │       │   ├── TravelRequestOperationResult.class
+│   │                       │       │   ├── TravelRequestOperationStatus.class
+│   │                       │       │   └── TravelRequestStatus.class
 │   │                       │       └── service
-│   │                       │           └── PlayerProfileService.class
+│   │                       │           ├── TravelProfileSanitizer.class
+│   │                       │           └── TravelRequestService.class
 │   │                       └── PeaceCraftMod.class
 │   ├── devlibs
 │   │   ├── peacecraft-0.1.0-dev-dev.jar
@@ -134,8 +146,8 @@ E:\PeaceCraftCore
 │   └── tmp
 │       ├── .cache
 │       │   └── expanded
-│       │       ├── zip_29dfcfb6b4e5904e001c44f05e03c76d
-│       │       └── zip_3685e601c2e941094c3a43cc8eeeb878
+│       │       ├── zip_1ed929faf42885b4c23c8afe1f0386b4
+│       │       └── zip_96b9c3ccfdf57b667e5baedae1c66d1c
 │       ├── compileClientJava
 │       │   └── previous-compilation-data.bin
 │       ├── compileJava
@@ -175,6 +187,7 @@ E:\PeaceCraftCore
 │   │   ├── 2026-03-22-4.log.gz
 │   │   ├── 2026-03-22-5.log.gz
 │   │   ├── 2026-03-22-6.log.gz
+│   │   ├── 2026-03-26-1.log.gz
 │   │   ├── debug-1.log.gz
 │   │   ├── debug-2.log.gz
 │   │   ├── debug-3.log.gz
@@ -189,6 +202,7 @@ E:\PeaceCraftCore
 │   │       ├── 2b83ebdc-0604-37b1-94a0-4298b1021b84.json
 │   │       ├── 49b1c99f-ddf7-3830-8802-b69461c51429.json
 │   │       ├── 6f3f457a-8ce3-3a45-8767-61c2dfd0e70f.json
+│   │       ├── 75998694-2bae-3280-972d-d76ffee01fa1.json
 │   │       ├── 9da9c19c-8c76-3722-b34c-263305f5c6ba.json
 │   │       └── b9f5e998-520a-3fa2-8208-0c20f22aa20f.json
 │   ├── resourcepacks
@@ -407,6 +421,17 @@ E:\PeaceCraftCore
 │   │   │               │   │       └── PlayerProfileService.java
 │   │   │               │   ├── quest
 │   │   │               │   ├── travel
+│   │   │               │   │   ├── bootstrap
+│   │   │               │   │   │   └── TravelBootstrap.java
+│   │   │               │   │   ├── command
+│   │   │               │   │   │   └── TravelCommand.java
+│   │   │               │   │   ├── model
+│   │   │               │   │   │   ├── TravelRequestOperationResult.java
+│   │   │               │   │   │   ├── TravelRequestOperationStatus.java
+│   │   │               │   │   │   └── TravelRequestStatus.java
+│   │   │               │   │   └── service
+│   │   │               │   │       ├── TravelProfileSanitizer.java
+│   │   │               │   │       └── TravelRequestService.java
 │   │   │               │   └── world
 │   │   │               └── PeaceCraftMod.java
 │   │   └── resources
@@ -821,7 +846,7 @@ archives_base_name=peacecraft
 Файл: E:\PeaceCraftCore\run\config\fabric\indigo-renderer.properties
 ------------------------------------------------------------
 #Indigo properties file
-#Sun Mar 22 20:17:57 MSK 2026
+#Thu Mar 26 11:39:19 MSK 2026
 ambient-occlusion-mode=hybrid
 debug-compare-lighting=auto
 fix-exterior-vertex-lighting=auto
@@ -856,6 +881,12 @@ fix-smooth-lighting-offset=auto
   {
     "uuid": "9da9c19c-8c76-3722-b34c-263305f5c6ba",
     "name": "Player724",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  },
+  {
+    "uuid": "75998694-2bae-3280-972d-d76ffee01fa1",
+    "name": "Player840",
     "level": 4,
     "bypassesPlayerLimit": false
   },
@@ -955,6 +986,31 @@ fix-smooth-lighting-offset=auto
 
 
 ------------------------------------------------------------
+Файл: E:\PeaceCraftCore\run\peacecraft\player_profiles\75998694-2bae-3280-972d-d76ffee01fa1.json
+------------------------------------------------------------
+{
+  "profileVersion": 1,
+  "playerUuid": "75998694-2bae-3280-972d-d76ffee01fa1",
+  "lastKnownName": "Player840",
+  "currentIslandId": "starter_island",
+  "discoveredIslandIds": [
+    "first_adventure_island",
+    "starter_island"
+  ],
+  "unlockedIslandIds": [
+    "first_adventure_island",
+    "starter_island"
+  ],
+  "activeLogPoseTargetId": "first_adventure_island",
+  "starterLogPoseGranted": true,
+  "createdAtEpochMs": 1774514395696,
+  "updatedAtEpochMs": 1774514562686,
+  "travelRequestStatus": "NONE",
+  "travelRequestCreatedAtEpochMs": 0
+}
+
+
+------------------------------------------------------------
 Файл: E:\PeaceCraftCore\run\peacecraft\player_profiles\9da9c19c-8c76-3722-b34c-263305f5c6ba.json
 ------------------------------------------------------------
 {
@@ -1040,7 +1096,7 @@ fix-smooth-lighting-offset=auto
 Файл: E:\PeaceCraftCore\run\server.properties
 ------------------------------------------------------------
 #Minecraft server properties
-#Sun Mar 22 20:18:00 MSK 2026
+#Thu Mar 26 11:39:25 MSK 2026
 accepts-transfers=false
 allow-flight=false
 broadcast-console-to-ops=true
@@ -1114,7 +1170,7 @@ white-list=false
 ------------------------------------------------------------
 Файл: E:\PeaceCraftCore\run\usercache.json
 ------------------------------------------------------------
-[{"uuid":"6f3f457a-8ce3-3a45-8767-61c2dfd0e70f","name":"Player159","expiresOn":"2026-04-22 20:18:26 +0300"},{"uuid":"9da9c19c-8c76-3722-b34c-263305f5c6ba","name":"Player724","expiresOn":"2026-04-22 20:00:48 +0300"},{"uuid":"49b1c99f-ddf7-3830-8802-b69461c51429","name":"Player741","expiresOn":"2026-04-22 19:18:29 +0300"},{"uuid":"2250da04-2be8-3508-9a2e-a09e550d0033","name":"Player943","expiresOn":"2026-04-21 23:02:01 +0300"},{"uuid":"2b83ebdc-0604-37b1-94a0-4298b1021b84","name":"Player577","expiresOn":"2026-04-21 22:45:34 +0300"},{"uuid":"b9f5e998-520a-3fa2-8208-0c20f22aa20f","name":"Player321","expiresOn":"2026-04-21 22:18:42 +0300"},{"uuid":"fc74fe37-e9f9-3198-8e46-1eee97cacfa6","name":"Player455","expiresOn":"2026-04-21 22:14:04 +0300"},{"uuid":"fe736038-102e-365b-a97e-eabc472944ec","name":"Player31","expiresOn":"2026-04-21 21:51:39 +0300"}]
+[{"uuid":"75998694-2bae-3280-972d-d76ffee01fa1","name":"Player840","expiresOn":"2026-04-26 11:39:55 +0300"},{"uuid":"6f3f457a-8ce3-3a45-8767-61c2dfd0e70f","name":"Player159","expiresOn":"2026-04-22 20:18:26 +0300"},{"uuid":"9da9c19c-8c76-3722-b34c-263305f5c6ba","name":"Player724","expiresOn":"2026-04-22 20:00:48 +0300"},{"uuid":"49b1c99f-ddf7-3830-8802-b69461c51429","name":"Player741","expiresOn":"2026-04-22 19:18:29 +0300"},{"uuid":"2250da04-2be8-3508-9a2e-a09e550d0033","name":"Player943","expiresOn":"2026-04-21 23:02:01 +0300"},{"uuid":"2b83ebdc-0604-37b1-94a0-4298b1021b84","name":"Player577","expiresOn":"2026-04-21 22:45:34 +0300"},{"uuid":"b9f5e998-520a-3fa2-8208-0c20f22aa20f","name":"Player321","expiresOn":"2026-04-21 22:18:42 +0300"},{"uuid":"fc74fe37-e9f9-3198-8e46-1eee97cacfa6","name":"Player455","expiresOn":"2026-04-21 22:14:04 +0300"},{"uuid":"fe736038-102e-365b-a97e-eabc472944ec","name":"Player31","expiresOn":"2026-04-21 21:51:39 +0300"}]
 
 
 ------------------------------------------------------------
@@ -1803,6 +1859,7 @@ import ru.peacecraft.grandline.common.util.ModLog;
 import ru.peacecraft.grandline.server.island.bootstrap.IslandBootstrap;
 import ru.peacecraft.grandline.server.logpose.bootstrap.LogPoseBootstrap;
 import ru.peacecraft.grandline.server.player.lifecycle.PlayerProfileLifecycle;
+import ru.peacecraft.grandline.server.travel.bootstrap.TravelBootstrap;
 
 public final class ServerBootstrap {
     private static boolean initialized = false;
@@ -1821,6 +1878,7 @@ public final class ServerBootstrap {
 
         IslandBootstrap.init();
         LogPoseBootstrap.init();
+        TravelBootstrap.init();
         PlayerProfileLifecycle.init();
     }
 }
@@ -3280,9 +3338,13 @@ public final class PlayerProfileLifecycle {
 ------------------------------------------------------------
 package ru.peacecraft.grandline.server.player.model;
 
+
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
+
+import ru.peacecraft.grandline.server.travel.model.TravelRequestStatus;
+
 
 public final class PlayerProfile {
     private int profileVersion;
@@ -3298,11 +3360,17 @@ public final class PlayerProfile {
     private long createdAtEpochMs;
     private long updatedAtEpochMs;
 
+    private String requestedTravelTargetId;
+    private TravelRequestStatus travelRequestStatus;
+    private long travelRequestCreatedAtEpochMs;
+
     public PlayerProfile() {
         this.profileVersion = 1;
         this.discoveredIslandIds = new HashSet<>();
         this.unlockedIslandIds = new HashSet<>();
         this.starterLogPoseGranted = false;
+        this.travelRequestStatus = TravelRequestStatus.NONE;
+        this.travelRequestCreatedAtEpochMs = 0L;
     }
 
     public static PlayerProfile createDefault(UUID playerUuid, String lastKnownName) {
@@ -3322,6 +3390,9 @@ public final class PlayerProfile {
 
         profile.discoveredIslandIds.add("starter_island");
         profile.unlockedIslandIds.add("starter_island");
+        profile.requestedTravelTargetId = null;
+        profile.travelRequestStatus = TravelRequestStatus.NONE;
+        profile.travelRequestCreatedAtEpochMs = 0L;
 
         return profile;
     }
@@ -3424,6 +3495,30 @@ public final class PlayerProfile {
 
     public void touch() {
         this.updatedAtEpochMs = System.currentTimeMillis();
+    }
+
+    public String getRequestedTravelTargetId() {
+        return requestedTravelTargetId;
+    }
+
+    public void setRequestedTravelTargetId(String requestedTravelTargetId) {
+        this.requestedTravelTargetId = requestedTravelTargetId;
+    }
+
+    public TravelRequestStatus getTravelRequestStatus() {
+        return travelRequestStatus;
+    }
+
+    public void setTravelRequestStatus(TravelRequestStatus travelRequestStatus) {
+        this.travelRequestStatus = travelRequestStatus;
+    }
+
+    public long getTravelRequestCreatedAtEpochMs() {
+        return travelRequestCreatedAtEpochMs;
+    }
+
+    public void setTravelRequestCreatedAtEpochMs(long travelRequestCreatedAtEpochMs) {
+        this.travelRequestCreatedAtEpochMs = travelRequestCreatedAtEpochMs;
     }
 }
 
@@ -3528,6 +3623,7 @@ import ru.peacecraft.grandline.common.util.ModLog;
 import ru.peacecraft.grandline.server.island.service.IslandProfileSanitizer;
 import ru.peacecraft.grandline.server.player.model.PlayerProfile;
 import ru.peacecraft.grandline.server.player.persistence.PlayerProfileRepository;
+import ru.peacecraft.grandline.server.travel.service.TravelProfileSanitizer;
 
 public final class PlayerProfileService {
     private static final PlayerProfileService INSTANCE = new PlayerProfileService();
@@ -3561,6 +3657,7 @@ public final class PlayerProfileService {
         profile.setLastKnownName(player.getName().getString());
 
         IslandProfileSanitizer.sanitize(profile);
+        TravelProfileSanitizer.sanitize(profile);
 
         profile.touch();
 
@@ -3588,6 +3685,445 @@ public final class PlayerProfileService {
         for (PlayerProfile profile : loadedProfiles.values()) {
             saveProfile(server, profile);
         }
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\travel\bootstrap\TravelBootstrap.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.travel.bootstrap;
+
+import ru.peacecraft.grandline.common.util.ModLog;
+import ru.peacecraft.grandline.server.travel.command.TravelCommand;
+
+public final class TravelBootstrap {
+    private static boolean initialized = false;
+
+    private TravelBootstrap() {
+    }
+
+    public static void init() {
+        if (initialized) {
+            ModLog.LOGGER.warn("TravelBootstrap.init() called more than once. Skipping.");
+            return;
+        }
+
+        initialized = true;
+
+        TravelCommand.register();
+
+        ModLog.LOGGER.info("TravelBootstrap initialized.");
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\travel\command\TravelCommand.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.travel.command;
+
+import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
+import ru.peacecraft.grandline.server.island.model.IslandEntryValidationResult;
+import ru.peacecraft.grandline.server.player.model.PlayerProfile;
+import ru.peacecraft.grandline.server.player.service.PlayerProfileService;
+import ru.peacecraft.grandline.server.travel.model.TravelRequestOperationResult;
+import ru.peacecraft.grandline.server.travel.service.TravelRequestService;
+
+import static net.minecraft.server.command.CommandManager.literal;
+
+public final class TravelCommand {
+    private static boolean registered = false;
+
+    private TravelCommand() {
+    }
+
+    public static void register() {
+        if (registered) {
+            return;
+        }
+
+        registered = true;
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> register(dispatcher));
+    }
+
+    private static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
+        dispatcher.register(
+                literal("travel")
+                        .then(literal("request")
+                                .executes(context -> executeRequest(context.getSource())))
+                        .then(literal("status")
+                                .executes(context -> executeStatus(context.getSource())))
+                        .then(literal("cancel")
+                                .executes(context -> executeCancel(context.getSource())))
+        );
+    }
+
+    private static int executeRequest(ServerCommandSource source) throws CommandSyntaxException {
+        ServerPlayerEntity player = source.getPlayerOrThrow();
+        PlayerProfileService profileService = PlayerProfileService.getInstance();
+        PlayerProfile profile = profileService.getOrLoadProfile(source.getServer(), player);
+
+        TravelRequestOperationResult result = TravelRequestService.getInstance()
+                .createRequestFromActiveLogPose(profile);
+
+        if (!result.success()) {
+            source.sendError(Text.literal(
+                    "Travel request failed: status=" + result.status()
+                            + ", target=" + result.targetIslandId()
+                            + ", entryStatus=" + result.entryValidationStatus()
+                            + ", message=" + result.message()
+            ));
+            return 0;
+        }
+
+        if (result.changed()) {
+            profileService.saveProfile(source.getServer(), profile);
+        }
+
+        source.sendFeedback(
+                () -> Text.literal(
+                        "Travel request ok: status=" + result.status()
+                                + ", target=" + result.targetIslandId()
+                                + ", entryStatus=" + result.entryValidationStatus()
+                ),
+                false
+        );
+
+        return 1;
+    }
+
+    private static int executeStatus(ServerCommandSource source) throws CommandSyntaxException {
+        PlayerProfile profile = getProfile(source);
+        TravelRequestService travelRequestService = TravelRequestService.getInstance();
+
+        if (!travelRequestService.hasActiveRequest(profile)) {
+            String activeLogPoseTarget = profile.getActiveLogPoseTargetId();
+            source.sendFeedback(
+                    () -> Text.literal(
+                            "Travel request: none. ActiveLogPoseTarget="
+                                    + (activeLogPoseTarget == null ? "none" : activeLogPoseTarget)
+                    ),
+                    false
+            );
+            return 1;
+        }
+
+        String requestedTargetId = profile.getRequestedTravelTargetId();
+        long ageSeconds = Math.max(0L,
+                (System.currentTimeMillis() - profile.getTravelRequestCreatedAtEpochMs()) / 1000L
+        );
+
+        IslandEntryValidationResult entryResult =
+                ru.peacecraft.grandline.server.island.service.IslandEntryValidationService.getInstance()
+                        .validate(profile, requestedTargetId);
+
+        source.sendFeedback(
+                () -> Text.literal(
+                        "Travel request: status=" + profile.getTravelRequestStatus()
+                                + ", target=" + requestedTargetId
+                                + ", ageSeconds=" + ageSeconds
+                                + ", entryAllowed=" + entryResult.allowed()
+                                + ", entryStatus=" + entryResult.status()
+                ),
+                false
+        );
+
+        return 1;
+    }
+
+    private static int executeCancel(ServerCommandSource source) throws CommandSyntaxException {
+        ServerPlayerEntity player = source.getPlayerOrThrow();
+        PlayerProfileService profileService = PlayerProfileService.getInstance();
+        PlayerProfile profile = profileService.getOrLoadProfile(source.getServer(), player);
+
+        TravelRequestOperationResult result = TravelRequestService.getInstance()
+                .cancelRequest(profile);
+
+        if (!result.success()) {
+            source.sendError(Text.literal(
+                    "Travel cancel failed: status=" + result.status()
+                            + ", message=" + result.message()
+            ));
+            return 0;
+        }
+
+        if (result.changed()) {
+            profileService.saveProfile(source.getServer(), profile);
+        }
+
+        source.sendFeedback(
+                () -> Text.literal(
+                        "Travel request cancelled: target=" + result.targetIslandId()
+                ),
+                false
+        );
+
+        return 1;
+    }
+
+    private static PlayerProfile getProfile(ServerCommandSource source) throws CommandSyntaxException {
+        ServerPlayerEntity player = source.getPlayerOrThrow();
+        return PlayerProfileService.getInstance().getOrLoadProfile(source.getServer(), player);
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\travel\model\TravelRequestOperationResult.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.travel.model;
+
+import ru.peacecraft.grandline.server.island.model.IslandEntryValidationStatus;
+
+public record TravelRequestOperationResult(
+        boolean success,
+        boolean changed,
+        TravelRequestOperationStatus status,
+        String targetIslandId,
+        IslandEntryValidationStatus entryValidationStatus,
+        String message
+) {
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\travel\model\TravelRequestOperationStatus.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.travel.model;
+
+public enum TravelRequestOperationStatus {
+    REQUEST_CREATED,
+    REQUEST_REPLACED,
+    REQUEST_ALREADY_EXISTS,
+    NO_ACTIVE_LOG_POSE_TARGET,
+    ACTIVE_LOG_POSE_TARGET_INVALID,
+    ENTRY_NOT_ALLOWED,
+    REQUEST_CANCELLED,
+    NO_REQUEST_TO_CANCEL
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\travel\model\TravelRequestStatus.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.travel.model;
+
+public enum TravelRequestStatus {
+    NONE,
+    REQUESTED
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\travel\service\TravelProfileSanitizer.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.travel.service;
+
+import ru.peacecraft.grandline.server.island.model.IslandEntryValidationResult;
+import ru.peacecraft.grandline.server.island.service.IslandEntryValidationService;
+import ru.peacecraft.grandline.server.player.model.PlayerProfile;
+import ru.peacecraft.grandline.server.travel.model.TravelRequestStatus;
+
+public final class TravelProfileSanitizer {
+    private TravelProfileSanitizer() {
+    }
+
+    public static void sanitize(PlayerProfile profile) {
+        if (profile.getTravelRequestStatus() == null) {
+            profile.setTravelRequestStatus(TravelRequestStatus.NONE);
+        }
+
+        if (profile.getTravelRequestCreatedAtEpochMs() < 0L) {
+            profile.setTravelRequestCreatedAtEpochMs(0L);
+        }
+
+        if (profile.getTravelRequestStatus() != TravelRequestStatus.REQUESTED) {
+            clearResidualState(profile);
+            return;
+        }
+
+        String requestedTargetId = profile.getRequestedTravelTargetId();
+        if (requestedTargetId == null || requestedTargetId.isBlank()) {
+            clearRequestState(profile);
+            return;
+        }
+
+        IslandEntryValidationResult entryResult = IslandEntryValidationService.getInstance()
+                .validate(profile, requestedTargetId);
+
+        if (!entryResult.allowed()) {
+            clearRequestState(profile);
+        }
+    }
+
+    private static void clearResidualState(PlayerProfile profile) {
+        if (profile.getRequestedTravelTargetId() != null || profile.getTravelRequestCreatedAtEpochMs() != 0L) {
+            clearRequestState(profile);
+        }
+    }
+
+    private static void clearRequestState(PlayerProfile profile) {
+        profile.setRequestedTravelTargetId(null);
+        profile.setTravelRequestStatus(TravelRequestStatus.NONE);
+        profile.setTravelRequestCreatedAtEpochMs(0L);
+    }
+}
+
+
+------------------------------------------------------------
+Файл: E:\PeaceCraftCore\src\main\java\ru\peacecraft\grandline\server\travel\service\TravelRequestService.java
+------------------------------------------------------------
+package ru.peacecraft.grandline.server.travel.service;
+
+import ru.peacecraft.grandline.common.util.ModLog;
+import ru.peacecraft.grandline.server.island.model.IslandEntryValidationResult;
+import ru.peacecraft.grandline.server.island.service.IslandEntryValidationService;
+import ru.peacecraft.grandline.server.logpose.service.LogPoseTargetService;
+import ru.peacecraft.grandline.server.player.model.PlayerProfile;
+import ru.peacecraft.grandline.server.travel.model.TravelRequestOperationResult;
+import ru.peacecraft.grandline.server.travel.model.TravelRequestOperationStatus;
+import ru.peacecraft.grandline.server.travel.model.TravelRequestStatus;
+
+public final class TravelRequestService {
+    private static final TravelRequestService INSTANCE = new TravelRequestService();
+
+    private TravelRequestService() {
+    }
+
+    public static TravelRequestService getInstance() {
+        return INSTANCE;
+    }
+
+    public boolean hasActiveRequest(PlayerProfile profile) {
+        return profile.getTravelRequestStatus() == TravelRequestStatus.REQUESTED
+                && profile.getRequestedTravelTargetId() != null
+                && !profile.getRequestedTravelTargetId().isBlank();
+    }
+
+    public TravelRequestOperationResult createRequestFromActiveLogPose(PlayerProfile profile) {
+        String rawActiveTargetId = profile.getActiveLogPoseTargetId();
+        if (rawActiveTargetId == null || rawActiveTargetId.isBlank()) {
+            return fail(
+                    TravelRequestOperationStatus.NO_ACTIVE_LOG_POSE_TARGET,
+                    null,
+                    null,
+                    "Active Log Pose target is not set."
+            );
+        }
+
+        String validatedActiveTargetId = LogPoseTargetService.getInstance()
+                .getValidatedActiveTargetIdOrNull(profile);
+
+        if (validatedActiveTargetId == null) {
+            return fail(
+                    TravelRequestOperationStatus.ACTIVE_LOG_POSE_TARGET_INVALID,
+                    rawActiveTargetId,
+                    null,
+                    "Active Log Pose target is invalid: " + rawActiveTargetId
+            );
+        }
+
+        IslandEntryValidationResult entryResult = IslandEntryValidationService.getInstance()
+                .validate(profile, validatedActiveTargetId);
+
+        if (!entryResult.allowed()) {
+            return fail(
+                    TravelRequestOperationStatus.ENTRY_NOT_ALLOWED,
+                    validatedActiveTargetId,
+                    entryResult.status(),
+                    "Cannot create travel request. " + entryResult.message()
+            );
+        }
+
+        if (hasActiveRequest(profile)
+                && validatedActiveTargetId.equals(profile.getRequestedTravelTargetId())) {
+            return fail(
+                    TravelRequestOperationStatus.REQUEST_ALREADY_EXISTS,
+                    validatedActiveTargetId,
+                    entryResult.status(),
+                    "Travel request already exists for target: " + validatedActiveTargetId
+            );
+        }
+
+        boolean replacingExisting = hasActiveRequest(profile);
+
+        profile.setRequestedTravelTargetId(validatedActiveTargetId);
+        profile.setTravelRequestStatus(TravelRequestStatus.REQUESTED);
+        profile.setTravelRequestCreatedAtEpochMs(System.currentTimeMillis());
+
+        if (replacingExisting) {
+            ModLog.LOGGER.info("Travel request replaced. target={}", validatedActiveTargetId);
+            return new TravelRequestOperationResult(
+                    true,
+                    true,
+                    TravelRequestOperationStatus.REQUEST_REPLACED,
+                    validatedActiveTargetId,
+                    entryResult.status(),
+                    "Travel request replaced. New target: " + validatedActiveTargetId
+            );
+        }
+
+        ModLog.LOGGER.info("Travel request created. target={}", validatedActiveTargetId);
+        return new TravelRequestOperationResult(
+                true,
+                true,
+                TravelRequestOperationStatus.REQUEST_CREATED,
+                validatedActiveTargetId,
+                entryResult.status(),
+                "Travel request created for target: " + validatedActiveTargetId
+        );
+    }
+
+    public TravelRequestOperationResult cancelRequest(PlayerProfile profile) {
+        if (!hasActiveRequest(profile)) {
+            return fail(
+                    TravelRequestOperationStatus.NO_REQUEST_TO_CANCEL,
+                    null,
+                    null,
+                    "There is no active travel request to cancel."
+            );
+        }
+
+        String previousTargetId = profile.getRequestedTravelTargetId();
+        clearRequest(profile);
+
+        ModLog.LOGGER.info("Travel request cancelled. target={}", previousTargetId);
+        return new TravelRequestOperationResult(
+                true,
+                true,
+                TravelRequestOperationStatus.REQUEST_CANCELLED,
+                previousTargetId,
+                null,
+                "Travel request cancelled for target: " + previousTargetId
+        );
+    }
+
+    public void clearRequest(PlayerProfile profile) {
+        profile.setRequestedTravelTargetId(null);
+        profile.setTravelRequestStatus(TravelRequestStatus.NONE);
+        profile.setTravelRequestCreatedAtEpochMs(0L);
+    }
+
+    private TravelRequestOperationResult fail(
+            TravelRequestOperationStatus status,
+            String targetIslandId,
+            ru.peacecraft.grandline.server.island.model.IslandEntryValidationStatus entryValidationStatus,
+            String message
+    ) {
+        return new TravelRequestOperationResult(
+                false,
+                false,
+                status,
+                targetIslandId,
+                entryValidationStatus,
+                message
+        );
     }
 }
 

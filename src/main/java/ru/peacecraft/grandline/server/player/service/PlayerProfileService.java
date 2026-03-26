@@ -12,6 +12,7 @@ import ru.peacecraft.grandline.common.util.ModLog;
 import ru.peacecraft.grandline.server.island.service.IslandProfileSanitizer;
 import ru.peacecraft.grandline.server.player.model.PlayerProfile;
 import ru.peacecraft.grandline.server.player.persistence.PlayerProfileRepository;
+import ru.peacecraft.grandline.server.travel.service.TravelProfileSanitizer;
 
 public final class PlayerProfileService {
     private static final PlayerProfileService INSTANCE = new PlayerProfileService();
@@ -45,6 +46,7 @@ public final class PlayerProfileService {
         profile.setLastKnownName(player.getName().getString());
 
         IslandProfileSanitizer.sanitize(profile);
+        TravelProfileSanitizer.sanitize(profile);
 
         profile.touch();
 

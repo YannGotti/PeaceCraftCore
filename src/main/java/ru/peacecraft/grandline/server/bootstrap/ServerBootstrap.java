@@ -4,6 +4,7 @@ import ru.peacecraft.grandline.common.util.ModLog;
 import ru.peacecraft.grandline.server.island.bootstrap.IslandBootstrap;
 import ru.peacecraft.grandline.server.logpose.bootstrap.LogPoseBootstrap;
 import ru.peacecraft.grandline.server.player.lifecycle.PlayerProfileLifecycle;
+import ru.peacecraft.grandline.server.travel.bootstrap.TravelBootstrap;
 
 public final class ServerBootstrap {
     private static boolean initialized = false;
@@ -22,6 +23,7 @@ public final class ServerBootstrap {
 
         IslandBootstrap.init();
         LogPoseBootstrap.init();
+        TravelBootstrap.init();
         PlayerProfileLifecycle.init();
     }
 }

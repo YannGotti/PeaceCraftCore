@@ -1,8 +1,12 @@
 package ru.peacecraft.grandline.server.player.model;
 
+
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
+
+import ru.peacecraft.grandline.server.travel.model.TravelRequestStatus;
+
 
 public final class PlayerProfile {
     private int profileVersion;
@@ -18,11 +22,17 @@ public final class PlayerProfile {
     private long createdAtEpochMs;
     private long updatedAtEpochMs;
 
+    private String requestedTravelTargetId;
+    private TravelRequestStatus travelRequestStatus;
+    private long travelRequestCreatedAtEpochMs;
+
     public PlayerProfile() {
         this.profileVersion = 1;
         this.discoveredIslandIds = new HashSet<>();
         this.unlockedIslandIds = new HashSet<>();
         this.starterLogPoseGranted = false;
+        this.travelRequestStatus = TravelRequestStatus.NONE;
+        this.travelRequestCreatedAtEpochMs = 0L;
     }
 
     public static PlayerProfile createDefault(UUID playerUuid, String lastKnownName) {
@@ -42,6 +52,9 @@ public final class PlayerProfile {
 
         profile.discoveredIslandIds.add("starter_island");
         profile.unlockedIslandIds.add("starter_island");
+        profile.requestedTravelTargetId = null;
+        profile.travelRequestStatus = TravelRequestStatus.NONE;
+        profile.travelRequestCreatedAtEpochMs = 0L;
 
         return profile;
     }
@@ -144,5 +157,29 @@ public final class PlayerProfile {
 
     public void touch() {
         this.updatedAtEpochMs = System.currentTimeMillis();
+    }
+
+    public String getRequestedTravelTargetId() {
+        return requestedTravelTargetId;
+    }
+
+    public void setRequestedTravelTargetId(String requestedTravelTargetId) {
+        this.requestedTravelTargetId = requestedTravelTargetId;
+    }
+
+    public TravelRequestStatus getTravelRequestStatus() {
+        return travelRequestStatus;
+    }
+
+    public void setTravelRequestStatus(TravelRequestStatus travelRequestStatus) {
+        this.travelRequestStatus = travelRequestStatus;
+    }
+
+    public long getTravelRequestCreatedAtEpochMs() {
+        return travelRequestCreatedAtEpochMs;
+    }
+
+    public void setTravelRequestCreatedAtEpochMs(long travelRequestCreatedAtEpochMs) {
+        this.travelRequestCreatedAtEpochMs = travelRequestCreatedAtEpochMs;
     }
 }
